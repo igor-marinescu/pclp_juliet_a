@@ -87,19 +87,80 @@ gcc imposter.c -o imposter
 
 ## Prepare pclp_juliet_a
 
-### Copy 
+### Clone pclp_juliet_a repository
+
+```bash
+mkdir ~/Work
+cd ~/Work
+git clone "https://github.com/igor-marinescu/pclp_juliet_a.git"
+```
+
+Set execution permissions for ig1.sh script:
+
+```bash
+chmod u=rwx,g=r,o=r ig1.sh
+```
+
+### Copy Juliet Test Suite
+
+Download Juliet Test Suite from https://samate.nist.gov/SARD/test-suites/112
+
+Copy the downloaded test suite:
+
+```bash
+mkdir ~/Work/juliet_test_suite
+cp 2017-10-01-juliet-test-suite-for-c-cplusplus-v1-3.zip ~/Work/juliet_test_suite/
+```
+
+Unzip it:
+
+```bash
+cd ~/Work/juliet_test_suite/
+unzip 2017-10-01-juliet-test-suite-for-c-cplusplus-v1-3.zip
+```
 
 ## Excute ig1.sh bash-script
 
 ```bash
-./ig1.sh <directory_to_analyze>
+cd ~/Work/pclp_juliet_a/
+ ./ig1.sh ~/Work/juliet_test_suite/C/
 ```
 
-The script will look and load the file args.lnt containing additional PClint arguments. args.lnt is a text file where every line is an argument for the PClint, example:
+The script loads the file args.lnt containing additional PClint arguments. 
+args.lnt is a text file where every line is an argument for the PClint, example:
 
 ```
 -e537
 -e451
+```
+
+The scripts searches all Makefiles inside of the directory passed as argument and invokes PC-lint for every makefile found:
+
+```bash
+$ ./ig1.sh ~/Work/juliet_test_suite/C/
+[INFO] PCLint extra options: /home/igor/Work/pclp_juliet_a/args.lnt
+[INFO] WORKING_DIR=/home/igor/Work/juliet_test_suite/C
+[INFO] GCC_EXE=/usr/bin/gcc
+[INFO] PCLP_PATH=/home/igor/pclint/pclp
+[INFO] Generate compiler configuration
+[  1/153] /home/igor/Work/juliet_test_suite/C/testcases/CWE400_Resource_Exhaustion/s02/Makefile
+[  2/153] /home/igor/Work/juliet_test_suite/C/testcases/CWE400_Resource_Exhaustion/s01/Makefile
+[  3/153] /home/igor/Work/juliet_test_suite/C/testcases/CWE773_Missing_Reference_to_Active_File_Descriptor_or_Handle/Makefile
+[  4/153] /home/igor/Work/juliet_test_suite/C/testcases/CWE190_Integer_Overflow/s03/Makefile
+[  5/153] /home/igor/Work/juliet_test_suite/C/testcases/CWE190_Integer_Overflow/s02/Makefile
+...
+```
+
+For every makefile found, a similar directory is created in `<directory to analyze>/ig_gl_out` folder.
+The PC-lint generated results are stored in ig_pclint_out.txt file:
+
+```bash
+$ find ~/Work/juliet_test_suite/C/ -name "ig_pclint_out.txt"
+/home/igor/Work/juliet_test_suite/C/ig_gl_out/testcases/CWE400_Resource_Exhaustion/s02/ig_pclint_out.txt
+/home/igor/Work/juliet_test_suite/C/ig_gl_out/testcases/CWE400_Resource_Exhaustion/s01/ig_pclint_out.txt
+/home/igor/Work/juliet_test_suite/C/ig_gl_out/testcases/CWE773_Missing_Reference_to_Active_File_Descriptor_or_Handle/ig_pclint_out.txt
+/home/igor/Work/juliet_test_suite/C/ig_gl_out/testcases/CWE190_Integer_Overflow/s03/ig_pclint_out.txt
+/home/igor/Work/juliet_test_suite/C/ig_gl_out/testcases/CWE190_Integer_Overflow/s02/ig_pclint_out.txt
 ```
 
 ## Execute python scripts standalone
