@@ -1,0 +1,6 @@
+# Add the path to files or directories that must be ignored from processing.
+# Empty lines and lines that start with '#' are ignored.
+# The file/directory paths can be absolute, relative to script or
+# relative to working directory.
+
+.\testcasesupport\

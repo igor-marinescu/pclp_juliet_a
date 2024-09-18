@@ -1,0 +1,6 @@
+/home/igor/pclint/pclp/config/imposter -c -I ../../testcasesupport main_linux.cpp -o main_linux.o
+/home/igor/pclint/pclp/config/imposter -c -I ../../testcasesupport CWE561_Dead_Code__return_before_code_01.c -o CWE561_Dead_Code__return_before_code_01.o
+/home/igor/pclint/pclp/config/imposter -c -I ../../testcasesupport CWE561_Dead_Code__unused_function_01.c -o CWE561_Dead_Code__unused_function_01.o
+/home/igor/pclint/pclp/config/imposter -c -I ../../testcasesupport ../../testcasesupport/io.c -o io.o
+/home/igor/pclint/pclp/config/imposter -c -I ../../testcasesupport ../../testcasesupport/std_thread.c -o std_thread.o
+/home/igor/pclint/pclp/config/imposter -lpthread -lm main_linux.o CWE561_Dead_Code__return_before_code_01.o CWE561_Dead_Code__unused_function_01.o  io.o std_thread.o -o CWE561

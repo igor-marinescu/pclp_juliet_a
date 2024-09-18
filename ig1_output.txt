@@ -1,0 +1,495 @@
+igor@userver32gb:~/shared/pclp_juliet_a$ ./ig1.sh test args.txt
+/home/igor/shared/pclp_juliet_a
+[INFO] List of PClint arguments
+-e537 -e451 -"width(256)" -h1 -"format=%f, %l, %t, %n"
+[INFO] WORKING_DIR=/home/igor/shared/pclp_juliet_a/test
+[INFO] GCC_EXE=/usr/bin/gcc
+[INFO] PCLP_PATH=/home/igor/pclint/pclp
+[INFO] Generate compiler configuration
+/home/igor/shared/pclp_juliet_a/test/testcases/CWE835_Infinite_Loop/Makefile
+PC-lint Plus 2.2 for Linux, Copyright Vector Informatik GmbH 1985-2024
+licensed to Conductix-Wampfler Automation (Thomas.Faerber@conductix.com)
+31-jul-2024, license expires 31-may-2026 (670 days)
+PC-lint output interpreter
+
+main_linux.cpp C++
+
+CWE835_Infinite_Loop__do_01.c C
+(43, ' info', 793)
+(45, ' info', 746)
+/home/igor/shared/pclp_juliet_a/test/testcases/CWE835_Infinite_Loop/CWE835_Infinite_Loop__do_01.c CWE835_Infinite_Loop__do_01.c /home/igor/shared/pclp_juliet_a/test/testcases/CWE835_Infinite_Loop
+( 10,  1),( 20,  1), CWE835_Infinite_Loop__do_01_bad
+( 27,  1),( 41,  1), good1
+( 43,  1),( 46,  1), CWE835_Infinite_Loop__do_01_good
+( 58,  1),( 76,  1), main
+line: 43 func: CWE835_Infinite_Loop__do_01_good
+line: 45 func: CWE835_Infinite_Loop__do_01_good
+
+CWE835_Infinite_Loop__do_true_01.c C
+(11, ' info', 2707)
+(10, ' info', 793)
+(19, ' warning', 506)
+(40, ' warning', 506)
+(43, ' info', 793)
+(45, ' info', 746)
+/home/igor/shared/pclp_juliet_a/test/testcases/CWE835_Infinite_Loop/CWE835_Infinite_Loop__do_true_01.c CWE835_Infinite_Loop__do_true_01.c /home/igor/shared/pclp_juliet_a/test/testcases/CWE835_Infinite_Loop
+( 10,  1),( 20,  1), CWE835_Infinite_Loop__do_true_01_bad
+( 27,  1),( 41,  1), good1
+( 43,  1),( 46,  1), CWE835_Infinite_Loop__do_true_01_good
+( 58,  1),( 76,  1), main
+line: 11 func: CWE835_Infinite_Loop__do_true_01_bad
+line: 10 func: CWE835_Infinite_Loop__do_true_01_bad
+line: 19 func: CWE835_Infinite_Loop__do_true_01_bad
+line: 40 func: good1
+line: 43 func: CWE835_Infinite_Loop__do_true_01_good
+line: 45 func: CWE835_Infinite_Loop__do_true_01_good
+
+CWE835_Infinite_Loop__for_01.c C
+(10, ' info', 793)
+(15, ' info', 838)
+(12, ' supplemental', 891)
+(30, ' info', 838)
+(28, ' supplemental', 891)
+(46, ' info', 838)
+(43, ' supplemental', 891)
+(52, ' info', 793)
+(54, ' info', 746)
+(55, ' info', 746)
+/home/igor/shared/pclp_juliet_a/test/testcases/CWE835_Infinite_Loop/CWE835_Infinite_Loop__for_01.c CWE835_Infinite_Loop__for_01.c /home/igor/shared/pclp_juliet_a/test/testcases/CWE835_Infinite_Loop
+( 10,  1),( 19,  1), CWE835_Infinite_Loop__for_01_bad
+( 26,  1),( 39,  1), good1
+( 41,  1),( 50,  1), good2
+( 52,  1),( 56,  1), CWE835_Infinite_Loop__for_01_good
+( 68,  1),( 86,  1), main
+line: 10 func: CWE835_Infinite_Loop__for_01_bad
+line: 15 func: CWE835_Infinite_Loop__for_01_bad
+line: 12 func: CWE835_Infinite_Loop__for_01_bad
+line: 30 func: good1
+line: 28 func: good1
+line: 46 func: good2
+line: 43 func: good2
+line: 52 func: CWE835_Infinite_Loop__for_01_good
+line: 54 func: CWE835_Infinite_Loop__for_01_good
+line: 55 func: CWE835_Infinite_Loop__for_01_good
+
+CWE835_Infinite_Loop__for_empty_01.c C
+(11, ' info', 2707)
+(10, ' info', 793)
+(43, ' info', 793)
+(45, ' info', 746)
+/home/igor/shared/pclp_juliet_a/test/testcases/CWE835_Infinite_Loop/CWE835_Infinite_Loop__for_empty_01.c CWE835_Infinite_Loop__for_empty_01.c /home/igor/shared/pclp_juliet_a/test/testcases/CWE835_Infinite_Loop
+( 10,  1),( 20,  1), CWE835_Infinite_Loop__for_empty_01_bad
+( 27,  1),( 41,  1), good1
+( 43,  1),( 46,  1), CWE835_Infinite_Loop__for_empty_01_good
+( 58,  1),( 76,  1), main
+line: 11 func: CWE835_Infinite_Loop__for_empty_01_bad
+line: 10 func: CWE835_Infinite_Loop__for_empty_01_bad
+line: 43 func: CWE835_Infinite_Loop__for_empty_01_good
+line: 45 func: CWE835_Infinite_Loop__for_empty_01_good
+
+CWE835_Infinite_Loop__while_01.c C
+(10, ' info', 793)
+(42, ' info', 793)
+(44, ' info', 746)
+/home/igor/shared/pclp_juliet_a/test/testcases/CWE835_Infinite_Loop/CWE835_Infinite_Loop__while_01.c CWE835_Infinite_Loop__while_01.c /home/igor/shared/pclp_juliet_a/test/testcases/CWE835_Infinite_Loop
+( 10,  1),( 20,  1), CWE835_Infinite_Loop__while_01_bad
+( 26,  1),( 40,  1), good1
+( 42,  1),( 45,  1), CWE835_Infinite_Loop__while_01_good
+( 57,  1),( 75,  1), main
+line: 10 func: CWE835_Infinite_Loop__while_01_bad
+line: 42 func: CWE835_Infinite_Loop__while_01_good
+line: 44 func: CWE835_Infinite_Loop__while_01_good
+
+CWE835_Infinite_Loop__while_true_01.c C
+(11, ' info', 2707)
+(10, ' info', 793)
+(15, ' info', 716)
+(30, ' info', 716)
+(42, ' info', 793)
+(44, ' info', 746)
+/home/igor/shared/pclp_juliet_a/test/testcases/CWE835_Infinite_Loop/CWE835_Infinite_Loop__while_true_01.c CWE835_Infinite_Loop__while_true_01.c /home/igor/shared/pclp_juliet_a/test/testcases/CWE835_Infinite_Loop
+( 10,  1),( 20,  1), CWE835_Infinite_Loop__while_true_01_bad
+( 26,  1),( 40,  1), good1
+( 42,  1),( 45,  1), CWE835_Infinite_Loop__while_true_01_good
+( 57,  1),( 75,  1), main
+line: 11 func: CWE835_Infinite_Loop__while_true_01_bad
+line: 10 func: CWE835_Infinite_Loop__while_true_01_bad
+line: 15 func: CWE835_Infinite_Loop__while_true_01_bad
+line: 30 func: good1
+line: 42 func: CWE835_Infinite_Loop__while_true_01_good
+line: 44 func: CWE835_Infinite_Loop__while_true_01_good
+
+../../testcasesupport/io.c C
+(15, ' warning', 534)
+(23, ' warning', 534)
+(29, ' warning', 534)
+(34, ' warning', 534)
+(39, ' warning', 534)
+(44, ' warning', 534)
+(49, ' warning', 534)
+(54, ' warning', 534)
+(59, ' warning', 534)
+(69, ' warning', 534)
+(74, ' warning', 534)
+(79, ' warning', 534)
+(84, ' warning', 534)
+(89, ' warning', 534)
+(97, ' warning', 534)
+(99, ' warning', 534)
+(116, ' warning', 534)
+(138, ' warning', 534)
+(59, ' info', 705)
+(79, ' info', 705)
+(97, ' info', 705)
+(116, ' info', 706)
+(135, ' info', 732)
+(135, ' info', 732)
+/home/igor/shared/pclp_juliet_a/test/testcases/CWE835_Infinite_Loop/../../testcasesupport/io.c ../../testcasesupport/io.c /home/igor/shared/pclp_juliet_a/test/testcases/CWE835_Infinite_Loop
+( 11,  1),( 17,  1), printLine
+( 19,  1),( 25,  1), printWLine
+( 27,  1),( 30,  1), printIntLine
+( 32,  1),( 35,  1), printShortLine
+( 37,  1),( 40,  1), printFloatLine
+( 42,  1),( 45,  1), printLongLine
+( 47,  1),( 50,  1), printLongLongLine
+( 52,  1),( 55,  1), printSizeTLine
+( 57,  1),( 60,  1), printHexCharLine
+( 62,  1),( 70,  1), printWcharLine
+( 72,  1),( 75,  1), printUnsignedLine
+( 77,  1),( 80,  1), printHexUnsignedCharLine
+( 82,  1),( 85,  1), printDoubleLine
+( 87,  1),( 90,  1), printStructLine
+( 92,  1),(100,  1), printBytesLine
+(105,  1),(122,  1), decodeHexChars
+(127,  2),(144,  1), decodeHexWChars
+(148,  1),(151,  1), globalReturnsTrue
+(153,  1),(156,  1), globalReturnsFalse
+(158,  1),(161,  1), globalReturnsTrueOrFalse
+(179,  1),(179, 16), good1
+(180,  1),(180, 16), good2
+(181,  1),(181, 16), good3
+(182,  1),(182, 16), good4
+(183,  1),(183, 16), good5
+(184,  1),(184, 16), good6
+(185,  1),(185, 16), good7
+(186,  1),(186, 16), good8
+(187,  1),(187, 16), good9
+(190,  1),(190, 15), bad1
+(191,  1),(191, 15), bad2
+(192,  1),(192, 15), bad3
+(193,  1),(193, 15), bad4
+(194,  1),(194, 15), bad5
+(195,  1),(195, 15), bad6
+(196,  1),(196, 15), bad7
+(197,  1),(197, 15), bad8
+(198,  1),(198, 15), bad9
+line: 15 func: printLine
+line: 23 func: printWLine
+line: 29 func: printIntLine
+line: 34 func: printShortLine
+line: 39 func: printFloatLine
+line: 44 func: printLongLine
+line: 49 func: printLongLongLine
+line: 54 func: printSizeTLine
+line: 59 func: printHexCharLine
+line: 69 func: printWcharLine
+line: 74 func: printUnsignedLine
+line: 79 func: printHexUnsignedCharLine
+line: 84 func: printDoubleLine
+line: 89 func: printStructLine
+line: 97 func: printBytesLine
+line: 99 func: printBytesLine
+line: 116 func: decodeHexChars
+line: 138 func: decodeHexWChars
+line: 59 func: printHexCharLine
+line: 79 func: printHexUnsignedCharLine
+line: 97 func: printBytesLine
+line: 116 func: decodeHexChars
+line: 135 func: decodeHexWChars
+line: 135 func: decodeHexWChars
+
+../../testcasesupport/std_thread.c C
+(184, ' warning', 534)
+(196, ' warning', 534)
+(205, ' warning', 534)
+(44, ' warning', 527)
+(84, ' warning', 530)
+(53, ' supplemental', 891)
+(139, ' info', 838)
+(135, ' supplemental', 891)
+(150, ' info', 2751)
+(184, ' info', 2751)
+(196, ' info', 2751)
+(205, ' info', 2751)
+(91, ' info', 818)
+line: 184 func: None
+line: 196 func: None
+line: 205 func: None
+line: 44 func: None
+line: 84 func: None
+line: 53 func: None
+line: 139 func: None
+line: 135 func: None
+line: 150 func: None
+line: 184 func: None
+line: 196 func: None
+line: 205 func: None
+line: 91 func: None
+
+main_linux.cpp C++
+
+CWE835_Infinite_Loop__do_01.c C
+
+CWE835_Infinite_Loop__do_true_01.c C
+
+CWE835_Infinite_Loop__for_01.c C
+
+CWE835_Infinite_Loop__for_empty_01.c C
+
+CWE835_Infinite_Loop__while_01.c C
+
+CWE835_Infinite_Loop__while_true_01.c C
+
+../../testcasesupport/io.c C
+(167, ' info', 714)
+(167, ' info', 765)
+(168, ' info', 714)
+(168, ' info', 765)
+(166, ' info', 714)
+(166, ' info', 765)
+(190, ' info', 714)
+(190, ' info', 765)
+(191, ' info', 714)
+(191, ' info', 765)
+(192, ' info', 714)
+(192, ' info', 765)
+(193, ' info', 714)
+(193, ' info', 765)
+(194, ' info', 714)
+(194, ' info', 765)
+(195, ' info', 714)
+(195, ' info', 765)
+(196, ' info', 714)
+(196, ' info', 765)
+(197, ' info', 714)
+(197, ' info', 765)
+(198, ' info', 714)
+(198, ' info', 765)
+(105, ' info', 714)
+(105, ' info', 765)
+(127, ' info', 714)
+(127, ' info', 765)
+(206, ' warning', 552)
+(207, ' warning', 552)
+(174, ' info', 714)
+(174, ' info', 765)
+(175, ' info', 714)
+(175, ' info', 765)
+(153, ' info', 714)
+(153, ' info', 765)
+(148, ' info', 714)
+(148, ' info', 765)
+(158, ' info', 714)
+(158, ' info', 765)
+(173, ' info', 714)
+(173, ' info', 765)
+(179, ' info', 714)
+(179, ' info', 765)
+(180, ' info', 714)
+(180, ' info', 765)
+(181, ' info', 714)
+(181, ' info', 765)
+(182, ' info', 714)
+(182, ' info', 765)
+(183, ' info', 714)
+(183, ' info', 765)
+(184, ' info', 714)
+(184, ' info', 765)
+(185, ' info', 714)
+(185, ' info', 765)
+(186, ' info', 714)
+(186, ' info', 765)
+(187, ' info', 714)
+(187, ' info', 765)
+(92, ' info', 714)
+(92, ' info', 765)
+(82, ' info', 714)
+(82, ' info', 765)
+(37, ' info', 714)
+(37, ' info', 765)
+(57, ' info', 714)
+(57, ' info', 765)
+(77, ' info', 714)
+(77, ' info', 765)
+(42, ' info', 714)
+(42, ' info', 765)
+(47, ' info', 714)
+(47, ' info', 765)
+(32, ' info', 714)
+(32, ' info', 765)
+(52, ' info', 714)
+(52, ' info', 765)
+(87, ' info', 714)
+(87, ' info', 765)
+(72, ' info', 714)
+(72, ' info', 765)
+(19, ' info', 714)
+(19, ' info', 765)
+(62, ' info', 714)
+(62, ' info', 765)
+/home/igor/shared/pclp_juliet_a/test/testcases/CWE835_Infinite_Loop/../../testcasesupport/io.c ../../testcasesupport/io.c /home/igor/shared/pclp_juliet_a/test/testcases/CWE835_Infinite_Loop
+( 11,  1),( 17,  1), printLine
+( 19,  1),( 25,  1), printWLine
+( 27,  1),( 30,  1), printIntLine
+( 32,  1),( 35,  1), printShortLine
+( 37,  1),( 40,  1), printFloatLine
+( 42,  1),( 45,  1), printLongLine
+( 47,  1),( 50,  1), printLongLongLine
+( 52,  1),( 55,  1), printSizeTLine
+( 57,  1),( 60,  1), printHexCharLine
+( 62,  1),( 70,  1), printWcharLine
+( 72,  1),( 75,  1), printUnsignedLine
+( 77,  1),( 80,  1), printHexUnsignedCharLine
+( 82,  1),( 85,  1), printDoubleLine
+( 87,  1),( 90,  1), printStructLine
+( 92,  1),(100,  1), printBytesLine
+(105,  1),(122,  1), decodeHexChars
+(127,  2),(144,  1), decodeHexWChars
+(148,  1),(151,  1), globalReturnsTrue
+(153,  1),(156,  1), globalReturnsFalse
+(158,  1),(161,  1), globalReturnsTrueOrFalse
+(179,  1),(179, 16), good1
+(180,  1),(180, 16), good2
+(181,  1),(181, 16), good3
+(182,  1),(182, 16), good4
+(183,  1),(183, 16), good5
+(184,  1),(184, 16), good6
+(185,  1),(185, 16), good7
+(186,  1),(186, 16), good8
+(187,  1),(187, 16), good9
+(190,  1),(190, 15), bad1
+(191,  1),(191, 15), bad2
+(192,  1),(192, 15), bad3
+(193,  1),(193, 15), bad4
+(194,  1),(194, 15), bad5
+(195,  1),(195, 15), bad6
+(196,  1),(196, 15), bad7
+(197,  1),(197, 15), bad8
+(198,  1),(198, 15), bad9
+line: 167 func: None
+line: 167 func: None
+line: 168 func: None
+line: 168 func: None
+line: 166 func: None
+line: 166 func: None
+line: 190 func: bad1
+line: 190 func: bad1
+line: 191 func: bad2
+line: 191 func: bad2
+line: 192 func: bad3
+line: 192 func: bad3
+line: 193 func: bad4
+line: 193 func: bad4
+line: 194 func: bad5
+line: 194 func: bad5
+line: 195 func: bad6
+line: 195 func: bad6
+line: 196 func: bad7
+line: 196 func: bad7
+line: 197 func: bad8
+line: 197 func: bad8
+line: 198 func: bad9
+line: 198 func: bad9
+line: 105 func: decodeHexChars
+line: 105 func: decodeHexChars
+line: 127 func: decodeHexWChars
+line: 127 func: decodeHexWChars
+line: 206 func: None
+line: 207 func: None
+line: 174 func: None
+line: 174 func: None
+line: 175 func: None
+line: 175 func: None
+line: 153 func: globalReturnsFalse
+line: 153 func: globalReturnsFalse
+line: 148 func: globalReturnsTrue
+line: 148 func: globalReturnsTrue
+line: 158 func: globalReturnsTrueOrFalse
+line: 158 func: globalReturnsTrueOrFalse
+line: 173 func: None
+line: 173 func: None
+line: 179 func: good1
+line: 179 func: good1
+line: 180 func: good2
+line: 180 func: good2
+line: 181 func: good3
+line: 181 func: good3
+line: 182 func: good4
+line: 182 func: good4
+line: 183 func: good5
+line: 183 func: good5
+line: 184 func: good6
+line: 184 func: good6
+line: 185 func: good7
+line: 185 func: good7
+line: 186 func: good8
+line: 186 func: good8
+line: 187 func: good9
+line: 187 func: good9
+line: 92 func: printBytesLine
+line: 92 func: printBytesLine
+line: 82 func: printDoubleLine
+line: 82 func: printDoubleLine
+line: 37 func: printFloatLine
+line: 37 func: printFloatLine
+line: 57 func: printHexCharLine
+line: 57 func: printHexCharLine
+line: 77 func: printHexUnsignedCharLine
+line: 77 func: printHexUnsignedCharLine
+line: 42 func: printLongLine
+line: 42 func: printLongLine
+line: 47 func: printLongLongLine
+line: 47 func: printLongLongLine
+line: 32 func: printShortLine
+line: 32 func: printShortLine
+line: 52 func: printSizeTLine
+line: 52 func: printSizeTLine
+line: 87 func: printStructLine
+line: 87 func: printStructLine
+line: 72 func: printUnsignedLine
+line: 72 func: printUnsignedLine
+line: 19 func: printWLine
+line: 19 func: printWLine
+line: 62 func: printWcharLine
+line: 62 func: printWcharLine
+
+../../testcasesupport/std_thread.c C
+(48, ' info', 714)
+(48, ' info', 765)
+(106, ' info', 714)
+(106, ' info', 765)
+(91, ' info', 714)
+(91, ' info', 765)
+(161, ' info', 714)
+(161, ' info', 765)
+(133, ' info', 714)
+(133, ' info', 765)
+(200, ' info', 714)
+(200, ' info', 765)
+(188, ' info', 714)
+(188, ' info', 765)
+line: 48 func: None
+line: 48 func: None
+line: 106 func: None
+line: 106 func: None
+line: 91 func: None
+line: 91 func: None
+line: 161 func: None
+line: 161 func: None
+line: 133 func: None
+line: 133 func: None
+line: 200 func: None
+line: 200 func: None
+line: 188 func: None
+line: 188 func: None
+igor@userver32gb:~/shared/pclp_juliet_a$

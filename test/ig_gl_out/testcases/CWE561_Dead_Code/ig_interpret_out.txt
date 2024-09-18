@@ -1,0 +1,205 @@
+--------------------------------------------------------------------------------
+[PclpInterpreter]
+main_linux.cpp C++
+--------------------------------------------------------------------------------
+[PclpInterpreter]
+CWE561_Dead_Code__return_before_code_01.c C
+(10, ' info', 793)
+(14, ' warning', 527)
+(28, ' info', 793)
+(30, ' info', 746)
+[CParser]
+C:\Work\notes\projects\pclp_juliet_a\test\testcases\CWE561_Dead_Code\CWE561_Dead_Code__return_before_code_01.c
+( 10,  1),( 15,  1), CWE561_Dead_Code__return_before_code_01_bad
+( 21,  1),( 26,  1), good1
+( 28,  1),( 31,  1), CWE561_Dead_Code__return_before_code_01_good
+( 43,  1),( 61,  1), main
+line: 10 issue: 793 func: CWE561_Dead_Code__return_before_code_01_bad
+line: 14 issue: 527 func: CWE561_Dead_Code__return_before_code_01_bad
+line: 28 issue: 793 func: CWE561_Dead_Code__return_before_code_01_good
+line: 30 issue: 746 func: CWE561_Dead_Code__return_before_code_01_good
+--------------------------------------------------------------------------------
+[PclpInterpreter]
+CWE561_Dead_Code__unused_function_01.c C
+(12, ' warning', 528)
+(17, ' info', 793)
+(35, ' info', 746)
+(38, ' info', 793)
+(40, ' info', 746)
+[CParser]
+C:\Work\notes\projects\pclp_juliet_a\test\testcases\CWE561_Dead_Code\CWE561_Dead_Code__unused_function_01.c
+( 12,  1),( 15,  1), helperBad
+( 17,  1),( 20,  1), CWE561_Dead_Code__unused_function_01_bad
+( 27,  1),( 30,  1), helperGood1
+( 32,  1),( 36,  1), good1
+( 38,  1),( 41,  1), CWE561_Dead_Code__unused_function_01_good
+( 53,  1),( 71,  1), main
+line: 12 issue: 528 func: helperBad
+line: 17 issue: 793 func: CWE561_Dead_Code__unused_function_01_bad
+line: 35 issue: 746 func: good1
+line: 38 issue: 793 func: CWE561_Dead_Code__unused_function_01_good
+line: 40 issue: 746 func: CWE561_Dead_Code__unused_function_01_good
+--------------------------------------------------------------------------------
+[PclpInterpreter]
+../../testcasesupport/io.c C
+(15, ' warning', 534)
+(23, ' warning', 534)
+(29, ' warning', 534)
+(34, ' warning', 534)
+(39, ' warning', 534)
+(44, ' warning', 534)
+(49, ' warning', 534)
+(54, ' warning', 534)
+(59, ' warning', 534)
+(69, ' warning', 534)
+(74, ' warning', 534)
+(79, ' warning', 534)
+(84, ' warning', 534)
+(89, ' warning', 534)
+(97, ' warning', 534)
+(99, ' warning', 534)
+(116, ' warning', 534)
+(138, ' warning', 534)
+(59, ' info', 705)
+(79, ' info', 705)
+(97, ' info', 705)
+(116, ' info', 706)
+(135, ' info', 732)
+(135, ' info', 732)
+Module in ignore list: C:\Work\notes\projects\pclp_juliet_a\test\testcasesupport\io.c
+--------------------------------------------------------------------------------
+[PclpInterpreter]
+../../testcasesupport/std_thread.c C
+(184, ' warning', 534)
+(196, ' warning', 534)
+(205, ' warning', 534)
+(44, ' warning', 527)
+(84, ' warning', 530)
+(53, ' supplemental', 891)
+(139, ' info', 838)
+(135, ' supplemental', 891)
+(150, ' info', 2751)
+(184, ' info', 2751)
+(196, ' info', 2751)
+(205, ' info', 2751)
+(91, ' info', 818)
+Module in ignore list: C:\Work\notes\projects\pclp_juliet_a\test\testcasesupport\std_thread.c
+--------------------------------------------------------------------------------
+[PclpInterpreter]
+main_linux.cpp C++
+--------------------------------------------------------------------------------
+[PclpInterpreter]
+CWE561_Dead_Code__return_before_code_01.c C
+--------------------------------------------------------------------------------
+[PclpInterpreter]
+CWE561_Dead_Code__unused_function_01.c C
+--------------------------------------------------------------------------------
+[PclpInterpreter]
+../../testcasesupport/io.c C
+(167, ' info', 714)
+(167, ' info', 765)
+(168, ' info', 714)
+(168, ' info', 765)
+(166, ' info', 714)
+(166, ' info', 765)
+(190, ' info', 714)
+(190, ' info', 765)
+(191, ' info', 714)
+(191, ' info', 765)
+(192, ' info', 714)
+(192, ' info', 765)
+(193, ' info', 714)
+(193, ' info', 765)
+(194, ' info', 714)
+(194, ' info', 765)
+(195, ' info', 714)
+(195, ' info', 765)
+(196, ' info', 714)
+(196, ' info', 765)
+(197, ' info', 714)
+(197, ' info', 765)
+(198, ' info', 714)
+(198, ' info', 765)
+(105, ' info', 714)
+(105, ' info', 765)
+(127, ' info', 714)
+(127, ' info', 765)
+(206, ' warning', 552)
+(207, ' warning', 552)
+(174, ' info', 714)
+(174, ' info', 765)
+(175, ' info', 714)
+(175, ' info', 765)
+(153, ' info', 714)
+(153, ' info', 765)
+(148, ' info', 714)
+(148, ' info', 765)
+(158, ' info', 714)
+(158, ' info', 765)
+(173, ' info', 714)
+(173, ' info', 765)
+(179, ' info', 714)
+(179, ' info', 765)
+(180, ' info', 714)
+(180, ' info', 765)
+(181, ' info', 714)
+(181, ' info', 765)
+(182, ' info', 714)
+(182, ' info', 765)
+(183, ' info', 714)
+(183, ' info', 765)
+(184, ' info', 714)
+(184, ' info', 765)
+(185, ' info', 714)
+(185, ' info', 765)
+(186, ' info', 714)
+(186, ' info', 765)
+(187, ' info', 714)
+(187, ' info', 765)
+(92, ' info', 714)
+(92, ' info', 765)
+(82, ' info', 714)
+(82, ' info', 765)
+(37, ' info', 714)
+(37, ' info', 765)
+(57, ' info', 714)
+(57, ' info', 765)
+(77, ' info', 714)
+(77, ' info', 765)
+(27, ' info', 714)
+(27, ' info', 765)
+(42, ' info', 714)
+(42, ' info', 765)
+(47, ' info', 714)
+(47, ' info', 765)
+(32, ' info', 714)
+(32, ' info', 765)
+(52, ' info', 714)
+(52, ' info', 765)
+(87, ' info', 714)
+(87, ' info', 765)
+(72, ' info', 714)
+(72, ' info', 765)
+(19, ' info', 714)
+(19, ' info', 765)
+(62, ' info', 714)
+(62, ' info', 765)
+Module in ignore list: C:\Work\notes\projects\pclp_juliet_a\test\testcasesupport\io.c
+--------------------------------------------------------------------------------
+[PclpInterpreter]
+../../testcasesupport/std_thread.c C
+(48, ' info', 714)
+(48, ' info', 765)
+(106, ' info', 714)
+(106, ' info', 765)
+(91, ' info', 714)
+(91, ' info', 765)
+(161, ' info', 714)
+(161, ' info', 765)
+(133, ' info', 714)
+(133, ' info', 765)
+(200, ' info', 714)
+(200, ' info', 765)
+(188, ' info', 714)
+(188, ' info', 765)
+Module in ignore list: C:\Work\notes\projects\pclp_juliet_a\test\testcasesupport\std_thread.c

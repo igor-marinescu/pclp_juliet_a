@@ -1,0 +1,1200 @@
+1	error	unclosed comment
+2	error	unclosed quote
+3	error	__string__ without #if
+5	error	too many #endif directives
+6	error	#include nested too deeply
+8	error	unclosed #if
+9	error	__string__ after #else
+10	error	expecting __detail__
+12	error	need < or "
+13	error	'__string__' cannot be signed or unsigned
+15	error	symbol __symbol__ redeclared (__type__ vs. __type__)
+16	error	unknown preprocessor directive
+18	error	symbol __symbol__ redeclared (__typediff__)
+19	error	declaration requires a type specifier
+21	error	array initializer must be an initializer list
+24	error	expected an expression
+25	error	character constant too long for its type
+29	error	duplicated type-specifier, '__detail__'
+31	error	redefinition of symbol __symbol__
+32	error	field size (member __symbol__) should not be zero
+33	error	illegal constant '__integer__' in octal constant
+34	error	non-compile-time-constant initializer
+35	error	initializer has side-effects
+40	error	undeclared identifier __detail__
+44	error	need a switch for case-label
+47	error	invalid argument type __type__ to unary expression
+48	error	indirection requires pointer operand (__type__ invalid)
+50	error	attempted to take the address of a non-lvalue of type __type__
+51	error	expected integral type for bitwise complement operator
+52	error	expected an lvalue
+53	error	expected a scalar and not expression of type __type__
+54	error	__division/remainder__ by 0
+56	error	pointer addition requires an integral type
+57	error	operands to bitwise operator must be integral
+59	error	number of bits to shift by must be an integer
+60	error	value to be shifted must be an integer
+66	error	'void' must be the first and only parameter if specified
+72	error	bad option '__option__': __detail__
+76	error	cannot open file '__file__': __detail__
+82	error	__string__ __detail__ must not return void expression
+83	error	incompatible pointer types (__type__ and __type__) with subtraction
+85	error	array __symbol__ has dimension 0
+86	error	structure __symbol__ has zero elements
+92	error	negative length of __integer__ for bit field __string__
+95	error	expected a macro parameter
+104	error	cannot combine with previous '__parameter__' declaration specifier
+106	error	illegal constant
+107	error	label __name__ not defined
+108	error	invalid context for 'break' statement
+115	error	struct/union not defined
+116	error	inappropriate storage class
+117	error	inappropriate storage class
+118	error	too few arguments (__integer__ vs __integer__) for prototype
+119	error	too many arguments (__integer__ vs __integer__) for prototype
+124	error	pointer to void not allowed
+128	error	pointer to function not allowed
+130	error	__type__ is not an integral type
+131	error	too few arguments provided to function-like macro invocation
+132	error	expected function definition
+136	error	illegal macro name
+138	error	cannot create recursive relationship between '__strong-type__' and '__strong-type__'
+139	error	cannot take sizeof a function
+148	error	member __name__ previously declared
+157	error	no data may follow an incomplete array
+160	error	the sequence ({ is non standard and is taken to introduce a GNU statement expression
+161	error	repeated use of parameter __symbol__ in parameter list
+175	error	cannot pass __string__ to variadic __string__; expected type from format string was __type__
+176	error	operand of type __type__ cannot be cast to function pointer type __type__
+177	error	operand of type __type__ cannot be cast to object pointer type __type__
+178	error	function pointer of type __type__ cannot be cast to type __type__
+179	error	object pointer of type __type__ cannot be cast to type __type__
+180	error	cannot generate mangled name for symbol __symbol__ whose type depends on __string__
+181	error	invalid direct member access of atomic structure or union of type __type__
+305	error	unable to open module '__file__'
+307	error	cannot open indirect file '__file__'
+308	error	can't write to file '__file__' for PCH construction
+309	error	#error __detail__
+311	error	indirect file depth limit of '__integer__' exceeded
+314	error	cannot use indirect file '__file__' again
+315	error	message limit exceeded
+318	error	EOF for a module found within a macro argument list
+319	error	size option misconfiguration: '__type__' has size __integer__ and '__type__' has size __integer__
+322	error	unable to open include file '__file__'
+330	error	static_assert failed__string__
+331	error	file '__parameter__' has been modified since the __string__ '__parameter__' was built: __string__ changed__string__
+333	error	cannot open '__file__' for __string__ in secure mode
+334	error	precompiled header failure: '__string__'; skipping this module; consider deleting the PCH, '__string__', and trying again
+336	error	source file is not valid UTF-8
+337	error	unable to read file '__file__': __detail__
+338	error	precompiled header error: __string__; skipping this module; consider examining include path options and trying again
+339	error	precompiled header for '__string__' was not created due to errors
+340	error	query assertion condition '__string__' failed
+365	error	command pipe error: __string__
+366	error	regex error: __string__
+367	error	maximum hook recursion depth (__integer__ levels) reached
+368	error	invalid conditional expression: __string__
+369	error	hook field error while processing '__string__': __string__
+370	error	options executed within a module cannot invoke additional modules
+373	error	lint comments cannot appear after a #include directive on the same line
+374	error	C++ module import '__string__' not found
+375	error	C++ module import '__string__' could not be loaded
+398	error	fatal error (requested by option): '__string__'
+399	error	fatal error (requested by option): '__string__'
+401	warning	symbol __symbol__ not previously declared static
+402	warning	static __function/variable__ __symbol__ not defined
+404	warning	definition of __type__ starts in '__file__' but ends in '__file__'
+407	warning	inconsistent use of tag __symbol__
+408	warning	case expression type (__type__) differs from switch expression type (__type__)
+409	warning	integer base for subscript operator is suspicious
+410	warning	size_t not what was expected from fzl and/or fzu, using __type__
+411	warning	ptrdiff_t not what was expected from fdl option, using __type__
+413	warning	likely use of null pointer __symbol__
+414	warning	possible division by zero
+415	warning	likely out of bounds pointer access: excess of __integer__ byte(s)
+416	warning	likely creating out-of-bounds pointer: excess of __integer__ byte(s)
+417	warning	integral constant '__string__' has precision __integer__ which is longer than long long int
+418	warning	passing null pointer to function __symbol__, __context__
+419	warning	apparent data overrun for function __symbol__, __string__ (size=__string__) exceeds __string__ (size=__string__)
+420	warning	apparent access beyond array for function __symbol__, __string__ (size=__string__) exceeds __string__ (size=__string__)
+421	warning	caution -- function __symbol__ is considered dangerous
+422	warning	passing to function __symbol__ a negative value (__integer__) __context__
+423	warning	assignment to custodial pointer __symbol__ likely creates memory leak
+424	warning	__string__ is not appropriate for deallocating __string__
+425	warning	'__message__' in processing semantic '__string__' at token '__string__'
+426	warning	call to function __symbol__ violates semantic '__string__'
+427	warning	// comment continued via back-slash
+428	warning	likely indexing before the beginning of an allocation
+429	warning	custodial pointer __symbol__ likely not __string__ nor returned
+430	warning	use of '@' is non-standard
+432	warning	suspicious argument to dynamic allocation function
+433	warning	allocated area not large enough for pointer (__integer__ vs __string__)
+434	warning	white space ignored between back-slash and new-line
+435	warning	integral constant '__string__' has precision __integer__, use +fll to enable long long
+436	warning	preprocessor directive in invocation of macro
+437	warning	passing a __class/struct__ to an elliptic argument
+438	warning	last value assigned to __symbol__ not used
+440	warning	for statement condition is inconsistent with modification variable __symbol__
+442	warning	for statement condition and increment directions are inconsistent for variable __symbol__
+443	warning	for statement initializer is inconsistent with modification variable __symbol__
+444	warning	for statement condition tests __incremented/decremented__ pointer __symbol__ for null
+445	warning	reuse of for loop variable __symbol__
+446	warning	side-effect in initializer list
+447	warning	extraneous whitespace found in include directive for file __file__; Opening file __file__
+448	warning	possible access __integer__ bytes beyond null terminator by '__operator__'
+449	warning	memory was likely previously deallocated
+450	warning	namespace __symbol__ declared within an extern "C" region
+451	warning	header file '__string__' repeatedly included but has no header guard
+452	warning	__type__ redefinition with different types __type__
+453	warning	function __symbol__, previously designated pure, __reason__ __symbol__
+454	warning	mutex __symbol__ locked without being unlocked
+455	warning	__mutex/locker__ __symbol__ unlocked without being locked
+456	warning	multiple '__string__' execution paths are being combined with different lock states
+457	warning	variable '__name__' is '__read/written/atomically read/atomically written__' in function '__name__' of thread '__name__' at __location__ which is unprotected with the '__read/write/atomic read/atomic write__' in function '__name__' of thread '__name__' at __location__
+459	warning	function '__name__' whose address was taken has an unprotected '__read/write/atomic read/atomic write__' access of variable '__name__' in function '__name__' at __location__
+460	warning	thread unsafe function '__name__' is called while mutually unprotected in function '__name__' of thread '__name__' at __location__ and function '__name__' of thread '__name__' at __location__
+461	warning	functions '__name__' and '__name__' of group '__name__' are called mutually unprotected in function '__name__' of thread '__name__' at __location__ and function '__name__' of thread '__name__' at __location__
+462	warning	function '__name__' is called inconsistently with the '__thread_only|thread_not__' semantic in function '__name__' of thread '__name__' at __location__
+463	warning	could not parse '__string__' as a strong type: __string__
+464	warning	buffer arguments '__integer__' and '__integer__' in call to function __symbol__ overlap
+466	warning	conversion __to/from__ pointer to function with no prototype (__context__)
+473	warning	argument '__string__' is of insufficient length for array parameter __symbol__ declared as __type__
+474	warning	constant switch condition '__string__' not handled by switch
+483	warning	switching on a boolean value
+484	warning	stringize operator followed by macro parameter followed by pasting operator
+485	warning	duplicate __partial/complete__ initialization of object element
+488	warning	enumerator __symbol__ reuses the constant value '__integer__' previously used implicitly by enumerator __symbol__
+489	warning	attempting to modify the contents of a string literal
+490	warning	__string__
+491	warning	non-standard use of 'defined' preprocessor operator: __detail__
+492	warning	incomplete format specifier '__string__'
+493	warning	position arguments in format strings start counting at 1 (not 0)
+494	warning	data argument position '__integer__' exceeds the number of data arguments (__integer__)
+495	warning	format string body contains NUL character
+496	warning	format string is not null terminated
+497	warning	format string is empty
+498	warning	unbounded scanf conversion specifier '__string__' may result in buffer overflow
+499	warning	using length modifier '__string__' with conversion specifier '__string__' is not supported by ISO C
+501	warning	negation of value of unsigned type __type__ yields a value of unsigned type __type__
+502	warning	applying bitwise not to signed quantity
+503	warning	boolean argument to relational
+504	warning	unusual shift operation (__string__)
+505	warning	redundant left argument to comma
+506	warning	constant value used in Boolean context (__string__)
+507	warning	explicit cast from __type__ to __type__ (__integer__ bits to __integer__ bits)
+511	warning	explicit cast from __type__ to __type__ (__integer__ bits to __integer__ bits)
+513	warning	the option '__string__' is not currently supported
+514	warning	boolean argument to __arithmetic/bitwise__ operator '__operator__'
+517	warning	defined not K&R
+518	warning	expected parenthesis around type name in __context__ expression
+519	warning	explicit cast from __type__ to __type__ (__integer__ bits to __integer__ bits)
+520	warning	first clause of for statement lacks side effects
+521	warning	third clause of for statement lacks side effects
+522	warning	highest operation, __string__ '__name__', lacks side effects
+523	warning	expression statement involving __string__ '__name__' lacks side effects
+524	warning	implicit truncation from __type__ to __type__
+525	warning	unexpected negative indentation
+526	warning	symbol __symbol__ is not defined
+527	warning	statement is unreachable due to unconditional transfer of control by '__string__' statement
+528	warning	static symbol __symbol__ not referenced
+529	warning	local variable __symbol__ declared in __symbol__ not subsequently referenced
+530	warning	likely using an uninitialized value
+531	warning	width of bit-field __symbol__ (__integer__ bits) exceeds size of its type (__integer__ bit(s))
+533	warning	function __symbol__ should return a value
+534	warning	ignoring return value of function __symbol__
+537	warning	repeated include file '__file__'
+539	warning	unexpected positive indentation
+540	warning	initializer-string for char array is too long, array size is __integer__ but initializer has size __integer__ (including the null terminating character)
+542	warning	excessive size for bit field
+544	warning	__string__ directive not followed by EOL
+545	warning	taking address of array
+546	warning	explicitly taking address of function
+547	warning	redefinition of macro __name__ conflicts with previous definition
+548	warning	if statement has no body or else
+549	warning	explicit cast from __type__ to __type__
+550	warning	local variable __symbol__ declared in __symbol__ not subsequently accessed
+551	warning	static variable __symbol__ not accessed
+552	warning	external variable __symbol__ not accessed
+553	warning	undefined preprocessor variable __name__, assumed 0
+555	warning	#elif not K&R
+557	warning	invalid conversion specifier '__string__'
+558	warning	too few data arguments for format string (__integer__ missing)
+559	warning	format '__string__' specifies type __type__ which is inconsistent with argument no. __integer__ of __string__ __type__
+563	warning	label __name__ not referenced
+564	warning	variable __symbol__ depends on order of evaluation
+565	warning	declaration of tag __type__ will not be visible outside of this function
+566	warning	inconsistent or redundant __length modifier/flag__ '__string__' used with '__string__' conversion specifier
+567	warning	expected minimum field width for flag '__string__'
+568	warning	nonnegative quantity is never less than zero
+569	warning	loss of information (__context__) in implicit conversion from __type__ __integer__ (__integer__ bits) to __type__ (__integer__ bits)
+570	warning	negative __type__ __integer__ loses sign during implicit conversion (__context__) to __type__
+571	warning	cast from __type__ to __type__ results in sign extension
+572	warning	excessive shift value (precision __integer__ shifted right by __integer__)
+573	warning	signed-unsigned mix with divide
+574	warning	signed-unsigned mix with relational
+575	warning	enumeration constant exceeds range for integers
+576	warning	excess elements in __string__ initializer
+578	warning	declaration of __symbol__ hides __string__
+579	warning	parameter preceding ellipsis cannot be '__string__'
+580	warning	redeclaration of function __symbol__ causes loss of prototype
+583	warning	comparing type '__type__' with EOF
+584	warning	trigraph sequence (??__character__) detected
+585	warning	the sequence (??__character__) is not a valid trigraph sequence
+586	warning	__string__ '__name__' is deprecated. __string__
+587	warning	predicate '__string__' can be pre-determined and always evaluates to __true/false__
+592	warning	non-literal format specifier used without arguments
+593	warning	custodial pointer __symbol__ possibly not __string__ nor returned
+597	warning	suspicious use of unary operator could be confused for compound assignment (__string__)
+598	warning	excessive shift value (precision '__integer__' shifted by '__integer__')
+599	warning	cannot open file matching wild card pattern '__string__'
+601	warning	expected a type, int assumed
+602	warning	'/*' within block comment
+603	warning	argument to parameter of type pointer to const may be a pointer to uninitialized memory
+604	warning	returning address of auto variable __symbol__
+605	warning	pointee implicitly __gains/loses__ __const/volatile__ qualifier in conversion from __type__ to __type__ (__context__)
+606	warning	non-ANSI escape sequence: '\__string__'
+608	warning	assigning to array parameter __symbol__
+611	warning	cast between pointer to function type __type__ and pointer to object type __type__
+612	warning	declaration does not declare anything
+613	warning	potential use of null pointer __symbol__
+614	warning	auto aggregate initializer not constant
+615	warning	auto aggregate initializer has side effects
+616	warning	control flow falls through to next case without an intervening comment
+618	warning	storage class specified after a type
+620	warning	suspicious constant (L or one?)
+621	warning	identifier clash (__string__): __string__ '__string__' clashes with __string__ '__string__'
+629	warning	'static' function declaration at block scope is non standard
+631	warning	tag __symbol__ defined differently at __location__
+632	warning	strong type mismatch: assigning '__strong-type__' to '__strong-type__' in context '__context__'
+633	warning	strong type mismatch: extracting '__strong-type__' into '__strong-type__' in context '__context__'
+634	warning	strong type mismatch: cannot join '__strong-type__' and '__strong-type__' using operator '__operator__'
+635	warning	changing the __parent/index__ type of '__strong-type__' from '__strong-type__' to '__strong-type__'
+636	warning	strong type difference: pointees are '__strong-type__' and '__strong-type__'
+637	warning	strong type mismatch: '__strong-type__' is not an acceptable index type for '__strong-type__' (expected '__strong-type__')
+638	warning	strong type mismatch: cannot join '__strong-type__' and '__strong-type__' using operator '__operator__'
+639	warning	strong type mismatch: cannot join '__strong-type__' and '__strong-type__' using operator '__operator__'
+640	warning	strong type mismatch: '__strong-type__' is not an acceptable boolean type for __parameter__ '__keyword__' statement (expected '__strong-type__')
+641	warning	implicit conversion of enum __symbol__ to integral type __type__
+644	warning	potentially using an uninitialized value
+646	warning	'__string__' within '__string__' loop; may have been misplaced
+647	warning	possible truncation before conversion from __type__ to __type__
+648	warning	overflow in computing constant for operator '__operator__'
+649	warning	right shifting a negative constant expression has implementation defined behavior
+650	warning	constant '__integer__' out of range for operator '__string__'
+651	warning	inconsistent bracing in aggregate initialization
+652	warning	#define of macro '__string__' with same name as previously declared symbol __symbol__
+653	warning	result of integer division being converted to __type__
+654	warning	option '__option__' is obsolete; __detail__
+655	warning	bitwise operation uses compatible enums (of type __type__)
+656	warning	arithmetic operation uses compatible enums (of type __type__)
+657	warning	unusual (nonportable) anonymous struct or union
+658	warning	anonymous union assumed (use flag +fan)
+660	warning	option '__string__' requests removing an extent that is not on the list
+661	warning	potential out of bounds pointer access: excess of __integer__ byte(s)
+662	warning	possibly creating out-of-bounds pointer: excess of __integer__ byte(s)
+663	warning	array-to-pointer decay causes indirection through first element
+664	warning	left hand side of logical operator contains call to function that does not return
+665	warning	unparenthesized parameter __integer__ in macro '__string__' is passed an expression
+666	warning	expression with side effects passed to repeated parameter __integer__ of macro '__string__'
+668	warning	possibly passing null pointer to function __symbol__, __context__
+669	warning	possible data overrun for function __symbol__, __string__ (size=__string__) exceeds __string__ (size=__string__)
+670	warning	possible access beyond array for function __symbol__, __string__ (size=__string__) exceeds __string__ (size=__string__)
+671	warning	possibly passing to function __symbol__ a negative value (__string__) __context__
+672	warning	assignment to custodial pointer __symbol__ possibly creates memory leak
+673	warning	__string__ may not be appropriate for deallocating __string__
+674	warning	returning address of auto variable __symbol__ through pointer __symbol__
+675	warning	no prior semantics associated with '__name__' in option '__string__'
+676	warning	possibly indexing before the beginning of an allocation
+677	warning	sizeof used within preprocessor statement
+678	warning	member __symbol__ field length (__integer__) too small for enum precision (__integer__)
+679	warning	integer operation may be truncated before being combined with a larger pointer type
+680	warning	suspicious truncation in arithmetic expression converted to pointer
+681	warning	loop is likely not entered
+682	warning	sizeof applied to parameter __symbol__ of function __symbol__ whose type is a sized array will yield size of __string__ instead of __string__
+683	warning	function '__string__' #define'd, semantics may be lost
+685	warning	relational operator '__string__' always evaluates to '__string__'
+686	warning	option '__option__' is suspicious: __detail__
+687	warning	body of '__string__' is an unparenthesized comma operator
+689	warning	apparent end of C-style comment ignored
+691	warning	suspicious use of backslash
+692	warning	decimal character '__string__' follows octal escape sequence '__string__'
+693	warning	the sequence "__detail__" represents a NUL character followed by the literal string "__detail__"
+695	warning	inline function __symbol__ declared without storage-class specifier
+696	warning	values from '__integer__' to '__integer__' are out of range for operator '__string__'
+697	warning	an expression with an integral strong boolean type should be equality-compared only to zero
+698	warning	in-place realloc of __symbol__ could cause a memory leak
+701	info	shift left of signed quantity (__type__)
+702	info	shift right of signed quantity (__type__)
+703	info	shift left of signed quantity (__type__)
+704	info	shift right of signed quantity (__type__)
+705	info	format '__string__' specifies type __type__ which is nominally inconsistent with argument no. __integer__ of __string__ __type__
+706	info	format '__string__' specifies type __type__ whose pointee type is nominally inconsistent with argument no. __integer__ of __string__ __type__
+707	info	mixing narrow and __wide/Unicode__ string literals in concatenation
+708	info	union initialization
+709	info	no intervening module since the last '-pch' option
+712	info	implicit conversion (__context__) from __type__ to __type__
+713	info	implicit conversion (__context__) from __type__ to __type__
+714	info	external symbol __symbol__ was defined but not referenced
+715	info	named parameter __symbol__ of '__virtual/non-virtual__' function __symbol__ not subsequently referenced
+716	info	infinite loop via while
+717	info	monocarpic do-while used to group statements
+718	info	function __symbol__ undeclared, assumed to return int
+719	info	data argument __integer__ not used by format string
+720	info	boolean test of assignment
+721	info	if statement has empty body
+722	info	'__context__' statement has empty body
+723	info	macro definition starting with = is suspicious
+725	info	unexpected lack of indentation
+726	info	extraneous comma ignored at end of enumerator list after enumerator __symbol__
+727	info	static local symbol __symbol__ not explicitly initialized
+728	info	file scope static variable __symbol__ not explicitly initialized
+729	info	external variable __symbol__ not explicitly initialized
+730	info	boolean used as argument __integer__ to function __symbol__
+731	info	boolean argument(s) to __equality-operator__
+732	info	loss of sign (__context__) (__type__ to __type__)
+733	info	likely assigning address of local __symbol__ to outer scope pointer __symbol__
+734	info	loss of precision (__context__) from __number__ bits to __number__ bits
+735	info	implicit conversion (__context__) from __type__ to __type__
+736	info	loss of precision (__context__) from __number__ bits to __number__ bits
+737	info	loss of sign in promotion from __type__ to __type__
+738	info	address of static local symbol __symbol__ not explicitly initialized before passed to a function
+739	info	trigraph sequence '__string__' in string literal
+742	info	multi-character character constant
+743	info	negative character constant
+744	info	switch statement has no default
+746	info	call to function __symbol__ not made in the presence of a prototype
+749	info	local enumeration constant __symbol__ not referenced
+750	info	local macro '__string__' not referenced
+751	info	local typedef __symbol__ not referenced
+752	info	local declarator __symbol__ not referenced
+753	info	local __string__ __symbol__ not referenced
+754	info	local __string__ member __symbol__ not referenced
+755	info	global macro '__string__' not referenced
+756	info	global typedef __symbol__ not referenced
+757	info	global declarator __symbol__ not referenced
+758	info	global __string__ __symbol__ not referenced
+759	info	header declaration for symbol __symbol__ could be moved from header to module
+760	info	redundant macro __name__ defined identically
+761	info	redundant typedef __name__
+764	info	switch with no cases
+765	info	external symbol __symbol__ could be made static
+767	info	macro '__string__' was defined differently in another module
+768	info	global structure member __symbol__ not referenced
+769	info	global enumeration constant __symbol__ not referenced
+770	info	tag __symbol__ defined identically at __location__
+773	info	expression-like macro '__string__' not parenthesized
+774	info	boolean condition for '__detail__' always evaluates to '__detail__'
+775	info	nonnegative quantity cannot be less than zero
+776	info	possible truncation of addition
+777	info	testing floating point values for equality
+778	info	constant expression evaluates to 0 in '__unary/binary__' operation '__operator__'
+779	info	string constant in comparison operator '__operator__'
+783	info	line does not end with a newline
+784	info	nul character truncated from string
+785	info	too few initializers for aggregate of type __type__ in initialization of __symbol__
+786	info	string concatenation within initializer
+787	info	enum constant __symbol__ not used within switch
+788	info	enum constant __symbol__ not used within default switch
+789	info	assigning address of auto variable __symbol__ to static
+790	info	possibly truncated __string__ promoted to __type__
+791	info	a single line suppression followed a normal option
+792	info	casting void expression to void
+793	info	ANSI/ISO minimum translation limit of __integer__ '__string__' exceeded, processing is unaffected
+798	info	redundant char '__character__'
+799	info	numerical constant '__integer__' larger than unsigned long
+801	info	goto statement used
+805	info	expected L"..." to initialize wide char string
+806	info	small signed bitfield
+808	info	no explicit type given, int assumed
+809	info	likely returning address of local __symbol__ through __symbol__
+810	info	arithmetic modification of custodial pointer
+812	info	static variable __symbol__ is __integer__ bytes
+813	info	auto variable __symbol__ is __integer__ bytes
+814	info	tagless struct without a declarator is useless here
+815	info	unsaved pointer used in pointer arithmetic
+816	info	non-ISO format specification '__string__'
+818	info	parameter __symbol__ of function __symbol__ could be pointer to const
+820	info	boolean test of parenthesized assignment
+821	info	right hand side of assignment not parenthesized
+823	info	definition of macro '__name__' ends in semi-colon
+825	info	control flow falls through to next case without an intervening -fallthrough comment
+826	info	suspicious pointer-to-pointer conversion (area too small)
+827	info	loop can only be reached via goto due to unconditional transfer of control by '__string__' statement
+828	info	semantics of '__string__' copied to function '__string__'
+829	info	a +headerwarn option was previously issued for header '__file__'
+831	supplemental	value tracking history __text varies__
+832	info	parameter __symbol__ not explicitly declared, int assumed
+834	info	operator '__operator__' followed by operator '__operator__' could be confusing without parentheses
+835	info	zero given as __string__ argument to __operator__ __context__
+837	info	switch condition is a constant expression
+838	info	previous value assigned to __symbol__ not used
+839	info	storage class of symbol __symbol__ assumed static
+840	info	NUL character in string literal
+841	info	function __symbol__ is specified as noreturn and declared with non-void return type __type__
+843	info	static storage duration variable __symbol__ could be made const
+844	info	static storage duration variable __symbol__ could be made pointer to const
+845	info	the __left/right__ operand to __operator__ always evaluates to 0
+846	info	signedness of bitfield __symbol__ of type __type__ is implementation-defined
+847	info	thread unsafe function '__name__' is called without protection in function '__name__' of thread '__name__' at __location__
+849	info	enumerator __symbol__ reuses the constant value '__integer__' previously used by enumerator __symbol__
+850	info	for statement index variable __symbol__ modified in body
+853	info	entering nested comment
+854	info	trigraph sequence converted to '__string__' character
+855	info	positional arguments are a non-ISO extension
+856	info	flag '__string__' is ignored when flag '__string__' is present
+857	info	argument 1 of type __type__ is not compatible with argument 2 of type __type__ in call to function __symbol__
+865	info	__detail__
+866	info	unusual argument to sizeof
+868	info	degenerate switch encountered
+870	info	no '-max_threads=N' option was encountered prior to the first module; only a single thread will be used by default
+879	info	semantic monikers are '__string__' and '__string__'
+882	info	sizeof applied to parameter __symbol__ of function __symbol__ declared an incomplete array type __type__
+886	info	preprocessor directive '__name__' encountered in conditionally excluded region is deprecated. __string__
+888	info	custom metric limit violated
+891	supplemental	reference information __text varies__
+892	supplemental	did you mean to __multiply/divide__ by a factor of type '__strong-type__'?
+893	supplemental	expanded from macro
+894	supplemental	during specific walk __detail__
+896	supplemental	semantic expression expands to '__string__'
+897	supplemental	in instantiation of __string__ __symbol__ triggered here
+900	note	execution completed producing __integer__ primary and __integer__ supplemental messages (__integer__ total) after processing __integer__ module(s)
+901	note	variable __symbol__ of type __type__ not initialized by definition
+902	note	non-static function __symbol__ declared outside of a header
+904	note	return statement before end of function __symbol__
+905	note	non-literal format specifier used (with arguments)
+907	note	implicit conversion (__context__) from type __type__ to type __type__
+908	note	implicit conversion (__context__) from type __type__ to type __type__
+909	note	implicit boolean conversion from __type__
+910	note	implicit conversion of null pointer constant to pointer
+911	note	implicit promotion from __type__ to __type__
+912	note	application of the usual arithmetic conversions converted a binary operand to a type other than that which would have been produced solely by application of integer promotion to that operand (text varies)
+915	note	implicit arithmetic conversion (__context__) from __type__ to __type__
+916	note	implicit pointer assignment conversion (__context__) from __type__ to __type__
+917	note	implicit conversion from __type__ to __type__ due to function prototype
+919	note	implicit conversion (__context__) from lower precision type __type__ to higher precision type __type__
+920	note	explicit cast from __type__ to __type__
+921	note	explicit cast from __type__ to __type__
+922	note	explicit cast from __type__ to __type__
+923	note	explicit cast from __type__ to __type__
+925	note	explicit cast from __type__ to __type__
+926	note	explicit cast from __type__ to __type__
+927	note	explicit cast from __type__ to __type__
+928	note	explicit cast from __type__ to __type__
+929	note	explicit cast from __type__ to __type__
+930	note	explicit cast from __type__ to __type__
+931	note	both sides have side effects
+935	note	data member __symbol__ declared as type __type__
+936	note	old-style function definition for function __symbol__
+937	note	old-style function declaration for function __symbol__
+940	note	omitted braces within initializer
+941	note	result 0 due to operand(s) equaling 0 in operation '__operator__'
+942	note	possibly truncated __string__ promoted to __type__
+943	note	too few initializers for aggregate __symbol__ of type __type__
+944	note	__left/right __operand to '__operator__' always evaluates to '__true/false__'
+945	note	variable of undefined structure type declared to be extern
+946	note	relational operator __string__ applied to pointers
+947	note	pointer subtraction
+948	note	operator __operator__ always evaluates to __true/false__
+952	note	parameter __symbol__ of function __symbol__ could be const
+953	note	local variable __symbol__ could be const
+954	note	local variable __symbol__ could be pointer to const
+955	note	parameter __integer__ (__type__) of forward declaration of __symbol__ lacks a name
+956	note	__string__ variable __symbol__ of type __type__ is neither const nor atomic
+957	note	function __symbol__ defined without a prototype in scope
+958	note	padding of __integer__ bytes needed to align __string__ on a __integer__ byte boundary
+959	note	nominal structure size of '__integer__' bytes is not a whole multiple of its alignment of '__integer__' bytes
+963	note	qualifier '__string__' follows a type; use -fqb to reverse the test
+967	note	header file '__string__' does not have a standard include guard
+970	note	use of modifier or type '__name__' outside of a typedef
+971	note	use of plain char
+972	note	unusual character '__string__' in '__kind__' literal
+973	note	unary operator in macro '__string__' not parenthesized
+974	note	worst case stack usage: __detail__
+975	note	unknown pragma '__string__' will be ignored
+977	note	non-literal non-Boolean of type __type__ used in a Boolean __string__
+978	note	the name '__name__' matches a pattern reserved to the compiler __string__
+979	note	function __symbol__ could be marked with a 'pure' semantic
+980	note	macro name '__name__' matches a pattern reserved to the compiler __string__
+981	note	cast of expression of type __type__ to same type is redundant
+983	note	behavior of dash in scan list is implementation defined
+986	note	target type __type__ of type alias __symbol__ is deprecated
+987	note	constructor parameter __symbol__ shadows the field __symbol__ of __symbol__
+999	note	defaulting to __string__ concurrent threads
+1001	error	scope __string__ must be a class__string__
+1002	error	invalid use of 'this' __context__
+1003	error	'this' cannot be used in a static member function declaration
+1004	error	right hand operand to '__string__' has non-pointer-to-member type __type__
+1008	error	initializer on function does not look like a pure-specifier
+1012	error	return type not allowed for conversion function
+1013	error	symbol __symbol__ is not a member of __string__
+1020	error	template specialization declared without a 'template<>' prefix
+1022	error	function __symbol__ must be a non-static member function
+1023	error	call to __symbol__ is ambiguous
+1024	error	no matching function for call to __symbol__
+1027	error	missing default argument for parameter __symbol__ of function __symbol__
+1029	error	default argument repeated for parameter __symbol__ in function __symbol__
+1031	error	local variable __symbol__ used in default argument expression
+1032	error	__non-static/explicit__ function __symbol__ cannot be called without object
+1033	error	static member functions cannot be virtual
+1034	error	'static' can only be specified inside the class definition
+1036	error	call to constructor of __symbol__ is ambiguous
+1037	error	conversion __between types__ is ambiguous
+1038	error	type __type__ not found, __type__ assumed
+1040	error	non-friend class member __symbol__ cannot have a qualified name
+1042	error	at least one class-like parameter is required for overloaded __string__
+1043	error	cannot delete expression of type __type__
+1046	error	invalid use of member __symbol__ in __static/explicit object__ member function
+1051	error	redefinition of __symbol__ as different kind of symbol
+1055	error	use of undeclared identifier __string__; did you mean __symbol__?
+1057	error	member __symbol__ cannot be used without an object
+1063	error	copy constructor for class __symbol__ must pass its first argument by reference
+1069	error	member initializer __string__ does not name a non-static data member or base class of class __symbol__
+1071	error	constructor cannot have a return type
+1072	error	reference variable __string__ must be initialized
+1074	error	expected a namespace identifier
+1075	error	ambiguous reference to symbol __symbol__
+1076	error	anonymous union assumed to be 'static'
+1079	error	could not find '>' or ',' to terminate template parameter
+1083	error	ambiguous conversion between 2nd and 3rd arguments of conditional operator; __reason__
+1088	error	a using declaration requires a qualified-id
+1089	error	a using declaration must not name a namespace
+1090	error	a using declaration must not name a template-id
+1091	error	using declaration refers into __symbol__, which is not a base class of __symbol__
+1092	error	a using declaration that names a class member must be a member declaration
+1093	error	__symbol__ is not virtual and cannot be declared pure
+1096	error	an initializer for a delegating constructor must appear alone
+1097	error	constructor __symbol__ creates a delegation cycle
+1098	error	function template specialization __symbol__ does not match any function template
+1099	error	function template specialization __symbol__ ambiguously refers to more than one function template; explicitly specify template arguments to identify a particular function template
+1101	error	type of variable __symbol__ cannot be deduced from its initializer
+1102	error	__string__' type deduced inconsistently: __type__ for __symbol__ but __type__ for __symbol__
+1103	error	__non-integral/bit-precise__ type __type__ is not a valid enum-base
+1105	error	cannot overload a member function __with a certain ref-qualifier__ with a member function __with different ref-qualifiers__
+1107	error	invalid concatenation of wide string literals of different kinds
+1108	error	call to deleted function __string__
+1110	error	circular pointer delegation detected: explicit application  of __type__::operator-> causes infinite applications of the same operator
+1112	error	function with trailing return type must specify return type 'auto', not __string__
+1116	error	virtual function __symbol__ overrides function marked with '__string__'
+1117	error	non-virtual function __symbol__ marked with '__string__'
+1118	error	virtual function already marked '__string__'
+1119	error	virtual function __symbol__ marked 'override' does not override any member functions
+1120	error	incomplete type __type__ is not a valid range expression
+1123	error	attempt to derive from class __type__ marked as '__final/sealed__'
+1124	error	digit separator not allowed: __before/after__ digit sequence
+1125	error	a type cannot be defined in a friend declaration
+1127	error	catch handler after catch(...)
+1301	error	integer sequences must have non-negative sequence length
+1302	error	integer sequences must have integral element type
+1401	warning	non-static data member __symbol__ not initialized by constructor __symbol__
+1404	warning	deleting an object of type __type__ before that type is defined
+1405	warning	header <typeinfo> must be included before 'typeid' is used
+1407	warning	incrementing expression of type bool
+1411	warning	member __symbol__ with different signature hides virtual member __symbol__
+1413	warning	function __symbol__ is returning a temporary via a reference
+1414	warning	assigning address of local variable __symbol__ to member of 'this' object
+1415	warning	pointer to non-POD __type__ passed to function __symbol__ (__context__)
+1416	warning	reference __symbol__ is not yet bound to a value when used here
+1417	warning	__string__ must explicitly initialize the __reference/const__ member __symbol__
+1419	warning	throwing the NULL macro will invoke an implementation-defined handler; NULL may be defined as either an integer literal equal to zero or the keyword nullptr
+1420	warning	'mutable' applied to a reference type is non-standard
+1421	warning	template parameter illegally redefines default argument
+1422	warning	default constructor __symbol__ defaulted outside of class
+1423	warning	reinterpret_cast from __type__ to __type__ has undefined behavior
+1501	warning	data member __symbol__ has zero size
+1502	warning	defined object __symbol__ of type __symbol__ has no non-static data members
+1504	warning	anonymous structure declaration without the '+fas' option
+1505	warning	base specifier with no access specifier is implicitly __public/private__
+1506	warning	call to virtual function __symbol__ within a __string__
+1507	warning	use of 'delete' on pointer-to-array type __type__ should be 'delete[]'
+1509	warning	the destructor of derived class __type__ is non-trivial, but the destructor of base class __type__ is not virtual
+1510	warning	the destructor of derived class __type__ is non-trivial, but no destructor provided for base class __type__
+1511	warning	member function __symbol__ hides non-virtual '__string__' member __symbol__
+1513	warning	storage class ignored for member declaration
+1516	warning	data member __symbol__ hides inherited member __symbol__
+1520	warning	multiple __copy/move__ assignment operators for class __symbol__
+1521	warning	multiple __copy/move__ constructors for class __symbol__
+1524	warning	new in constructor for class __symbol__ which has no explicit destructor
+1526	warning	undefined member function __symbol__
+1527	warning	undefined static data member __symbol__
+1529	warning	assignment operator __symbol__ should check for self-assignment
+1531	warning	member allocation function __symbol__ of non-final class __symbol__ does not reference the allocation size
+1532	warning	__operator-delete__ should check first parameter for null
+1533	warning	repeated friend declaration for symbol __symbol__
+1534	warning	static variable __symbol__ defined within inline function __symbol__ in header '__file__'
+1535	warning	member function __symbol__ exposes lower access pointer member __symbol__
+1536	warning	member function __symbol__ exposes lower access member __symbol__
+1537	warning	const member function __symbol__ exposes pointer member __symbol__ as pointer to non-const
+1538	warning	base class __name__ absent from initializer list for __copy/move__ constructor
+1539	warning	member __symbol__ not assigned by assignment operator __symbol__
+1540	warning	non-static pointer data member __symbol__ not deallocated nor zeroed by destructor __symbol__
+1541	warning	non-static data member __symbol__ possibly not initialized by constructor __symbol__
+1544	warning	value of variable __symbol__ is indeterminate due to run time initialization of __symbol__
+1546	warning	throw outside try in destructor body
+1547	warning	assignment of array of derived class to pointer to base class (__context__)
+1548	warning	exception specification in declaration does not match previous declaration
+1549	warning	exception of type __type__ thrown from function __symbol__ is not in throw list
+1550	warning	exception '__name__' thrown by function __symbol__ is not on throw-list of function __symbol__
+1551	warning	function __symbol__ called outside of a try block in destructor __symbol__ is not declared as never throwing
+1552	warning	converting pointer to array of derived to pointer to base
+1554	warning	shallow pointer copy of __symbol__ in copy constructor __symbol__
+1555	warning	shallow pointer copy of __symbol__ in copy assignment operator __symbol__
+1556	warning	initialization could be confused with array allocation
+1558	warning	inline virtual function is unusual
+1559	warning	uncaught exception '__name__' may be thrown in destructor __symbol__
+1560	warning	uncaught exception '__name__' not on throw-list of function __symbol__
+1562	warning	exception specification for __symbol__ is not a subset of __symbol__
+1563	warning	unparenthesized assignment as false expression of conditional operator
+1564	warning	converting integer constant expression, which evaluates to __integer__ but is not an integer literal equal to zero or one, to bool
+1565	warning	non-static data member __symbol__ not initialized by initializer function __symbol__
+1566	warning	non-static data member __symbol__ may have been initialized in a separate method but no '-sem(__name__,initializer)' option was seen
+1570	warning	binding reference field __symbol__ to non-reference parameter __symbol__
+1571	warning	returning an auto variable __symbol__ via a reference type
+1572	warning	initializing a static reference variable with an auto variable __symbol__
+1576	warning	explicit specialization is not in the same file as specialized function template __symbol__
+1578	warning	non-static pointer data member __symbol__ not deallocated nor zeroed by cleanup function __symbol__
+1579	warning	non-static pointer data member __symbol__ may have been zeroed or freed in a separate method but no '-sem(__name__,cleanup)' option was seen
+1705	info	static member __symbol__ could be accessed using a nested name specifier instead of applying operator '__string__' to an instance of class __symbol__
+1706	info	extra qualification on member __symbol__ within a class
+1707	info	static assumed for __symbol__
+1710	info	missing 'typename' prior to dependent type name '__string__'
+1711	info	class __symbol__ has a virtual function but is not inherited
+1714	info	member function __symbol__ not referenced
+1715	info	static member __symbol__ not referenced
+1719	info	reference parameter of copy assignment operator __symbol__ should be __type__
+1720	info	reference parameter of copy assignment operator __symbol__ should be __type__
+1721	info	operator=() for class __symbol__ is not a copy nor move assignment operator
+1722	info	assignment operator __symbol__ should return __type__
+1724	info	parameter of copy constructor for class __symbol__ should be a const reference
+1726	info	deletion of pointer to const function parameter __symbol__
+1727	info	function __symbol__ declared inline here was not previously declared inline
+1728	info	function __symbol__ was previously declared inline
+1729	info	initializer inversion: __field/base class__ __symbol__ appears before, but will be initialized after, __field/base__ __symbol__ in member initializer list
+1730	info	__string__ __string__ __type__ was previously declared as a __string__ __string__
+1731	info	public virtual function __symbol__
+1732	info	new in constructor for class __symbol__ which has no user-provided copy assignment operator
+1733	info	new in constructor for class __symbol__ which has no user-provided copy constructor
+1735	info	parameter '__string__' of virtual function __symbol__ has a default argument
+1736	info	redundant access specifier (__string__)
+1738	info	__copy/move__ constructor for class __symbol__ explicitly invokes non-__copy/move__ constructor for base class __symbol__
+1746	info	non-reference parameter __symbol__ of function __symbol__ could be reference to const
+1747	info	binary operator __symbol__ returns reference type __type__
+1748	info	non-virtual base class __symbol__ included twice in class __symbol__
+1749	info	base class __symbol__ of class __symbol__ need not be virtual
+1751	info	anonymous namespace declared in a header file
+1752	info	catch parameter is not a reference
+1753	info	overloading operator __symbol__ precludes short-circuit evaluation
+1754	info	expected symbol '__string__' to be declared for class __symbol__
+1756	info	variable __symbol__ has '__static/thread__' storage duration and non-POD type __type__
+1757	info	discarded instance of member post-__string__ operator
+1758	info	prefix __symbol__ does not return a reference
+1759	info	postfix __symbol__ returns a reference
+1762	info	member function __symbol__ could be made const
+1763	info	const member function __symbol__ contains deep modification
+1764	info	reference parameter __symbol__ of function __symbol__ could be reference to const
+1766	info	catch(...) encountered without preceding catch clause
+1768	info	__access__ virtual function __symbol__ overrides __access__ function in base class __symbol__
+1771	info	function __symbol__ replaces global function
+1772	info	assignment operator __symbol__ should return *this
+1773	info	casting away __const/volatile__ qualifier without const_cast (__type__ to __type__)
+1774	info	only dynamic_cast can indicate a failure by returning null -- cast from __type__ to __type__ will not be checked at runtime
+1775	info	catch block does not catch any declared exceptions
+1776	info	converting string literal to __type__ is not const safe
+1777	info	template recursion limit (__integer__) reached, use -tr_limit(n)
+1778	info	assignment of string literal to variable __symbol__ is not const safe
+1779	info	virtual function __symbol__ introduced in class __symbol__ which is marked as 'final'
+1780	info	returning address of reference to a const parameter __symbol__
+1781	info	passing address of const reference parameter __symbol__ into caller address space
+1782	info	assigning address of const reference parameter __symbol__ to a static variable
+1784	info	symbol __symbol__ previously declared as "C"
+1785	info	implicit conversion from Boolean (__context__) (__type__ to __type__)
+1786	info	implicit conversion to Boolean (__context__) (__type__ to __type__)
+1787	info	access declarations are deprecated; use using declarations instead
+1788	info	variable __symbol__ of type __symbol__ is referenced only by its constructor/destructor
+1789	info	constructor template __symbol__ cannot be a copy constructor
+1790	info	public base __symbol__ of __symbol__ has no non-destructor virtual functions
+1791	info	returned expression begins on the next line
+1793	info	invoking non-const member function __symbol__ of class __symbol__ on a temporary
+1797	info	assignment operator template __symbol__ declared in class __symbol__ with no user-declared copy assignment operator
+1798	info	block scope declaration of __symbol__ is taken to mean a member of __symbol__ but does not introduce a name
+1901	note	creating a temporary of type __type__
+1902	note	unnecessary semicolon follows function definition
+1904	note	old-style c comment
+1906	note	exception specification for function __symbol__
+1907	note	implicit non-trivial destructor generated for __symbol__
+1908	note	destructor __symbol__ is implicitly virtual due to virtual destructor of base class __symbol__ but is not explicitly marked virtual
+1909	note	'virtual' assumed; see function __symbol__
+1911	note	implicit call of converting constructor __symbol__
+1912	note	implicit call of conversion function from class __symbol__ to type __type__
+1914	note	default constructor __symbol__ not referenced
+1915	note	virtual function __symbol__ overrides function __symbol__ and is not marked with 'override'
+1916	note	function __symbol__ is variadic
+1919	note	__symbol__ is not a __copy/move__ assignment operator
+1920	note	casting to reference type __type__
+1924	note	use of c-style cast (__type__ to __type__)
+1925	note	symbol __symbol__ is public data member
+1926	note	default constructor implicitly called to initialize field __symbol__
+1927	note	data member __symbol__ absent from initializer list for constructor
+1928	note	base class __name__ absent from initializer list for constructor
+1929	note	non-member function __symbol__ returns reference type __type__
+1930	note	conversion operator __symbol__ found
+1931	note	constructor __symbol__ can be used for implicit conversions
+1932	note	base class __type__ is not abstract
+1933	note	call to unqualified virtual function __symbol__ from non-static member function
+1934	note	shift operator __symbol__ should be a non-member function
+1937	note	static variable __symbol__ of type __type__ has a non-trivial destructor
+1938	note	constructor __symbol__ accesses global data
+1939	note	casting from base class __type__ to derived class __type__
+1940	note	address of non-const reference parameter __symbol__ transferred outside of function
+1941	note	__string__ assignment operator __symbol__ does not return __type__
+1943	note	declaration of __symbol__ of type __type__ may require global runtime construction
+1944	note	declaration of __symbol__ of type __type__ requires a global destructor
+1945	note	declaration of __symbol__ of type __type__ requires an exit-time destructor
+1946	note	use of functional-style cast to convert from type __type__ to type __type__
+1954	note	use of c-style cast to void (__type__ to __type__)
+1962	info	member function __symbol__ contains deep modification
+1966	note	catch(...) encountered after catch clause
+1970	note	use of default capture (__string__) in lambda expression
+1971	note	use of function try block for non-constructor function __symbol__
+1972	note	empty declaration
+1973	note	deletion of non-parameter pointer to const
+2001	error	request for __string__ integer type with at least __integer__ bits could not be processed
+2005	error	__hex/octal__ escape sequence out of range
+2006	error	no hexadecimal digits following \__string__ escape sequence
+2400	warning	unexpected internal condition '__string__'
+2401	warning	cannot mix positional and non-positional arguments in format string
+2402	warning	'__string__' specified field __string__ is missing a matching 'int' argument
+2403	warning	field __string__ should have type __type__, but argument has type __type__
+2404	warning	invalid position specified for __string__
+2405	warning	__string__ used with '__string__' conversion specifier is undefined
+2406	warning	no closing ']' for '%[' in scanf format string
+2407	warning	zero field width in scanf format string is unused
+2408	warning	cannot pass __string__ object of type __type__ to variadic __string__; expected type from format string was __type__
+2410	warning	re-entrant initializer for static local variable __symbol__ causes undefined behavior
+2414	warning	non-standard literal suffix '__string__'
+2415	warning	loop comparison value '__integer__' out of range for operator '__string__'
+2416	warning	generic selection association type __type__ will never be eligible for selection
+2417	warning	'__string__' qualifier on function type __type__
+2418	warning	declaration of symbol __symbol__ with strong type '__strong-type__' conflicts with previous declaration with strong type '__strong-type__'
+2419	warning	controlling expression contains a side effect which will not be evaluated
+2423	warning	apparent domain error for function __symbol__, argument __integer__ (value=__string__) outside of accepted range (__string__)
+2425	warning	user-defined function semantic '__string__' was rejected during call to function __symbol__ because __string__
+2426	warning	return value (__string__) of call to function __symbol__ conflicts with return semantic '__string__'
+2427	warning	initializer_list elements will be destroyed before returning
+2430	warning	missing whitespace between macro name __name__ and definition
+2431	warning	__#line/GNU line__ directive starting with zero is not interpreted as an octal number
+2432	warning	macro __name__ used as header guard is followed by a #define of a similar but different macro '__name__'
+2433	warning	conversion specifier '__string__' is not allowed for bounds-checked format function
+2434	warning	memory was potentially deallocated
+2435	warning	duplicate '__string__' declaration specifier
+2436	warning	function __symbol__ declared 'noreturn' should not return
+2437	warning	indirection of non-volatile null pointer may be optimized out
+2438	warning	comparing values of different enumeration types (__type__ and __type__)
+2439	warning	lint comment does not contain any options
+2440	warning	__string__ '__string__' in comparison is never null
+2441	warning	__string__ '__string__' used in boolean context is never null
+2444	warning	case value is not in enumeration __type__
+2445	warning	cast from __type__ to __type__ increases required alignment from __integer__ to __integer__
+2446	warning	pasting formed '__string__', an invalid preprocessing token
+2447	warning	'main' function should not be declared as '__string__'
+2448	warning	'main' function should return type 'int'
+2449	warning	__string__ discards qualifiers
+2450	warning	null character ignored
+2452	warning	__string__ converts between pointers to integer types __string__
+2453	warning	incompatible pointer to integer conversion __string__ __string__
+2454	warning	incompatible pointer types __string__ __string__
+2455	warning	incompatible function pointer types __string__ __string__
+2456	warning	C++ language linkage specification encountered in C mode
+2457	warning	non-recursive mutex '__name__' locked recursively in function '__name__' of thread '__name__' at __location__
+2460	warning	__string__ literal __string__ provided as argument __integer__ to function __symbol__
+2461	warning	'__rand/random__' function used without any explicit call to '__srand/srandom__'
+2462	warning	mutexes '__name__' and '__name__' have lock order mismatch in function '__name__' of thread '__name__' at __location__ and function '__name__' of thread '__name__' at __location__
+2463	warning	'__string__' statement while locked
+2465	warning	redefinition of tag __type__ will not be visible outside of this function
+2466	warning	__symbol__ was used despite being marked as 'unused'
+2467	warning	multiple definitions of function __symbol__
+2468	warning	semantic mismatch for function __symbol__
+2470	warning	multiple consecutive pushbacks onto stream is not portable
+2471	warning	operation on stream that has been closed
+2472	warning	non-standard file mode __character/component__ '__string__' in mode string '__string__'
+2473	warning	file mode string '__string__' is not a legal file open mode: __string__
+2474	warning	attempt to flush stream that isn't open for writing
+2475	warning	attempt to flush stream after an input operation
+2476	warning	attempt to perform read operation on stream not opened for reading
+2477	warning	attempt to perform write operation on stream not opened for writing
+2478	warning	attempt to perform read operation on stream after write without an intervening flush or reposition
+2479	warning	attempt to perform write operation on stream after read without an intervening reposition
+2480	warning	attempt to perform byte-oriented operation on stream following wide-stream operation
+2481	warning	attempt to perform wide-oriented operation on stream following byte-stream operation
+2482	warning	enumeration constant '__name__' not defined
+2483	warning	invalid semantics for '__name__', __string__
+2484	warning	invalid semantics for argument __string__ of '__name__', __string__
+2485	warning	invalid semantics for locker class __symbol__, __string__
+2486	warning	invalid semantics for __symbol__, __string__
+2488	warning	mutex __symbol__ passed more than once
+2489	warning	exclusively locked mutex __symbol__ is being shared __locked/unlocked__
+2490	warning	symbolic constant '__name__' not defined
+2491	warning	unknown expression '__string__' in sizeof will evaluate to 0, use -pp_sizeof to change the value used for evaluation
+2492	warning	locker __symbol__ already locked
+2493	warning	locker __symbol__ is not locked
+2494	warning	mutex __symbol__ is not locked
+2495	warning	mutex __symbol__ is not __locked|unlocked__
+2496	warning	locker __symbol__ is not __locked|unlocked__
+2498	warning	comparison of object representations of floating point values of member __symbol__ of type __type__ may produce unexpected results that differ from a value equality test
+2499	warning	comparison of object representations of floating point values of type __type__ may produce unexpected results that differ from a value equality test
+2501	warning	negation of value of unsigned type __type__ yields a value of signed type __type__ due to integral promotion
+2502	warning	differing alignment requirements seen for __symbol__ (__string__ vs __string__)
+2504	warning	argument of type __type__ supplied to type-generic macro '__macro__' resulting in call to function __symbol__ should have a __string__ type
+2505	warning	argument to integer constant macro '__macro__' __string__
+2511	warning	try_lock return value was discarded
+2512	warning	try_lock return value was modified
+2513	warning	try_lock return value was manipulated
+2520	warning	mutex attribute __symbol__ is not initialized
+2521	warning	mutex attribute __symbol__ is already destroyed
+2522	warning	mutex attribute __symbol__ is already initialized
+2530	note	mutex '__name__' has inconsistent types
+2531	note	mutex '__name__' has usage incompatible with its type '__string__'
+2536	warning	illegal character encoding in string literal
+2540	warning	mutex __symbol__ used as a locker
+2586	warning	__string__ __name__ is deprecated
+2601	warning	passing address of auto variable __symbol__ to parameter __integer__ of function __symbol__
+2618	warning	non-type specifier '__string__' appears after a type
+2623	warning	possible domain error for function __symbol__, argument __integer__ (value=__string__) outside of accepted range (__string__)
+2641	warning	implicit conversion of enum __symbol__ to floating point type __type__
+2650	warning	constant '__integer__' out of range for '__string__' portion of compound comparison operator '__string__' 
+2662	warning	pointer arithmetic on pointer that may not refer to an array
+2666	warning	expression with side effects passed to unexpanded parameter __integer__ of macro '__string__': __detail__
+2670	warning	call to async-signal-unsafe function __symbol__ within __signal-handler-category__ __symbol__
+2671	warning	returning from exception signal handler __symbol__
+2701	info	__variable/function__ __symbol__ declared outside of header is not defined in the same source file
+2702	info	static symbol __symbol__ declared in header not referenced
+2703	info	dangling else, add braces to body of parent statement to make intent explicit
+2704	info	potentially negating the most negative number
+2705	info	type qualifier(s) '__string__' applied to return type __has/have__ no effect
+2706	info	integer constant value does not match any enumerator in enumeration __type__
+2707	info	function __symbol__ could be declared as 'noreturn'
+2708	info	pointer to variably modified array type __type__ used in declaration of __symbol__
+2709	info	array subscript is of type 'char'
+2712	info	large pass-by-value parameter __symbol__ of type __type__ (__integer__ bytes) for function __symbol__
+2713	info	large return type __type__ (__integer__ bytes) for function __symbol__
+2715	info	token pasting of ',' and __VA_ARGS__ is a GNU extension
+2716	info	tentative array definition for variable __symbol__ assumed to have one element
+2751	info	indeterminable __string__
+2752	info	incompatible semantics for locker class __symbol__, corrections applied
+2753	info	mutex __symbol__ may not be __locked|unlocked__
+2760	info	'__srand/srandom__' seeded with 'time'
+2761	info	call to non-async-signal-safe function __symbol__ within __signal-handler-category__ __symbol__
+2762	info	call to signal registration function __symbol__ within __signal-handler-category__ __symbol__
+2763	info	call to signal registration function __symbol__ within __signal-handler-category__ __symbol__ to register itself
+2764	info	exception signal handler __symbol__ does not explicitly end the program
+2765	info	reference to variable __symbol__ which is neither atomic nor volatile sig_atomic_t within __signal-handler-category__ __symbol__
+2770	note	type of mutex '__name__' is incomplete '__string__' but its usage requires specific type
+2771	note	type of mutex '__name__' is incomplete '__string__'
+2865	info	__string__
+2901	note	stack usage information: __detail__
+2902	note	discarded instance of post-__string__ operator
+2903	note	initializer list has a chained designator and at least one other field without a designator
+2904	note	chained designator conflicts with usage of positional braced initializer list for the same sub-object
+2920	note	unlocking order mismatch
+2932	note	macro __name__ used as header guard is followed by a #define of a different macro '__name__'
+2960	note	integer constant expression with value __integer__ provided as argument __integer__ to function __symbol__
+3401	warning	parameter to move constructor __symbol__ is an rvalue reference to const
+3402	warning	lambda capture default captures 'this' by value
+3403	warning	use of std::move on value of forwarding reference type __type__; was std::forward<__string__> intended?
+3405	warning	__symbol__ is specified with C linkage but returns type __type__ which is incompatible with C
+3406	warning	incomplete return type __type__ for function __symbol__ specified with C linkage
+3407	warning	__symbol__ should not return null unless declared with 'throw()' or 'noexcept'
+3408	warning	address of reference in comparison is never null in well-formed C++
+3409	warning	address of reference in boolean context is never null in well-formed C++
+3410	warning	conversion function converting __type__ to itself will never be used
+3411	warning	conversion function converting __type__ to its base class __type__ will never be used
+3412	warning	__type__ has virtual functions but non-virtual destructor
+3413	warning	__delete/destructor__ called on non-final __type__ that has virtual functions but non-virtual destructor
+3414	warning	__delete/destructor__ called on __type__ that is abstract but has non-virtual destructor
+3415	warning	pointer initialized to temporary array
+3416	warning	'this' pointer used in boolean context is never null
+3417	warning	'this' pointer used in comparison is never null
+3418	warning	'reinterpret_cast' __string__ class __symbol__ __string__ its __string__ __symbol__ behaves differently than 'static_cast'
+3419	warning	in-class initializer for static data member __symbol__ of type __type__ is a GNU extension
+3420	warning	extraneous template parameter list in template specialization
+3421	warning	__string__ template partial specialization contains __string__ that cannot be deduced so the specialization will never be used
+3423	warning	__case value/enumerator value/non-type template argument/array size/constexpr if__ __cannot be narrowed from type to type__
+3424	warning	__constexpr/consteval__ __function/constructor__ never produces a constant expression
+3425	warning	type __type__ cannot be narrowed to __type__ in initializer list
+3426	warning	non-constant-expression cannot be narrowed from type __type__ to __type__ in initializer list
+3427	warning	constant expression evaluates to __string__ which cannot be narrowed to type __type__
+3428	warning	out-of-line declaration of a member must be a definition
+3429	warning	parenthesized initialization of a member array is a GNU extension
+3430	warning	taking the address of a temporary object of type __type__
+3431	warning	in-class initializer for static data member of type __type__ requires 'constexpr' specifier
+3432	warning	invalid suffix on literal, C++11 requires a space between literal and identifier
+3450	warning	subtracting value of member __symbol__ from the address referred to by the 'this' pointer; use of -> to access the member may have been intended
+3701	info	use of __symbol__ implicitly invokes converting constructor __symbol__; __symbol__ could be used __[without braces]__
+3702	info	lambda capture default captures 'this' by value
+3703	info	ellipsis at this point creates a C-style varargs function
+3704	info	empty parentheses here declare a function, not a variable
+3705	info	parenthetic disambiguation results in function declaration
+3706	info	abstract class __symbol__ marked '__final/sealed__'
+3707	info	unknown linkage language '__string__'
+3901	note	reference to __data member/member function__ __symbol__ of __symbol__ does not use an explicit 'this->'
+3902	note	thrown object of type __type__ is not a class derived from std::exception
+3903	note	lambda implicitly returning __[undeduced] type__ __[written as 'auto'/'decltype(auto)']__ does not explicitly specify return type
+8000	info	__string__
+9001	note	octal constant '__string__' used
+9003	note	could define global variable __symbol__ within function __string__
+9004	note	object/function __symbol__ previously declared
+9005	note	cast drops __detail__ qualifier(s)
+9006	note	'sizeof' used on expression with side effect
+9007	note	side effects on right hand of logical operator, '__string__'
+9008	note	comma operator used
+9009	note	possible use of floating point loop counter
+9010	note	conversion from integer type __type__ to pointer type __type__
+9011	note	multiple loop exits
+9012	note	body should be a compound statement
+9013	note	no 'else' at end of 'if ... else if' chain
+9014	note	switch without default
+9015	note	macro '__name__' appearing in argument __integer__ of macro '__name__' is used both with and without '#/##' and is subject to further replacement
+9016	note	performing pointer arithmetic via __addition/subtraction__
+9017	note	__incrementing/decrementing__ pointer
+9018	note	union __symbol__ declared
+9019	note	declaration of __symbol__ before #include
+9020	note	header file name '__string__' contains non-standard character '__string__'
+9021	note	use of '#undef' is discouraged: '__detail__'
+9022	note	unparenthesized macro parameter '__string__' in definition of macro '__string__' __string__
+9023	note	multiple use of stringize/pasting operators in definition of macro __name__
+9024	note	__pasting/stringize__ operator used in definition of __object-like/function-like__ macro '__string__'
+9025	note	more than two levels of pointer indirection
+9026	note	function-like macro, '__macro__', defined
+9027	note	__essential-type__ value is not an appropriate __string__ operand to __operator__
+9028	note	__essential-type__ value is not an appropriate __string__ operand to __operator__
+9029	note	__essential-type__ value and __essential-type__ value cannot be used together as operands to __operator__
+9030	note	cannot cast __essential-type__ value to __essential-type__ type
+9031	note	cannot assign a composite expression of type '__essential-type__' to an object of wider type '__essential-type__'
+9032	note	__left/right__ operand to __operator__ is a composite expression of type '__essential-type__' which is smaller than the __left/right__ operand of type '__essential-type__'
+9033	note	cannot cast '__essential-type__' to __wider/different__ essential type '__essential-type__'
+9034	note	cannot assign '__essential-type__' to __narrow/different__ essential type '__essential-type__'
+9035	note	variable length array of type __type__ declared
+9036	note	essential type of condition of '__do/for/if/while__' statement is '__essential-type__' but should be boolean
+9037	note	conditional of __#if/#elif__ does not evaluate to 0 or 1
+9038	note	flexible array member declared
+9039	note	potentially confusing __hexadecimal/octal__ escape sequence usage
+9040	note	possible struct hack declaration for __detail__ member __symbol__ with __integer__ element(s)
+9041	note	goto appears in block __string__  which is not nested in block __string__ which contains label __symbol__
+9042	note	departure from MISRA switch syntax: __detail__
+9043	note	static keyword between brackets of array declaration
+9044	note	function parameter __symbol__ modified
+9045	note	complete definition of __symbol__ is unnecessary in this translation unit
+9046	note	__symbol__ is typographically ambiguous with respect to '__string__' when __detail__
+9047	note	FILE pointer dereferenced
+9048	note	unsigned integer literal without a 'U' suffix
+9049	note	increment/decrement operation combined with other operation with side-effects
+9050	note	dependence placed on operator precedence (operators '__operator__' and '__operator__')
+9051	note	macro '__string__' defined with the same name as a C keyword
+9052	note	macro '__string__' defined with the same name as a C++ keyword
+9053	note	the shift value is __negative/at least the precision of the left hand side__
+9054	note	designated initializer used with array of unspecified dimension
+9055	note	most closely enclosing compound statement of this '__string__' label is not a switch statement
+9056	note	inline function __symbol__ defined with storage-class specifier __string__
+9057	note	lowercase L follows 'u' in literal suffix
+9058	note	tag __symbol__ unused outside of typedefs
+9059	note	C comment contains C++ comment
+9060	note	trigraph in comment
+9063	note	no comment or action in the 'else' that terminates 'if ... else if' chain
+9064	note	goto references earlier label __symbol__
+9066	note	C++ comment contains C comment
+9067	note	extern array declared without size or initializer
+9068	note	partial array initialization
+9069	note	in initializer for symbol __symbol__, initializer of type __type__ needs braces or designator
+9070	note	function '__name__' is recursive
+9071	note	defined macro '__name__' is reserved to the compiler
+9072	note	parameter __integer__ of function __symbol__ has different name than previous declaration (__symbol__ vs __symbol__)
+9073	note	parameter __integer__ of function __symbol__ has type alias name type difference with previous declaration (__type__ vs __type__)
+9074	note	conversion between pointer to function type __type__ and differing type __type__
+9075	note	external symbol __symbol__ defined without a prior declaration
+9076	note	cast from __type__ to __type__ involves a pointer to an incomplete type other than void
+9077	note	missing unconditional break from final switch case
+9078	note	conversion between object pointer type __type__ and integer type __type__
+9079	note	conversion from pointer to void to other pointer type (__type__)
+9080	note	integer null pointer constant is not the NULL macro
+9081	note	too few independent cases for switch
+9082	note	switch should begin or end with default
+9083	note	undefined macro name '__name__' is reserved to the compiler
+9084	note	result of assignment operator used in __string__
+9085	note	statement or comment should appear in default case
+9087	note	cast from pointer to object type (__type__) to pointer to different object type (__type__)
+9088	note	named signed single-bit bitfield
+9090	note	switch case lacks unconditional break or throw
+9091	note	casting from pointer type __type__ to integer type __type__
+9093	note	the name '__name__' is reserved to the compiler
+9094	note	return type of function __symbol__ has type alias name difference with previous declaration (__type__ vs __type__)
+9095	note	symbol __symbol__ has same name as previously defined macro
+9096	note	symbol __symbol__ has same name as subsequently defined macro
+9097	note	unparenthesized argument to sizeof operator
+9098	note	pointer argument __integer__ (of type __type__) to function __symbol__ does not point to a pointer type or an essentially signed, unsigned, boolean, or enum type
+9102	note	possible digraph sequence: '__string__'
+9103	note	identifier '__name__' with static storage is reused
+9104	note	octal escape sequence used
+9105	note	unsigned octal and hexadecimal literals require a 'U' suffix
+9106	note	lower case literal suffix, '__string__'
+9107	note	header cannot be included in more than one translation unit because of the definition of symbol __symbol__
+9108	note	function __symbol__ declared at block scope
+9110	note	bit representation of a floating point type used (conversion from __type__ to __type__)
+9111	note	boolean expression used with non-permitted operator '__string__'
+9112	note	plain character expression used with non-permitted operator '__string__'
+9113	note	dependence placed on C++ operator precedence
+9114	note	implicit conversion of underlying type of integer cvalue expression from __underlying-type__ to __underlying type__
+9115	note	implicit conversion from integer to floating point type
+9116	note	implicit conversion of underlying type of floating point cvalue expression from __underlying-type__ to __underlying type__
+9117	note	implicit conversion from __underlying-type__ to __underlying-type__ changes signedness of underlying type
+9118	note	implicit conversion from floating point to integer type
+9119	note	implicit conversion of integer to smaller underlying type (__type__ to __type__)
+9120	note	implicit conversion of floating point to smaller underlying type (__type__ to __type__)
+9121	note	cast of cvalue expression from integer to floating point type
+9122	note	cast of cvalue expression from floating point to integer type
+9123	note	cast of integer cvalue expression to larger type
+9124	note	cast of floating point cvalue expression to larger type
+9125	note	cast of integer cvalue expression changes signedness
+9126	note	the result of the __operator__ operator applied to an object with an underlying type of __underlying-type__ must be cast to __type__ in this context
+9128	note	plain character data mixed with non-plain-character data
+9130	note	bitwise operator '__operator__' applied to signed underlying type
+9131	note	__left/right__ side of logical operator '__operator__' is not a postfix expression
+9132	note	array type passed to function expecting a pointer
+9133	note	boolean expression required for operator '__string__'
+9134	note	unary minus applied to operand with unsigned underlying type
+9135	note	unary operator & overloaded
+9136	note	the shift value is at least the precision of the MISRA C++ underlying type of the left hand side
+9137	note	testing floating point values for equality
+9138	note	null statement not on line by itself
+9139	note	case label follows default in switch statement
+9141	note	global declaration of symbol __symbol__
+9142	note	function main declared outside the global namespace
+9144	note	using directive used: '__string__'
+9145	note	using __declaration/directive__ in header '__file__'
+9146	note	multiple declarators in a declaration
+9147	note	implicit function-to-pointer decay
+9148	note	'=' should initialize either all enum members or only the first for enumerator __symbol__
+9149	note	bit field must be explicitly signed integer, unsigned integer, or bool
+9150	note	non-private data member __symbol__ within a non-POD structure
+9151	note	abstract class __symbol__ declares public copy assignment operator __symbol__
+9153	note	viable set contains both function __symbol__ and template __symbol__
+9154	note	throwing a pointer
+9156	note	rethrow outside of catch block will call std::terminate if no exception is being handled
+9158	note	#define used within __string__ __symbol__ for macro '__name__'
+9159	note	#undef used within __string__ __symbol__ for macro '__name__'
+9160	note	unknown preprocessor directive '__string__' in conditionally excluded region
+9162	note	use of '__string__' at global scope
+9165	note	function __symbol__ defined with a variable number of arguments
+9167	note	macro '__name__' defined in __string__ __symbol__ not undefined in same __string__
+9168	note	variable __symbol__ has type alias name difference with previous declaration (__type__ vs __type__)
+9169	note	constructor __symbol__ can be used for implicit conversions from fundamental type __type__
+9170	note	pure function __symbol__ overrides non-pure function __symbol__
+9171	note	downcast of polymorphic type __type__ to type __type__
+9172	note	bitwise operator '__operator__' used with non-constant operands of differing underlying types (__underlying-type__ and __underlying-type__)
+9173	note	use of non-placement allocation function __symbol__
+9174	note	__type__ is a virtual base class of __symbol__
+9175	note	function __symbol__ has void return type and no external side-effects
+9176	note	pointer type __type__ converted to unrelated pointer type __type__
+9177	note	condition of '__string__' statement has non-Boolean type __type__
+9178	note	predicate of conditional operator has non-Boolean type __type__
+9181	note	switch contains fewer than two non-default switch cases
+9183	note	qualifier '__string__' precedes typedef type __type__
+9185	note	assignment operator __symbol__ declared without lvalue ref-qualifier
+9186	note	non-Boolean return type __type__ for comparison function __symbol__
+9187	note	non-const overloaded subscript operator __symbol__ declared without a corresponding const version
+9202	note	bitfield __symbol__ declared as member of union __symbol__
+9203	note	declaration of __symbol__ contains an alignment attribute whose expression evaluates to zero
+9204	note	hexadecimal escape sequence used
+9205	note	declaration of __symbol__ contains multiple alignment attributes
+9208	note	generic selection does not contain any non-default associations
+9209	note	plain character data used with prohibited operator __string__
+9210	note	default association does not appear as either the first or the last association of generic selection
+9211	note	generic selection is not expanded from a function-like macro
+9212	note	bit field type __type__ is not explicitly signed int or unsigned int
+9213	note	controlling expression contains a call to function __symbol__ which will not be called
+9214	note	default association will be selected because __type__ is not implicitly converted to __type__
+9215	note	unnamed parameter for '__virtual/non-virtual__' function __symbol__
+9216	note	essential type of the controlling expression '__string__' does not match its standard type __type__
+9218	note	arguments to type-generic macro '__macro__' resulting in call to function __symbol__ have different types __type__ and __type__
+9219	note	parameter __integer__ of generic selection macro '__macro__' is not evaluated exactly once
+9224	note	expression is not effectively boolean and must be explicitly tested for zero
+9225	note	integral expression of underlying type __underlying-type__ cannot be implicitly converted to type __type__ because it is not a wider integer type of the same signedness
+9226	note	integral expression of underlying type __underlying-type__ cannot be implicitly converted to type __type__ because it is __string__
+9227	note	floating expression of underlying type __underlying-type__ cannot be implicitly converted to type __type__ because it is not a wider floating type
+9228	note	floating expression of underlying type __underlying-type__ cannot be implicitly converted to type __type__ because it is __string__
+9229	note	complex integral expression may only be cast to another integral type of the same signedness no wider than the original type
+9230	note	complex floating expression may only be cast to another floating type no wider than the original type
+9231	note	result of __operator__ operator applied to operand of type __type__ must be immediately cast to __type__
+9232	note	expected/did not expect an effectively boolean argument for operator __operator__
+9233	note	bitwise operator __operator__ may not be applied to operand with signed underlying type
+9234	note	shift amount exceeds size of operand's underlying type
+9235	note	unary minus applied to operand with unsigned underlying type
+9236	note	assignment operator may not be used within a boolean-valued expression
+9237	note	conversion between pointer to function type __type__ and differing non-integral type __type__
+9238	note	switch condition may not be boolean
+9240	note	__left/right__ side of logical operator '__operator__' is not a primary expression
+9252	note	testing floating point for equality using exact value
+9254	note	continue statement encountered
+9259	note	C comment contains '://' sequence
+9260	note	C++ style comment used
+9264	note	array subscript applied to variable __symbol__ declared with non-array type __type__
+9272	note	parameter __integer__ of function __symbol__ has different name than overridden function __symbol__ (__symbol__ vs __symbol__)
+9273	note	parameter __integer__ of function __symbol__ has type alias name difference with overridden function __symbol__ (__type__ vs __type__)
+9287	note	cast from pointer to object type (__type__) to pointer to char type (__type__)
+9288	note	unnamed signed single-bit bitfield
+9294	note	return type of function __symbol__ has type alias name difference with overridden function __symbol__ (__type__ vs __type__)
+9295	note	conversion between object pointer type __type__ and non-integer arithmetic essential type '__essential-type__'
+9401	note	function __symbol__ returns pointer to void
+9402	note	function __symbol__ parameter __integer__ is void pointer
+9403	note	function __symbol__ parameter __integer__ has same unqualified type (__type__) as previous parameter
+9404	note	destructor for class __symbol__ should be declared 'noexcept'
+9405	note	move constructor for class __symbol__ should be declared 'noexcept'
+9406	note	move assignment operator __symbol__ should be declared 'noexcept'
+9407	note	copy assignment operator __symbol__ should not be virtual
+9408	note	copy assignment operator __symbol__ should take a const reference type
+9409	note	copy assignment operator __symbol__ should return a non-const lvalue-reference type
+9410	note	move assignment operator __symbol__ should not be virtual
+9411	note	move assignment operator __symbol__ should take a non-const reference type
+9412	note	move assignment operator __symbol__ should return a non-const lvalue-reference type
+9413	note	class __symbol__ contains data members of differing access levels
+9414	note	'typeid' used on expression with side effect
+9415	note	'auto' variable __symbol__ initialized using '__string__' list initialization
+9416	note	typedef used to define name __symbol__
+9417	note	data member __symbol__ has protected access level
+9418	note	enum __symbol__ does not have an explicitly specified underlying type
+9419	note	enum __symbol__ is not a scoped enumeration
+9420	note	bitfield __symbol__ does not have unsigned integer or explicitly unsigned enumeration type
+9421	note	virtual function __symbol__ overrides function __symbol__ and is not marked with 'override' or 'final'
+9422	note	virtual function __symbol__ should specify exactly one of 'virtual', 'override', or 'final'
+9423	note	non-basic character used in identifier __string__
+9424	note	parameter list omitted from lambda expression
+9426	note	lambda used as operand to decltype or typeid
+9428	note	object declared with the definition of __class|struct|union|enum__ __symbol__
+9432	note	class __symbol__ has multiple non-interface bases
+9433	note	literal operator function __symbol__ declared
+9434	note	user-defined literal with suffix __string__ used
+9435	note	__string__ __symbol__ declared as friend in class __symbol__
+9436	note	symbol __symbol__ has array type __type__
+9437	note	non-POD class __symbol__ defined with 'struct' keyword
+9438	note	non-copy, non-move assignment operator __symbol__ should not be virtual
+9439	note	hexadecimal __integral|floating__ literal '__string__' should be upper case
+9440	note	digit sequence separators in__string__ __binary|octal|decimal|hexadecimal__ __integer|floating__ literal '__string__' should be every __integer__ digits
+9441	note	non-final class __symbol__ has a public non-virtual destructor
+9442	note	nested lambda expression
+9443	note	universal-character-name used in identifier __string__
+9444	note	user declared comparison operator __symbol__ is a member function
+9445	note	user declared comparison operator __symbol__ is not noexcept
+9446	note	user declared comparison operator __symbol__ does not have identical parameter types
+9447	info	the return type of __non-member|member__ assignment operator __symbol__ should be __type__
+9448	info	the return value of __non-member|member__ assignment operator __symbol__ should be __string__
+9449	note	inlined member function __symbol__ is not marked as inline
+9456	note	do statement used outside of statement-like macro
+9501	note	preprocessing directive in call to function __symbol__
+9502	note	multi-statement macro '__name__' is not enclosed in monocarpic do-while loop
+9503	note	declaration of __symbol__ specifies an alignment of __integer__ differently from another declaration that derives an equivalent alignment on a different basis (__string__ vs __string__)
+9504	note	argument with essential type '__string__' supplied to type-generic macro '__macro__' resulting in call to function __symbol__ should have an __string__ type
+9901	note	return value '__string__' for call to function __symbol__ updated to '__string__' via return semantic '__string__'
+9902	note	return value '__string__' for call to function __symbol__ not updated by return semantic '__string__' which adds no new information
+9903	note	__essential-type-preview__
+9904	note	hook event: '__string__'
+9905	note	value tracking debug assertion not known to be unequivocally true
+9906	note	value tracking debug value: __string__
+9907	note	metric report debug value
