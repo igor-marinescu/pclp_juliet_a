@@ -98,7 +98,7 @@ git clone "https://github.com/igor-marinescu/pclp_juliet_a.git"
 Set execution permissions for ig1.sh script:
 
 ```bash
-chmod u=rwx,g=r,o=r ig1.sh
+chmod u=rwx,g=r,o=r ~/Work/pclp_juliet_a/ig1.sh
 ```
 
 ### Copy Juliet Test Suite

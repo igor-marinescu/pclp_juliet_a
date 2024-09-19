@@ -17,6 +17,7 @@
 """
 import random
 import matplotlib.pyplot as plt
+import numpy as np
 
 #-------------------------------------------------------------------------------
 def gen_pie(axes, pie_data, pie_fullness = 0.95):
@@ -85,20 +86,45 @@ def gen_pie(axes, pie_data, pie_fullness = 0.95):
         slices_explode.append(0.1)
 
     # plotting the pie chart
-    #plt.clf()
-    axes.pie(slices_values,
-            labels = slices_labels,
+    wedges, texts = axes.pie(slices_values,
+            #labels = slices_labels,
             colors = slices_colors,
             startangle = 90,
             shadow = False,
             explode = tuple(slices_explode),
-            radius = 0.8,
-            autopct = '%1.0f%%',
+            radius = 0.9,
+            #autopct = '%1.0f%%',
+            textprops={'fontsize': 8},
             rotatelabels = True
             )
-    axes.set_title(pie_data[0])
+    
+    #---------------------------------------------------------------------------
+    #bbox_props = dict(boxstyle="square,pad=0.3", fc="w", ec="k", lw=0.72)
+    kw = dict(arrowprops=dict(arrowstyle="-"),
+            #bbox=bbox_props, 
+            zorder=0, va="center")
 
-    #plt.savefig(pie_filename)
+    for i, p in enumerate(wedges):
+        ang = (p.theta2 - p.theta1)/2. + p.theta1
+        y = np.sin(np.deg2rad(ang))
+        x = np.cos(np.deg2rad(ang))
+        horizontalalignment = {-1: "right", 1: "left"}[int(np.sign(x))]
+        connectionstyle = f"angle,angleA=0,angleB={ang}"
+        kw["arrowprops"].update({"connectionstyle": connectionstyle})
+        #axes.annotate(slices_labels[i], xy=(x, y), xytext=(1.35*np.sign(x), 1.4*y),
+        if i % 2:
+            axes.annotate(slices_labels[i], xy=(x, y), xytext=(1.1*np.sign(x), 1.1*y),
+                    horizontalalignment=horizontalalignment, **kw)
+        else:
+            axes.annotate(slices_labels[i], xy=(x, y), xytext=(1.25*np.sign(x), 1.1*y),
+                    horizontalalignment=horizontalalignment, **kw)
+            
+    #---------------------------------------------------------------------------
+
+    axes.set_title(pie_data[0])
+    #axes.legend(wedges, slices_labels, title="Categories", loc="center left", bbox_to_anchor=(1, 0, 0.5, 1))
+
+    #plt.savefig("output_plt.png")
     #plt.show()
 
 #-------------------------------------------------------------------------------
@@ -145,7 +171,7 @@ def gen_plt(pie_data):
             for j in range(plt_cols):
                 gen_pie(axes[i][j], pie_data[i][j])
 
-    #plt.savefig(pie_filename)
+    #plt.savefig("output_plt_2.jpg")
     plt.show()
 
 #-------------------------------------------------------------------------------
@@ -167,7 +193,7 @@ def gen_random_pie_data(title):
     slices_test_data_dict = {}
     slices_test_colors_dict = {}
     slices_test_colors_dict["others"] = "rosybrown"
-    for i in range(20):
+    for i in range(50):
         slice_name = "s" + str(i)
         slices_test_data_dict[slice_name] = random.randint(1, 800)
         slices_test_colors_dict[slice_name] = random.choice(color_list)
@@ -186,7 +212,7 @@ if __name__ == '__main__':
     # Generate test pie-image
 
     NROWS = 2
-    NCOLS = 1
+    NCOLS = 2
 
     random.seed()
 
