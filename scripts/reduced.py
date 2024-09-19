@@ -125,7 +125,8 @@ def generate_plot_data(pclp_m, proc):
     res_cat_colors = {
         "true-positive" : "mediumaquamarine", 
         "false-positive" : "lightcoral", 
-        "other-issues" : "sandybrown"}
+        "other-issues" : "sandybrown",
+        "others" : "sandybrown"}
 
     pies_data[0][0] = ("false-positive vs true-positive", res_cat_dict, res_cat_colors)
 
@@ -134,6 +135,7 @@ def generate_plot_data(pclp_m, proc):
     #---------------------------------------------------------------------------
     issues_dict = {}
     issues_colors = {}
+    issues_colors["others"] = "sandybrown"
     for issue_nr, issue_cnt_list in proc.results_issues.items():
         print(issue_nr, ":", issue_cnt_list)
         issues_dict[pclp_m.get_message_name(issue_nr)] = issue_cnt_list[3]
@@ -146,6 +148,7 @@ def generate_plot_data(pclp_m, proc):
     #---------------------------------------------------------------------------
     issues_dict = {}
     issues_colors = {}
+    issues_colors["others"] = "sandybrown"
     for issue_nr, issue_cnt_list in proc.results_issues.items():
         issues_dict[pclp_m.get_message_name(issue_nr)] = issue_cnt_list[1]
         issues_colors[pclp_m.get_message_name(issue_nr)] = pclp_m.get_message_color(issue_nr)
@@ -157,6 +160,7 @@ def generate_plot_data(pclp_m, proc):
     #---------------------------------------------------------------------------
     issues_dict = {}
     issues_colors = {}
+    issues_colors["others"] = "sandybrown"
     for issue_nr, issue_cnt_list in proc.results_issues.items():
         issues_dict[pclp_m.get_message_name(issue_nr)] = issue_cnt_list[0]
         issues_colors[pclp_m.get_message_name(issue_nr)] = pclp_m.get_message_color(issue_nr)
