@@ -94,38 +94,53 @@ def gen_pie(axes, pie_data, pie_fullness = 0.95):
             explode = tuple(slices_explode),
             radius = 0.9,
             #autopct = '%1.0f%%',
-            textprops={'fontsize': 8},
+            #textprops={'fontsize': 8},
             rotatelabels = True
             )
     
     #---------------------------------------------------------------------------
-    #bbox_props = dict(boxstyle="square,pad=0.3", fc="w", ec="k", lw=0.72)
-    kw = dict(arrowprops=dict(arrowstyle="-"),
-            #bbox=bbox_props, 
-            zorder=0, va="center")
+    kw = dict(arrowprops=dict(arrowstyle="-"), zorder=0, va="center")
 
     for i, p in enumerate(wedges):
-        ang = (p.theta2 - p.theta1)/2. + p.theta1
+        theta_diff = p.theta2 - p.theta1
+        # If the slice to small (small angle) do not display annotation
+        if theta_diff <= 4.0:
+            continue
+
+        ang = theta_diff/2.0 + p.theta1
         y = np.sin(np.deg2rad(ang))
         x = np.cos(np.deg2rad(ang))
+
+        y_text = 1.15*y
+        #x_text = 1.1*x + 0.25*np.sign(x)
+        x_text = 1.18*np.sign(x)
+
+        slice_text = slices_labels[i] + " (" + str(slices_values[i]) + ")"
+
         horizontalalignment = {-1: "right", 1: "left"}[int(np.sign(x))]
+
         connectionstyle = f"angle,angleA=0,angleB={ang}"
         kw["arrowprops"].update({"connectionstyle": connectionstyle})
-        #axes.annotate(slices_labels[i], xy=(x, y), xytext=(1.35*np.sign(x), 1.4*y),
-        if i % 2:
-            axes.annotate(slices_labels[i], xy=(x, y), xytext=(1.1*np.sign(x), 1.1*y),
-                    horizontalalignment=horizontalalignment, **kw)
-        else:
-            axes.annotate(slices_labels[i], xy=(x, y), xytext=(1.25*np.sign(x), 1.1*y),
-                    horizontalalignment=horizontalalignment, **kw)
-            
+        axes.annotate(slice_text, xy=(x, y), xytext=(x_text, y_text),
+            horizontalalignment=horizontalalignment, fontsize=12.0, **kw)
+
+        #if np.sign(x) < 0:
+        #    axes.annotate(str(theta_diff), xy=(x, y), xytext=(x_text, y_text),
+        #        horizontalalignment=horizontalalignment, rotation=ang+180, **kw)
+        #else:
+        #    axes.annotate(str(theta_diff), xy=(x, y), xytext=(x_text, y_text),
+        #        horizontalalignment=horizontalalignment, rotation=ang, **kw)
+
+    # Unkomment the following lines for a donut
+    hole = plt.Circle((0, 0), 0.7, facecolor='white')
+    axes.add_artist(hole)
+    axes.text(0.0, 0.0, pie_data[0], horizontalalignment = "center", 
+              verticalalignment = "center", fontsize = 32.0)
+
     #---------------------------------------------------------------------------
 
-    axes.set_title(pie_data[0])
+    #axes.set_title(pie_data[0])
     #axes.legend(wedges, slices_labels, title="Categories", loc="center left", bbox_to_anchor=(1, 0, 0.5, 1))
-
-    #plt.savefig("output_plt.png")
-    #plt.show()
 
 #-------------------------------------------------------------------------------
 def gen_plt(pie_data):
@@ -171,7 +186,7 @@ def gen_plt(pie_data):
             for j in range(plt_cols):
                 gen_pie(axes[i][j], pie_data[i][j])
 
-    #plt.savefig("output_plt_2.jpg")
+    #plt.savefig("output_plt_4.jpg")
     plt.show()
 
 #-------------------------------------------------------------------------------
@@ -193,16 +208,27 @@ def gen_random_pie_data(title):
     slices_test_data_dict = {}
     slices_test_colors_dict = {}
     slices_test_colors_dict["others"] = "rosybrown"
-    for i in range(50):
+
+    BIG_VAL_CNT, BIG_VAL_MAX = 15, 100
+    SMALL_VAL_CNT, SMALL_VAL_MAX = 30, 10
+
+    # Add big balues
+    for i in range(BIG_VAL_CNT):
         slice_name = "s" + str(i)
-        slices_test_data_dict[slice_name] = random.randint(1, 800)
+        slices_test_data_dict[slice_name] = random.randint(SMALL_VAL_MAX, BIG_VAL_MAX)
         slices_test_colors_dict[slice_name] = random.choice(color_list)
 
-    #sum_val = sum(slices_test_data_dict.values())
-    #print("Sum slices: ", sum_val)
+    # Add small values
+    for i in range(SMALL_VAL_CNT):
+        slice_name = "s" + str(BIG_VAL_CNT + i)
+        slices_test_data_dict[slice_name] = random.randint(1, SMALL_VAL_MAX)
+        slices_test_colors_dict[slice_name] = random.choice(color_list)
 
-    #for sl_name, sl_val in slices_test_data_dict.items():
-    #    print(sl_name, ":", sl_val, "\t", int(sl_val * 100 / sum_val), "%")
+    sum_val = sum(slices_test_data_dict.values())
+    print("Sum slices: ", sum_val)
+
+    for sl_name, sl_val in slices_test_data_dict.items():
+        print(sl_name, ":", sl_val, "\t", int(sl_val * 100 / sum_val), "%")
 
     return (title, slices_test_data_dict, slices_test_colors_dict)
 
@@ -211,8 +237,8 @@ def gen_random_pie_data(title):
 if __name__ == '__main__':
     # Generate test pie-image
 
-    NROWS = 2
-    NCOLS = 2
+    NROWS = 1
+    NCOLS = 1
 
     random.seed()
 
@@ -220,6 +246,6 @@ if __name__ == '__main__':
     for row in range(NROWS):
         pies_data.append([])
         for col in range(NCOLS):
-            pies_data[row].append(gen_random_pie_data("TestPie" + str(row) + str(col)))
+            pies_data[row].append(gen_random_pie_data("TestPie:\nR=" + str(row) + " C=" + str(col)))
 
     gen_plt(pies_data)
