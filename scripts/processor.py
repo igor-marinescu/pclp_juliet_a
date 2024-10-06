@@ -60,7 +60,7 @@ class Processor:
             count of issue found in "bad"-functions (True-Positive Cases)
             count of issue found in "good"-functions (False-Positive Cases)
             count of issue found in the rest of the functions (neither bad nor good)
-            count of issue found in all functions
+            count of issue found in all functions (bad, good and other)
         { 
             issue_nr1 : [count_bad, count_good, count_other, count_all],
             issue_nr2 : [count_bad, count_good, count_other, count_all],

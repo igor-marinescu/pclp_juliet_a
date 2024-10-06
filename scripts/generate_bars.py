@@ -19,14 +19,25 @@ import random
 import matplotlib.pyplot as plt
 
 #-------------------------------------------------------------------------------
-def gen_bars(bar1_dict, bar2_dict, color1, color2, limit_cnt = 0, filename = "output_bar.jpg"):
-    """ barX_dict - a dictionary containing the names and values for one set of bars:
-           {name1 : val1, name2 : val2, ... }
+def gen_bars(bar1_dict, bar2_dict, **kwarg):
+    """ Generate bar-plot.
+        bar1_dict, bar2_dict - dictionaries containing the names and values for
+        two sets of bars. Every dictionary (set of bars) has the format:
+           {name1 : val1, name2 : val2, name3 : val3 ... }
+        Other parameters:
+        title - plot title
+        bar1_color, bar2_color - color or list of color. The colors of the bar faces
+            for both sets of bars.
+        limit_cnt - limit every set to a count of bars
+        filename - do not display but instead save the plot to a file
     """
-    #   
+
     # Combine two bar-dictionaries bar1_dict and bar2_dict into one:
     #   bars_dict - a dictionary containing the names and values for both bars:
-    #       {name1 : [bar1_val1, bar2_val1], name2 : [bar1_val2, bar2_val2], ... }
+    #       {name1 : [bar1_val1, bar2_val1],
+    #        name2 : [bar1_val2, bar2_val2],
+    #           ...
+    #       }
     bars_dict = {b_key:[b_val, 0] for (b_key, b_val) in bar1_dict.items()}
 
     for b_key, b_val in bar2_dict.items():
@@ -38,7 +49,7 @@ def gen_bars(bar1_dict, bar2_dict, color1, color2, limit_cnt = 0, filename = "ou
             # (element[0] in this case is 0)
             bars_dict[b_key] = [0, b_val]
 
-    # Sort dictionary by bar1_val (item[1][0]) 
+    # Sort dictionary by bar1_val (item[1][0])
     bars_dict_sort = dict(sorted(bars_dict.items(), key=lambda item: item[1][0], reverse=False))
     print(bars_dict_sort)
 
@@ -47,29 +58,39 @@ def gen_bars(bar1_dict, bar2_dict, color1, color2, limit_cnt = 0, filename = "ou
     blist_val1 = [x[0] for x in bars_dict_sort.values()]
     blist_val2 = [x[1] for x in bars_dict_sort.values()]
 
-    if limit_cnt and limit_cnt < len(blist_names):
-        limit_cnt = len(blist_names) - limit_cnt
-        del blist_names[:limit_cnt]
-        del blist_val1[:limit_cnt]
-        del blist_val2[:limit_cnt]
+    # Limit the count of bars?
+    if "limit_cnt" in kwarg:
+        limit_cnt = kwarg["limit_cnt"]
+        if limit_cnt < len(blist_names):
+            limit_cnt = len(blist_names) - limit_cnt
+            del blist_names[:limit_cnt]
+            del blist_val1[:limit_cnt]
+            del blist_val2[:limit_cnt]
 
-
-    fig, ax = plt.subplots()
+    #plt.clf()
+    fig, axes = plt.subplots(figsize=(10.0, 10.0))
     x_offset = [0] * len(blist_names)
 
     width = 0.8
 
-    p = ax.barh(blist_names, blist_val1, width, left=x_offset, align='center', color=color1)
+    axes.barh(blist_names, blist_val1, width, left=x_offset,\
+            align='center', color=kwarg.get("bar1_color"))
     x_offset = [sum(x) for x in zip(blist_val1, x_offset)]
-    p = ax.barh(blist_names, blist_val2, width, left=x_offset, align='center', color=color2)
+    axes.barh(blist_names, blist_val2, width, left=x_offset,\
+            align='center', color=kwarg.get("bar2_color"))
 
-    for c in ax.containers:
-        labels = [v if v > 0 else "" for v in c.datavalues]
-        ax.bar_label(c, label_type='center', labels=labels)
+    # Do not display the labels for the bars with 0 value
+    for container in axes.containers:
+        labels = [v if v > 0 else "" for v in container.datavalues]
+        axes.bar_label(container, label_type='center', labels=labels)
 
-    ax.set_title('Title')
-    #plt.show()
-    plt.savefig(filename)
+    if "title" in kwarg:
+        axes.set_title(kwarg["title"])
+
+    if "filename" in kwarg:
+        plt.savefig(kwarg["filename"])
+    else:
+        plt.show()
 
 #-------------------------------------------------------------------------------
 def gen_random_bars_data(big_cnt, big_max, small_cnt, small_max, start_idx = 0):
@@ -109,11 +130,23 @@ def gen_random_bars_data(big_cnt, big_max, small_cnt, small_max, start_idx = 0):
 if __name__ == '__main__':
 
     # Generate random data for two bar-dictionaries:
-    #   barX_dict - a dictionary containing the names and values for one set of bars:
-    #       {name1 : val1, name2 : val2, ... }
     b1_dict = gen_random_bars_data(15, 100, 30, 10, 3)
     b2_dict = gen_random_bars_data(10, 100, 20, 10)
 
-    gen_bars(b1_dict, b2_dict, "mediumaquamarine", "lightcoral", 16, "out_b1.jpg")
-    gen_bars(b2_dict, b1_dict, "lightcoral", "mediumaquamarine", 16, "out_b2.jpg")
-     
+    cl_green = ["greenyellow", "chartreuse", "lawngreen", "palegreen", "lightgreen"]
+    cl_red = ["lightcoral", "salmon", "tomato", "coral", "darksalmon"]
+
+    kwargs = dict()
+    kwargs["limit_cnt"] = 16
+
+    kwargs["title"] = "true-positive vs false-positive"
+    kwargs["filename"] = "out_b1.jpg"
+    kwargs["bar1_color"] = cl_green
+    kwargs["bar2_color"] = cl_red
+    gen_bars(b1_dict, b2_dict, **kwargs)
+
+    kwargs["title"] = "false-positive vs true-positive"
+    kwargs['filename'] = "out_b2.jpg"
+    kwargs["bar1_color"] = cl_red
+    kwargs["bar2_color"] = cl_green
+    gen_bars(b2_dict, b1_dict, **kwargs)

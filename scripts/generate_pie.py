@@ -20,9 +20,8 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 #-------------------------------------------------------------------------------
-def gen_pie(axes, pie_data, pie_fullness = 0.95):
+def gen_pie(pie_data, pie_fullness = 0.95):
     """ Generate a pie chart.
-        axes - drawing axes
         pie_data a tuple: (pie_title, slices_data_dict, slices_colors_dict)
         Where:
             slices_data_dict - a dictionary containing the names and values for all slices:
@@ -30,7 +29,7 @@ def gen_pie(axes, pie_data, pie_fullness = 0.95):
             slices_colors_dict - a dictionary containing the color for every slice:
                 {slice1_name : slice1_color, slice2_name : slice2_color, ...}
 
-        pie_fullness - how much of the pie (in percent) occupy the slices 
+        pie_fullness - how much of the pie (in percent) occupy the slices
                     and the rest of the slices (below this percent) will not be
                     displayed, intead one "others" slice used for the remaining slices
     """
@@ -85,6 +84,8 @@ def gen_pie(axes, pie_data, pie_fullness = 0.95):
         slices_colors.append(pie_data[2]["others"])
         slices_explode.append(0.1)
 
+    fig, axes = plt.subplots(figsize=(10.0, 10.0))
+
     # plotting the pie chart
     wedges, texts = axes.pie(slices_values,
             #labels = slices_labels,
@@ -97,97 +98,52 @@ def gen_pie(axes, pie_data, pie_fullness = 0.95):
             #textprops={'fontsize': 8},
             rotatelabels = True
             )
-    
-    #---------------------------------------------------------------------------
-    kw = dict(arrowprops=dict(arrowstyle="-"), zorder=0, va="center")
 
-    for i, p in enumerate(wedges):
-        theta_diff = p.theta2 - p.theta1
+    #---------------------------------------------------------------------------
+    kwargs = dict(arrowprops=dict(arrowstyle="-"), zorder=0, va="center")
+
+    for idx, wedge in enumerate(wedges):
+        theta_diff = wedge.theta2 - wedge.theta1
         # If the slice to small (small angle) do not display annotation
         if theta_diff <= 4.0:
             continue
 
-        ang = theta_diff/2.0 + p.theta1
-        y = np.sin(np.deg2rad(ang))
-        x = np.cos(np.deg2rad(ang))
+        ang = theta_diff/2.0 + wedge.theta1
+        y_pos = np.sin(np.deg2rad(ang))
+        x_pos = np.cos(np.deg2rad(ang))
 
-        y_text = 1.15*y
-        #x_text = 1.1*x + 0.25*np.sign(x)
-        x_text = 1.18*np.sign(x)
+        y_text = 1.15 * y_pos
+        x_text = 1.18 * np.sign(x_pos)
 
-        slice_text = slices_labels[i] + " (" + str(slices_values[i]) + ")"
+        slice_text = slices_labels[idx] + " (" + str(slices_values[idx]) + ")"
 
-        horizontalalignment = {-1: "right", 1: "left"}[int(np.sign(x))]
+        horizontalalignment = {-1: "right", 1: "left"}[int(np.sign(x_pos))]
 
         connectionstyle = f"angle,angleA=0,angleB={ang}"
-        kw["arrowprops"].update({"connectionstyle": connectionstyle})
-        axes.annotate(slice_text, xy=(x, y), xytext=(x_text, y_text),
-            horizontalalignment=horizontalalignment, fontsize=12.0, **kw)
+        kwargs["arrowprops"].update({"connectionstyle": connectionstyle})
+        axes.annotate(slice_text, xy=(x_pos, y_pos), xytext=(x_text, y_text),
+            horizontalalignment=horizontalalignment, fontsize=12.0, **kwargs)
 
         #if np.sign(x) < 0:
-        #    axes.annotate(str(theta_diff), xy=(x, y), xytext=(x_text, y_text),
-        #        horizontalalignment=horizontalalignment, rotation=ang+180, **kw)
+        #    axes.annotate(str(theta_diff), xy=(x_pos, y_pos), xytext=(x_text, y_text),
+        #        horizontalalignment=horizontalalignment, rotation=ang+180, **kwargs)
         #else:
-        #    axes.annotate(str(theta_diff), xy=(x, y), xytext=(x_text, y_text),
-        #        horizontalalignment=horizontalalignment, rotation=ang, **kw)
+        #    axes.annotate(str(theta_diff), xy=(x_pos, y_pos), xytext=(x_text, y_text),
+        #        horizontalalignment=horizontalalignment, rotation=ang, **kwargs)
 
     # Unkomment the following lines for a donut
     hole = plt.Circle((0, 0), 0.7, facecolor='white')
     axes.add_artist(hole)
-    axes.text(0.0, 0.0, pie_data[0], horizontalalignment = "center", 
+    axes.text(0.0, 0.0, pie_data[0], horizontalalignment = "center",\
               verticalalignment = "center", fontsize = 32.0)
 
     #---------------------------------------------------------------------------
 
     #axes.set_title(pie_data[0])
-    #axes.legend(wedges, slices_labels, title="Categories", loc="center left", bbox_to_anchor=(1, 0, 0.5, 1))
-
-#-------------------------------------------------------------------------------
-def gen_plt(pie_data):
-    """ Generate a plot containing a 2D array of pie charts (every on its axes)
-
-        pie_data a 2D-list (lits in list) of pies:
-
-            pie_data = [
-                [pie_data00, pie_data01, ... pie_data0M],
-                [pie_data10, pie_data11, ... pie_data1M],
-                ...
-                [pie_dataN0, pie_data11, ... pie_dataNM]
-            ]
-
-        Every pie_data is defined as a tuple: 
-                (pie_title, slices_data_dict, slices_colors_dict)    
-        Where:
-            slices_data_dict - a dictionary containing the names and values for all slices:
-                {slice1_name : slice1_val, slice2_name : slice2_val2, ... }
-            slices_colors_dict - a dictionary containing the color for every slice:
-                {slice1_name : slice1_color, slice2_name : slice2_color, ...}
-
-    """
-
-    # Detect the number of rows and columns in pie_data 2D-list
-    plt_rows = len(pie_data)
-    plt_cols = 0
-    for i_row in pie_data:
-        plt_cols = max(plt_cols, len(i_row))
-
-    # Create the figure and populate with pies
-    fig, axes = plt.subplots(plt_rows, plt_cols, figsize=(10.0, 10.0))
-    if plt_rows == 1 and plt_cols == 1:
-        gen_pie(axes, pie_data[0][0])
-    elif plt_rows == 1:
-        for i in range(plt_cols):
-            gen_pie(axes[i], pie_data[0][i])
-    elif plt_cols == 1:
-        for i in range(plt_rows):
-            gen_pie(axes[i], pie_data[i][0])
-    else:
-        for i in range(plt_rows):
-            for j in range(plt_cols):
-                gen_pie(axes[i][j], pie_data[i][j])
-
-    #plt.savefig("output_plt_4.jpg")
-    plt.show()
+    #axes.legend(wedges, slices_labels, title="Categories", loc="center left",\
+    #   bbox_to_anchor=(1, 0, 0.5, 1))
+    plt.savefig("output_plt_4.jpg")
+    #plt.show()
 
 #-------------------------------------------------------------------------------
 def gen_random_pie_data(title):
@@ -237,15 +193,8 @@ def gen_random_pie_data(title):
 if __name__ == '__main__':
     # Generate test pie-image
 
-    NROWS = 1
-    NCOLS = 1
-
     random.seed()
 
-    pies_data = []
-    for row in range(NROWS):
-        pies_data.append([])
-        for col in range(NCOLS):
-            pies_data[row].append(gen_random_pie_data("TestPie:\nR=" + str(row) + " C=" + str(col)))
+    pd = gen_random_pie_data("TestPie:\nR=0 C=2")
 
-    gen_plt(pies_data)
+    gen_pie(pd)
