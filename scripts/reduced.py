@@ -23,6 +23,7 @@ import processor
 import ignore_list
 import pclp_messages
 import generate_pie
+import generate_bars
 
 # Global results folder
 GRES_FOLDER = "ig_gl_out"
@@ -35,6 +36,17 @@ PCLP_OUT_FILE="ig_pclint_out.txt"
 # File where output from interpreter is stored
 INTR_OUT_FILE="ig_interpret_out.txt"
 
+
+# False-Positive colors
+cfp_list_r = ["lightcoral", "indianred", "salmon", "tomato", "darksalmon", "coral", "orangered", "lightsalmon"]
+cfp_list_y = ["sandybrown", "darkorange", "orange", "goldenrod", "gold", "khaki", "navajowhite"]
+cfp_list_p = ["plum", "pink", "thistle", "orchid", "hotpink"]
+
+# True-Positive colors
+ctp_list_g = ["yellowgreen", "palegreen", "limegreen", "mediumspringgreen"]
+ctp_list_t = ["mediumaquamarine", "turquoise", "paleturquoise", "aquamarine"]
+ctp_list_b = ["powderblue", "skyblue", "lightsteelblue", "lightskyblue"]
+
 #-------------------------------------------------------------------------------
 def error_exit(txt1 = None, txt2 = None):
     """ Display error message and exit """
@@ -44,6 +56,34 @@ def error_exit(txt1 = None, txt2 = None):
     if txt2:
         print(txt2, file = sys.stderr)
     sys.exit(1)
+
+#-------------------------------------------------------------------------------
+def generate_issues_colors(issues_dict, cl_list):
+
+    cl_list_cnt = len(cl_list)
+    cl_list_idx = [0] * cl_list_cnt
+    cl_list_act = 0
+
+    issues_colors = {}
+
+    # Sort the slices dictionary based on values
+    issues_sorted_list = sorted(issues_dict.items(), key=lambda x: x[1], reverse = True)
+    # This generates a sorted list of tuples: [(<slice_name>, <slice_val>),...]
+    # Example: [("i793", 15), ("w746", 10), ("i2707", 3), ("e838", 3), ... ]
+
+    for issue_t in issues_sorted_list:
+        col = None
+        col = cl_list[cl_list_act][cl_list_idx[cl_list_act]]
+        cl_list_idx[cl_list_act] += 1
+        if cl_list_idx[cl_list_act] >= len(cl_list[cl_list_act]):
+            cl_list_idx[cl_list_act] = 0
+        cl_list_act += 1
+        if cl_list_act >= cl_list_cnt:
+            cl_list_act = 0
+
+        issues_colors[issue_t[0]] = col
+
+    return issues_colors
 
 #-------------------------------------------------------------------------------
 def process_makefile_line(proc, gres_path_arg, working_dir_arg, makefile, module_ignore_list):
@@ -105,14 +145,12 @@ def generate_plot_data(pclp_m, proc):
                 {slice1_name : slice1_color, slice2_name : slice2_color, ...}
     """
 
-    pies_data = [[None for col in range(2)] for row in range(2)] 
-
     #---------------------------------------------------------------------------
     # Category results
     #---------------------------------------------------------------------------
-    print("bad: ", proc.results_all_bad)
-    print("good: ", proc.results_all_good)
-    print("other: ", proc.results_all_other)
+    #print("bad: ", proc.results_all_bad)
+    #print("good: ", proc.results_all_good)
+    #print("other: ", proc.results_all_other)
 
     res_cat_dict = {}
     if proc.results_all_bad:
@@ -128,47 +166,59 @@ def generate_plot_data(pclp_m, proc):
         "other-issues" : "sandybrown",
         "others" : "sandybrown"}
 
-    pies_data[0][0] = ("false-positive vs true-positive", res_cat_dict, res_cat_colors)
+    generate_pie.gen_pie(("false-positive\nvs\ntrue-positive", res_cat_dict, res_cat_colors), "out_pie00.jpg")
 
     #---------------------------------------------------------------------------
     # All issues found
     #---------------------------------------------------------------------------
-    issues_dict = {}
-    issues_colors = {}
-    issues_colors["others"] = "sandybrown"
+    issues_dict0 = {}
     for issue_nr, issue_cnt_list in proc.results_issues.items():
-        print(issue_nr, ":", issue_cnt_list)
-        issues_dict[pclp_m.get_message_name(issue_nr)] = issue_cnt_list[3]
-        issues_colors[pclp_m.get_message_name(issue_nr)] = pclp_m.get_message_color(issue_nr)
+        #print(issue_nr, ":", issue_cnt_list)
+        issues_dict0[pclp_m.get_message_name(issue_nr)] = issue_cnt_list[3]
 
-    pies_data[0][1] = ("all issues", issues_dict, issues_colors)
+    issues_colors0 = generate_issues_colors(issues_dict0, \
+        [cfp_list_r, cfp_list_y, cfp_list_p, ctp_list_g, ctp_list_t, ctp_list_b])
+    issues_colors0["others"] = "sandybrown"
+
+    generate_pie.gen_pie(("all issues", issues_dict0, issues_colors0), "out_pie01.jpg")
 
     #---------------------------------------------------------------------------
     # False-positive issues found
     #---------------------------------------------------------------------------
-    issues_dict = {}
-    issues_colors = {}
-    issues_colors["others"] = "sandybrown"
+    issues_dict1 = {}
     for issue_nr, issue_cnt_list in proc.results_issues.items():
-        issues_dict[pclp_m.get_message_name(issue_nr)] = issue_cnt_list[1]
-        issues_colors[pclp_m.get_message_name(issue_nr)] = pclp_m.get_message_color(issue_nr)
+        issues_dict1[pclp_m.get_message_name(issue_nr)] = issue_cnt_list[1]
 
-    pies_data[1][0] = ("false-positive issues", issues_dict, issues_colors)
+    issues_colors1 = generate_issues_colors(issues_dict1, [cfp_list_r, cfp_list_y, cfp_list_p])
+    issues_colors1["others"] = "sandybrown"
+
+    generate_pie.gen_pie(("false-positive\nissues", issues_dict1, issues_colors1), "out_pie10.jpg")
 
     #---------------------------------------------------------------------------
     # True-positive issues found
     #---------------------------------------------------------------------------
-    issues_dict = {}
-    issues_colors = {}
-    issues_colors["others"] = "sandybrown"
+    issues_dict2 = {}
     for issue_nr, issue_cnt_list in proc.results_issues.items():
-        issues_dict[pclp_m.get_message_name(issue_nr)] = issue_cnt_list[0]
-        issues_colors[pclp_m.get_message_name(issue_nr)] = pclp_m.get_message_color(issue_nr)
+        issues_dict2[pclp_m.get_message_name(issue_nr)] = issue_cnt_list[0]
 
-    pies_data[1][1] = ("true-positive issues", issues_dict, issues_colors)
+    issues_colors2 = generate_issues_colors(issues_dict2, [ctp_list_g, ctp_list_t, ctp_list_b])
+    issues_colors2["others"] = "sandybrown"
+
+    generate_pie.gen_pie(("true-positive\nissues", issues_dict2, issues_colors2), "out_pie11.jpg")
 
     #---------------------------------------------------------------------------
-    generate_pie.gen_plt(pies_data)
+    # Generate bars
+    #---------------------------------------------------------------------------
+    kwargs = dict()
+    kwargs["limit_cnt"] = 16
+
+    kwargs["title"] = "true-positive vs false-positive"
+    kwargs["filename"] = "out_bar1.jpg"
+    generate_bars.gen_bars(issues_dict1, issues_dict2, **kwargs)
+
+    kwargs["title"] = "false-positive vs true-positive"
+    kwargs['filename'] = "out_bar2.jpg"
+    generate_bars.gen_bars(issues_dict2, issues_dict1, **kwargs)
 
 #-------------------------------------------------------------------------------
 if __name__ == '__main__':
@@ -259,7 +309,7 @@ if __name__ == '__main__':
             error_exit("Error PClint messages", err_str)
 
         # Generate pie result images
-        print("Generating result charts")
+        #print("Generating result charts")
         generate_plot_data(pclp_msg, pr)
 
     else:

@@ -20,7 +20,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 #-------------------------------------------------------------------------------
-def gen_pie(pie_data, pie_fullness = 0.95):
+def gen_pie(pie_data, filename, pie_fullness = 0.95):
     """ Generate a pie chart.
         pie_data a tuple: (pie_title, slices_data_dict, slices_colors_dict)
         Where:
@@ -74,7 +74,7 @@ def gen_pie(pie_data, pie_fullness = 0.95):
         slices_values.append(slice_val)
         slices_labels.append(slice_name)
         slices_colors.append(pie_data[2][slice_name])
-        slices_explode.append(0.1)
+        slices_explode.append(0.05)
         pie_full_percent += (slice_val  / sum_vals)
 
     # Add the remaining "others" slice
@@ -82,9 +82,9 @@ def gen_pie(pie_data, pie_fullness = 0.95):
         slices_values.append(other_val)
         slices_labels.append("others")
         slices_colors.append(pie_data[2]["others"])
-        slices_explode.append(0.1)
+        slices_explode.append(0.05)
 
-    fig, axes = plt.subplots(figsize=(10.0, 10.0))
+    fig, axes = plt.subplots(figsize=(10.0, 8.0))
 
     # plotting the pie chart
     wedges, texts = axes.pie(slices_values,
@@ -92,8 +92,8 @@ def gen_pie(pie_data, pie_fullness = 0.95):
             colors = slices_colors,
             startangle = 90,
             shadow = False,
-            explode = tuple(slices_explode),
-            radius = 0.9,
+            #explode = tuple(slices_explode),
+            #radius = 0.9,
             #autopct = '%1.0f%%',
             #textprops={'fontsize': 8},
             rotatelabels = True
@@ -112,7 +112,7 @@ def gen_pie(pie_data, pie_fullness = 0.95):
         y_pos = np.sin(np.deg2rad(ang))
         x_pos = np.cos(np.deg2rad(ang))
 
-        y_text = 1.15 * y_pos
+        y_text = 1.2 * y_pos
         x_text = 1.18 * np.sign(x_pos)
 
         slice_text = slices_labels[idx] + " (" + str(slices_values[idx]) + ")"
@@ -135,15 +135,18 @@ def gen_pie(pie_data, pie_fullness = 0.95):
     hole = plt.Circle((0, 0), 0.7, facecolor='white')
     axes.add_artist(hole)
     axes.text(0.0, 0.0, pie_data[0], horizontalalignment = "center",\
-              verticalalignment = "center", fontsize = 32.0)
+              verticalalignment = "center", fontsize = 30.0)
 
     #---------------------------------------------------------------------------
 
     #axes.set_title(pie_data[0])
     #axes.legend(wedges, slices_labels, title="Categories", loc="center left",\
     #   bbox_to_anchor=(1, 0, 0.5, 1))
-    plt.savefig("output_plt_4.jpg")
-    #plt.show()
+
+    if filename:
+        plt.savefig(filename)
+    else:
+        plt.show()
 
 #-------------------------------------------------------------------------------
 def gen_random_pie_data(title):
@@ -197,4 +200,4 @@ if __name__ == '__main__':
 
     pd = gen_random_pie_data("TestPie:\nR=0 C=2")
 
-    gen_pie(pd)
+    gen_pie(pd, None)

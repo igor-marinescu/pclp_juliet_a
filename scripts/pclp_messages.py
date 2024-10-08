@@ -47,6 +47,11 @@ PCLP_MSG_COLOR_MAP = {PCLP_MSG_TYPE_UNKNOWN : ["red"], \
                       PCLP_MSG_TYPE_SUPP : PCLP_MSG_SUPP_COLORS, \
                       PCLP_MSG_TYPE_NOTE : PCLP_MSG_NOTE_COLORS }
 
+# False-Positive colors
+PCLP_MSG_FP = ["lightcoral", "indianred", "salmon", "tomato", "darksalmon", \
+                "coral", "orangered", "lightsalmon", "sandybrown", "darkorange", \
+                "orange", "goldenrod", "gold", "pluum", "pink"]
+
 #-------------------------------------------------------------------------------
 class PclpMessages:
     """ PclpMessages - loads and holds all messages available in PClint (and 

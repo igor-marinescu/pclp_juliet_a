@@ -57,6 +57,7 @@ Install the required python modules regex and pyyaml for PClint to work:
 ```bash
 pip3 install regex
 pip3 install pyyaml
+pip3 install matplotlib
 ```
 
 In case the above gives PEP 668 error message:
@@ -76,6 +77,7 @@ Install the required python modules regex and pyyaml using 'apt install python3-
 ```bash
 sudo apt install python3-regex
 sudo apt install python3-yaml
+sudo apt install python3-matplotlib
 ```
 
 ### Build imposter with gcc

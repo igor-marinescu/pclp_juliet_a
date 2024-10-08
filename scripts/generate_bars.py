@@ -51,7 +51,7 @@ def gen_bars(bar1_dict, bar2_dict, **kwarg):
 
     # Sort dictionary by bar1_val (item[1][0])
     bars_dict_sort = dict(sorted(bars_dict.items(), key=lambda item: item[1][0], reverse=False))
-    print(bars_dict_sort)
+    #print(bars_dict_sort)
 
     # Generate list of names and values for bars1 and 2
     blist_names = list(bars_dict_sort.keys())
