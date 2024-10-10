@@ -1,2 +1,2 @@
-C:\Work\notes\projects\pclp_juliet_a\test\testcases\CWE561_Dead_Code\Makefile
-C:\Work\notes\projects\pclp_juliet_a\test\testcases\CWE835_Infinite_Loop\Makefile
+C:\Work\projects\diverse_intern\pclp_juliet_a\test\testcases\CWE561_Dead_Code\Makefile
+C:\Work\projects\diverse_intern\pclp_juliet_a\test\testcases\CWE835_Infinite_Loop\Makefile

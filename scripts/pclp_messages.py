@@ -33,25 +33,6 @@ PCLP_MSG_TYPE_PREFIX = {PCLP_MSG_TYPE_UNKNOWN : '?', \
                         PCLP_MSG_TYPE_SUPP : 's', \
                         PCLP_MSG_TYPE_NOTE : 'n' }
 
-# PClint message type colors
-PCLP_MSG_ERROR_COLORS = ["red", "firebrick", "maroon", "crimson", "darkred"]
-PCLP_MSG_WARN_COLORS = ["lightcoral", "indianred", "salmon", "tomato", "coral"]
-PCLP_MSG_INFO_COLORS = ["coral", "salmon", "darksalmon", "lightsalmon", "sandybrown"]
-PCLP_MSG_SUPP_COLORS = ["bisque", "navajowhite", "peachpuff", "moccasin", "wheat"]
-PCLP_MSG_NOTE_COLORS = ["paleturquoise", "powderblue", "lightblue", "skyblue", "lightskyblue"]
-
-PCLP_MSG_COLOR_MAP = {PCLP_MSG_TYPE_UNKNOWN : ["red"], \
-                      PCLP_MSG_TYPE_ERROR : PCLP_MSG_ERROR_COLORS, \
-                      PCLP_MSG_TYPE_WARN : PCLP_MSG_WARN_COLORS, \
-                      PCLP_MSG_TYPE_INFO : PCLP_MSG_INFO_COLORS, \
-                      PCLP_MSG_TYPE_SUPP : PCLP_MSG_SUPP_COLORS, \
-                      PCLP_MSG_TYPE_NOTE : PCLP_MSG_NOTE_COLORS }
-
-# False-Positive colors
-PCLP_MSG_FP = ["lightcoral", "indianred", "salmon", "tomato", "darksalmon", \
-                "coral", "orangered", "lightsalmon", "sandybrown", "darkorange", \
-                "orange", "goldenrod", "gold", "pluum", "pink"]
-
 #-------------------------------------------------------------------------------
 class PclpMessages:
     """ PclpMessages - loads and holds all messages available in PClint (and 
@@ -122,18 +103,6 @@ class PclpMessages:
                 self.msg_text[msg_nr] = values[2]
                 line_idx += 1
         return error_str
-
-    #---------------------------------------------------------------------------
-    def get_message_color(self, msg_nr):
-        """
-            Return a message color based on message type.
-        """
-        msg_type = self.msg_type.get(msg_nr)
-        if not msg_type:
-            return "red"
-        color_list = PCLP_MSG_COLOR_MAP[msg_type]
-        color_idx = msg_nr % len(color_list)
-        return color_list[color_idx]
 
     #---------------------------------------------------------------------------
     def get_message_name(self, msg_nr):

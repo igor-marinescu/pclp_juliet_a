@@ -67,6 +67,21 @@ def gen_bars(bar1_dict, bar2_dict, **kwarg):
             del blist_val1[:limit_cnt]
             del blist_val2[:limit_cnt]
 
+    # Generate list of colors 
+    bar1_color_dict = kwarg.get("bar1_color")
+    blist_col1 = None
+    if bar1_color_dict:
+        blist_col1 = list()
+        for issue_name in blist_names:
+            blist_col1.append(bar1_color_dict[issue_name])
+
+    bar2_color_dict = kwarg.get("bar2_color")
+    blist_col2 = None
+    if bar1_color_dict:
+        blist_col2 = list()
+        for issue_name in blist_names:
+            blist_col2.append(bar2_color_dict[issue_name])
+
     #plt.clf()
     fig, axes = plt.subplots(figsize=(10.0, 10.0))
     x_offset = [0] * len(blist_names)
@@ -74,10 +89,10 @@ def gen_bars(bar1_dict, bar2_dict, **kwarg):
     width = 0.8
 
     axes.barh(blist_names, blist_val1, width, left=x_offset,\
-            align='center', color=kwarg.get("bar1_color"))
+            align='center', color=blist_col1)
     x_offset = [sum(x) for x in zip(blist_val1, x_offset)]
     axes.barh(blist_names, blist_val2, width, left=x_offset,\
-            align='center', color=kwarg.get("bar2_color"))
+            align='center', color=blist_col2)
 
     # Do not display the labels for the bars with 0 value
     for container in axes.containers:
@@ -133,20 +148,13 @@ if __name__ == '__main__':
     b1_dict = gen_random_bars_data(15, 100, 30, 10, 3)
     b2_dict = gen_random_bars_data(10, 100, 20, 10)
 
-    cl_green = ["greenyellow", "chartreuse", "lawngreen", "palegreen", "lightgreen"]
-    cl_red = ["lightcoral", "salmon", "tomato", "coral", "darksalmon"]
-
     kwargs = dict()
     kwargs["limit_cnt"] = 16
 
     kwargs["title"] = "true-positive vs false-positive"
     kwargs["filename"] = "out_b1.jpg"
-    kwargs["bar1_color"] = cl_green
-    kwargs["bar2_color"] = cl_red
     gen_bars(b1_dict, b2_dict, **kwargs)
 
     kwargs["title"] = "false-positive vs true-positive"
     kwargs['filename'] = "out_b2.jpg"
-    kwargs["bar1_color"] = cl_red
-    kwargs["bar2_color"] = cl_green
     gen_bars(b2_dict, b1_dict, **kwargs)

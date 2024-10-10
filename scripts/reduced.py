@@ -36,7 +36,6 @@ PCLP_OUT_FILE="ig_pclint_out.txt"
 # File where output from interpreter is stored
 INTR_OUT_FILE="ig_interpret_out.txt"
 
-
 # False-Positive colors
 cfp_list_r = ["lightcoral", "indianred", "salmon", "tomato", "darksalmon", "coral", "orangered", "lightsalmon"]
 cfp_list_y = ["sandybrown", "darkorange", "orange", "goldenrod", "gold", "khaki", "navajowhite"]
@@ -59,6 +58,24 @@ def error_exit(txt1 = None, txt2 = None):
 
 #-------------------------------------------------------------------------------
 def generate_issues_colors(issues_dict, cl_list):
+    """ Create a dictionary with unique colors for issues.
+    issues_dict - dictionary containing issue-names (als keys) and issue-count.
+            Example: {"w746":10, "i2707":3, "i793":15, "e838":3, ... }
+    cl_list - a list of list of colors - every element of cl_list is a list of colors.
+            Example: [  ["sandybrown", "darkorange", "orange", ...],
+                        ["plum", "pink", "thistle", "orchid", ...],
+                        ["powderblue", "skyblue", "lightsteelblue", ...]
+                        ...
+                     ]
+    The function sorts all issues by the values - issues with bigger count are first,
+    issues with smaller count are last. Every issue is assigned a unique color.
+    The colors a selected one by one from every list: 
+            cl_list[0][0], cl_list[1][0], cl_list[2][0], ..., cl_list[N][0],
+            cl_list[0][1], cl_list[1][1], cl_list[2][1], ..., cl_list[N][1]
+            ...
+    The results are stored in a dictionary. 
+            Example: { "i793":"sandybrown", "w746":"plum", "i2707":"powderblue", ...}
+    """
 
     cl_list_cnt = len(cl_list)
     cl_list_idx = [0] * cl_list_cnt
@@ -177,7 +194,7 @@ def generate_plot_data(pclp_m, proc):
         issues_dict0[pclp_m.get_message_name(issue_nr)] = issue_cnt_list[3]
 
     issues_colors0 = generate_issues_colors(issues_dict0, \
-        [cfp_list_r, cfp_list_y, cfp_list_p, ctp_list_g, ctp_list_t, ctp_list_b])
+        [cfp_list_r, ctp_list_g, cfp_list_y, ctp_list_t, cfp_list_p, ctp_list_b])
     issues_colors0["others"] = "sandybrown"
 
     generate_pie.gen_pie(("all issues", issues_dict0, issues_colors0), "out_pie01.jpg")
@@ -214,10 +231,14 @@ def generate_plot_data(pclp_m, proc):
 
     kwargs["title"] = "true-positive vs false-positive"
     kwargs["filename"] = "out_bar1.jpg"
+    kwargs["bar1_color"] = issues_colors1
+    kwargs["bar2_color"] = issues_colors2
     generate_bars.gen_bars(issues_dict1, issues_dict2, **kwargs)
 
     kwargs["title"] = "false-positive vs true-positive"
     kwargs['filename'] = "out_bar2.jpg"
+    kwargs["bar1_color"] = issues_colors2
+    kwargs["bar2_color"] = issues_colors1
     generate_bars.gen_bars(issues_dict2, issues_dict1, **kwargs)
 
 #-------------------------------------------------------------------------------

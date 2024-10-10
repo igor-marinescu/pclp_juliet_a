@@ -9,7 +9,7 @@ CWE561_Dead_Code__return_before_code_01.c C
 (28, ' info', 793)
 (30, ' info', 746)
 [CParser]
-C:\Work\notes\projects\pclp_juliet_a\test\testcases\CWE561_Dead_Code\CWE561_Dead_Code__return_before_code_01.c
+C:\Work\projects\diverse_intern\pclp_juliet_a\test\testcases\CWE561_Dead_Code\CWE561_Dead_Code__return_before_code_01.c
 ( 10,  1),( 15,  1), CWE561_Dead_Code__return_before_code_01_bad
 ( 21,  1),( 26,  1), good1
 ( 28,  1),( 31,  1), CWE561_Dead_Code__return_before_code_01_good
@@ -27,7 +27,7 @@ CWE561_Dead_Code__unused_function_01.c C
 (38, ' info', 793)
 (40, ' info', 746)
 [CParser]
-C:\Work\notes\projects\pclp_juliet_a\test\testcases\CWE561_Dead_Code\CWE561_Dead_Code__unused_function_01.c
+C:\Work\projects\diverse_intern\pclp_juliet_a\test\testcases\CWE561_Dead_Code\CWE561_Dead_Code__unused_function_01.c
 ( 12,  1),( 15,  1), helperBad
 ( 17,  1),( 20,  1), CWE561_Dead_Code__unused_function_01_bad
 ( 27,  1),( 30,  1), helperGood1
@@ -66,7 +66,7 @@ line: 40 issue: 746 func: CWE561_Dead_Code__unused_function_01_good
 (116, ' info', 706)
 (135, ' info', 732)
 (135, ' info', 732)
-Module in ignore list: C:\Work\notes\projects\pclp_juliet_a\test\testcasesupport\io.c
+Module in ignore list: C:\Work\projects\diverse_intern\pclp_juliet_a\test\testcasesupport\io.c
 --------------------------------------------------------------------------------
 [PclpInterpreter]
 ../../testcasesupport/std_thread.c C
@@ -83,7 +83,7 @@ Module in ignore list: C:\Work\notes\projects\pclp_juliet_a\test\testcasesupport
 (196, ' info', 2751)
 (205, ' info', 2751)
 (91, ' info', 818)
-Module in ignore list: C:\Work\notes\projects\pclp_juliet_a\test\testcasesupport\std_thread.c
+Module in ignore list: C:\Work\projects\diverse_intern\pclp_juliet_a\test\testcasesupport\std_thread.c
 --------------------------------------------------------------------------------
 [PclpInterpreter]
 main_linux.cpp C++
@@ -184,7 +184,7 @@ CWE561_Dead_Code__unused_function_01.c C
 (19, ' info', 765)
 (62, ' info', 714)
 (62, ' info', 765)
-Module in ignore list: C:\Work\notes\projects\pclp_juliet_a\test\testcasesupport\io.c
+Module in ignore list: C:\Work\projects\diverse_intern\pclp_juliet_a\test\testcasesupport\io.c
 --------------------------------------------------------------------------------
 [PclpInterpreter]
 ../../testcasesupport/std_thread.c C
@@ -202,4 +202,4 @@ Module in ignore list: C:\Work\notes\projects\pclp_juliet_a\test\testcasesupport
 (200, ' info', 765)
 (188, ' info', 714)
 (188, ' info', 765)
-Module in ignore list: C:\Work\notes\projects\pclp_juliet_a\test\testcasesupport\std_thread.c
+Module in ignore list: C:\Work\projects\diverse_intern\pclp_juliet_a\test\testcasesupport\std_thread.c
