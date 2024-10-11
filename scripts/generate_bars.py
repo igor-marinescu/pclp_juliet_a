@@ -19,7 +19,7 @@ import random
 import matplotlib.pyplot as plt
 
 #-------------------------------------------------------------------------------
-def gen_bars(bar1_dict, bar2_dict, **kwarg):
+def gen_bars(bar_axes, bar1_dict, bar2_dict, **kwarg):
     """ Generate bar-plot.
         bar1_dict, bar2_dict - dictionaries containing the names and values for
         two sets of bars. Every dictionary (set of bars) has the format:
@@ -51,7 +51,6 @@ def gen_bars(bar1_dict, bar2_dict, **kwarg):
 
     # Sort dictionary by bar1_val (item[1][0])
     bars_dict_sort = dict(sorted(bars_dict.items(), key=lambda item: item[1][0], reverse=False))
-    #print(bars_dict_sort)
 
     # Generate list of names and values for bars1 and 2
     blist_names = list(bars_dict_sort.keys())
@@ -67,45 +66,39 @@ def gen_bars(bar1_dict, bar2_dict, **kwarg):
             del blist_val1[:limit_cnt]
             del blist_val2[:limit_cnt]
 
-    # Generate list of colors 
+    # Generate list of colors
     bar1_color_dict = kwarg.get("bar1_color")
     blist_col1 = None
     if bar1_color_dict:
-        blist_col1 = list()
+        blist_col1 = []
         for issue_name in blist_names:
             blist_col1.append(bar1_color_dict[issue_name])
 
     bar2_color_dict = kwarg.get("bar2_color")
     blist_col2 = None
     if bar1_color_dict:
-        blist_col2 = list()
+        blist_col2 = []
         for issue_name in blist_names:
             blist_col2.append(bar2_color_dict[issue_name])
 
-    #plt.clf()
-    fig, axes = plt.subplots(figsize=(10.0, 10.0))
     x_offset = [0] * len(blist_names)
-
     width = 0.8
 
-    axes.barh(blist_names, blist_val1, width, left=x_offset,\
+    bar_axes.barh(blist_names, blist_val1, width, left=x_offset,\
             align='center', color=blist_col1)
     x_offset = [sum(x) for x in zip(blist_val1, x_offset)]
-    axes.barh(blist_names, blist_val2, width, left=x_offset,\
+    bar_axes.barh(blist_names, blist_val2, width, left=x_offset,\
             align='center', color=blist_col2)
 
     # Do not display the labels for the bars with 0 value
-    for container in axes.containers:
+    for container in bar_axes.containers:
         labels = [v if v > 0 else "" for v in container.datavalues]
-        axes.bar_label(container, label_type='center', labels=labels)
+        bar_axes.bar_label(container, label_type='center', labels=labels)
 
     if "title" in kwarg:
-        axes.set_title(kwarg["title"])
+        bar_axes.set_title(kwarg["title"], fontsize = 30.0, y=-0.1)
 
-    if "filename" in kwarg:
-        plt.savefig(kwarg["filename"])
-    else:
-        plt.show()
+    bar_axes.get_xaxis().set_visible(False)
 
 #-------------------------------------------------------------------------------
 def gen_random_bars_data(big_cnt, big_max, small_cnt, small_max, start_idx = 0):
@@ -148,13 +141,18 @@ if __name__ == '__main__':
     b1_dict = gen_random_bars_data(15, 100, 30, 10, 3)
     b2_dict = gen_random_bars_data(10, 100, 20, 10)
 
-    kwargs = dict()
+    #plt.clf()
+    fig, baxes = plt.subplots(1, 2, figsize=(10.0, 10.0))
+
+    kwargs = {}
     kwargs["limit_cnt"] = 16
 
     kwargs["title"] = "true-positive vs false-positive"
-    kwargs["filename"] = "out_b1.jpg"
-    gen_bars(b1_dict, b2_dict, **kwargs)
+
+    gen_bars(baxes[0], b1_dict, b2_dict, **kwargs)
 
     kwargs["title"] = "false-positive vs true-positive"
-    kwargs['filename'] = "out_b2.jpg"
-    gen_bars(b2_dict, b1_dict, **kwargs)
+    gen_bars(baxes[1], b2_dict, b1_dict, **kwargs)
+
+    #plt.savefig(filename)
+    plt.show()

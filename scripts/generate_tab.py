@@ -15,11 +15,36 @@
 #-------------------------------------------------------------------------------
 """ generate_tab - generates table.
 """
-import random
 import matplotlib.pyplot as plt
 
 #-------------------------------------------------------------------------------
-if __name__ == '__main__':
+def gen_tab(tab_axes, data_dict, location = 'top'):
+    """ Generate a table with issues names and their description.
+        tab_axes - axes of the table
+        data_dict - a dictionary containing the issue name and its description:
+            {issue1_name : issue1_descr, issue2_name : issue2_descr, ... }
+    """
+
+    row_labels = list(data_dict.keys())
+
+    cell_text = []
+    for row in data_dict.values():
+        row_text = []
+        row_text.append(row)
+        cell_text.append(row_text)
+
+    tab_axes.axis('off')
+    tab_axes.table(
+        cellText=cell_text,
+        rowLabels=row_labels,
+        cellLoc='left',
+        loc = location
+    )
+
+#-------------------------------------------------------------------------------
+def gen_test_tab_data():
+    """ Generate and return a dictionary containing test data for a table 
+    """
 
     row_labels = ['e131', 'e132', 'e136', 'e138', 'e139', 'e148', 'e157', 'e160', 'e161', 'e175']
 
@@ -33,23 +58,16 @@ if __name__ == '__main__':
         "no data may follow an incomplete array",
         "the sequence ({ is non standard and is taken to introduce a GNU statement expression",
         "repeated use of parameter __symbol__ in parameter list",
-        "cannot pass __string__ to variadic __string__; expected type from format string was __type__"
+        "cannot pass __string__ to variadic __string__; expected type from format string",
     ]
 
+    return dict(zip(row_labels, cdata))
 
-    cell_text = list()
-    for row in cdata:
-        row_text = list()
-        row_text.append(row)
-        cell_text.append(row_text)
+#-------------------------------------------------------------------------------
+if __name__ == '__main__':
 
-    fig, axs = plt.subplots()
-    axs.axis('off')
-    axs.table(
-        cellText=cell_text,
-        rowLabels=row_labels,
-        cellLoc='left',
-        loc='center',
-    )
-
+    # Generate test table using test data
+    tab_test_dict = gen_test_tab_data()
+    fig, taxes = plt.subplots()
+    gen_tab(taxes, tab_test_dict, None)
     plt.show()

@@ -117,6 +117,16 @@ class PclpMessages:
             return None
         return PCLP_MSG_TYPE_PREFIX[msg_type] + str(msg_nr)
 
+    #---------------------------------------------------------------------------
+    def get_message_text(self, msg_nr):
+        """
+            Return a message text description based on message number.
+            Example: 
+            msg_nr=25, defined as "25 error character constant...", 
+            return "character constant..."
+        """
+        return self.msg_text.get(msg_nr)
+
 #-------------------------------------------------------------------------------
 if __name__ == '__main__':
 
