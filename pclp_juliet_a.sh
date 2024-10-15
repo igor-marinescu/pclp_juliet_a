@@ -3,33 +3,16 @@
 #-------------------------------------------------------------------------------
 # Configuration
 #-------------------------------------------------------------------------------
+source ./scripts/config_vars.py
 
-# Name of the PClint command
-PCLP_NAME="pclp64_linux"
-
-#--- Global for working directory (all makefiles) ------------------------------
-
-# Global results folder
-GRES_FOLDER="ig_gl_out"
 # Name of generated Compile Configuration
 PCLP_CO_NAME="./$GRES_FOLDER/ig_co-gcc"
+
 # File where all found Makefiles are stored
-MAKEFILES_NAME="./$GRES_FOLDER/ig_makefiles.txt"
+MAKEFILES_FILE="./$GRES_FOLDER/$MAKEFILES_NAME"
+
 # File where global results (for all makefiles) are stored
-GRES_OUT_FILE="./$GRES_FOLDER/ig_global_results.txt"
-
-#--- Local (for every makefile) ------------------------------------------------
-
-# Generated Project Configuration file:
-PCLP_PRJ_FILE="ig_project.lnt"
-# PClint output file:
-PCLP_OUT_FILE="ig_pclint_out.txt"
-# Imposter output file:
-IMPO_OUT_FILE="ig_imposter_out.txt"
-# File where output from make is stored
-MAKE_OUT_FILE="ig_make_out.txt"
-# File where output from interpreter is stored
-INTR_OUT_FILE="ig_interpret_out.txt"
+GRES_OUT_FILE="./$GRES_FOLDER/$GRES_OUT_NAME"
 
 #-------------------------------------------------------------------------------
 # Script name and path
@@ -70,6 +53,7 @@ if [[ $? -ne 0 ]]; then
     echo "[ERROR] Cannot create global output folder: $GRES_FOLDER"
     exit 1
 fi
+echo "[INFO] Results=$GRES_FOLDER"
 
 #-------------------------------------------------------------------------------
 # Find the gcc Compiler
@@ -128,9 +112,9 @@ fi
 #-------------------------------------------------------------------------------
 # Find all Makefiles in all subdirectories (store in ig_makfiles.txt)
 #-------------------------------------------------------------------------------
-find "$WORKING_DIR" -name "Makefile" > "$MAKEFILES_NAME"
+find "$WORKING_DIR" -name "Makefile" > "$MAKEFILES_FILE"
 
-MAKEFILES_COUNT=$(wc -l < "$MAKEFILES_NAME")
+MAKEFILES_COUNT=$(wc -l < "$MAKEFILES_FILE")
 if [[ $MAKEFILES_COUNT -le 0 ]]; then
     echo "[INFO] No Makefiles found, nothing to do"
     exit 0
@@ -197,4 +181,4 @@ while read make_file; do
     #    exit 1
     #fi
 
-done < "$WORKING_DIR/$MAKEFILES_NAME"
+done < "$WORKING_DIR/$MAKEFILES_FILE"

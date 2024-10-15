@@ -121,11 +121,11 @@ cd ~/Work/juliet_test_suite/
 unzip 2017-10-01-juliet-test-suite-for-c-cplusplus-v1-3.zip
 ```
 
-## Excute ig1.sh bash-script
+## Excute pclp_juliet_a.sh bash-script
 
 ```bash
 cd ~/Work/pclp_juliet_a/
- ./ig1.sh ~/Work/juliet_test_suite/C/
+ ./pclp_juliet_a.sh ~/Work/juliet_test_suite/C/
 ```
 
 The script loads the file args.lnt containing additional PClint arguments. 
@@ -139,7 +139,7 @@ args.lnt is a text file where every line is an argument for the PClint, example:
 The scripts searches all Makefiles inside of the directory passed as argument and invokes PC-lint for every makefile found:
 
 ```bash
-$ ./ig1.sh ~/Work/juliet_test_suite/C/
+$ ./pclp_juliet_a.sh ~/Work/juliet_test_suite/C/
 [INFO] PCLint extra options: /home/igor/Work/pclp_juliet_a/args.lnt
 [INFO] WORKING_DIR=/home/igor/Work/juliet_test_suite/C
 [INFO] GCC_EXE=/usr/bin/gcc
@@ -153,16 +153,16 @@ $ ./ig1.sh ~/Work/juliet_test_suite/C/
 ...
 ```
 
-For every makefile found, a similar directory is created in `<directory to analyze>/ig_gl_out` folder.
+For every makefile found, a similar directory is created in `<directory to analyze>/pclp_a_out` folder.
 The PC-lint generated results are stored in ig_pclint_out.txt file:
 
 ```bash
 $ find ~/Work/juliet_test_suite/C/ -name "ig_pclint_out.txt"
-/home/igor/Work/juliet_test_suite/C/ig_gl_out/testcases/CWE400_Resource_Exhaustion/s02/ig_pclint_out.txt
-/home/igor/Work/juliet_test_suite/C/ig_gl_out/testcases/CWE400_Resource_Exhaustion/s01/ig_pclint_out.txt
-/home/igor/Work/juliet_test_suite/C/ig_gl_out/testcases/CWE773_Missing_Reference_to_Active_File_Descriptor_or_Handle/ig_pclint_out.txt
-/home/igor/Work/juliet_test_suite/C/ig_gl_out/testcases/CWE190_Integer_Overflow/s03/ig_pclint_out.txt
-/home/igor/Work/juliet_test_suite/C/ig_gl_out/testcases/CWE190_Integer_Overflow/s02/ig_pclint_out.txt
+/home/igor/Work/juliet_test_suite/C/pclp_a_out/testcases/CWE400_Resource_Exhaustion/s02/ig_pclint_out.txt
+/home/igor/Work/juliet_test_suite/C/pclp_a_out/testcases/CWE400_Resource_Exhaustion/s01/ig_pclint_out.txt
+/home/igor/Work/juliet_test_suite/C/pclp_a_out/testcases/CWE773_Missing_Reference_to_Active_File_Descriptor_or_Handle/ig_pclint_out.txt
+/home/igor/Work/juliet_test_suite/C/pclp_a_out/testcases/CWE190_Integer_Overflow/s03/ig_pclint_out.txt
+/home/igor/Work/juliet_test_suite/C/pclp_a_out/testcases/CWE190_Integer_Overflow/s02/ig_pclint_out.txt
 ```
 
 ### TODO:
@@ -212,26 +212,7 @@ sudo apt install python3-venv
 python3 -m venv .venv
 source .venv/bin/activate
 python3 -m pip install -r requirements.txt
-python3 scripts/reduced.py ~/Work/juliet_test_suite/C/ ignore_modules.txt
-
-```
-
-### TODO:
-
-Error in python:
-```bash
-Traceback (most recent call last):
-  File "/home/igor/Work/pclp_juliet_a/scripts/reduced.py", line 259, in <module>
-    generate_plot_data(pclp_msg, pr)
-  File "/home/igor/Work/pclp_juliet_a/scripts/reduced.py", line 167, in generate_plot_data
-    generate_pie.gen_plt(pies_data)
-  File "/home/igor/Work/pclp_juliet_a/scripts/generate_pie.py", line 146, in gen_plt
-    gen_pie(axes[i][j], pie_data[i][j])
-  File "/home/igor/Work/pclp_juliet_a/scripts/generate_pie.py", line 84, in gen_pie
-    slices_colors.append(pie_data[2]["others"])
-                         ~~~~~~~~~~~^^^^^^^^^^
-KeyError: 'others'
-(.venv) igor@ubuntig:~/Work/pclp_juliet_a$
+python3 scripts/pclp_a_main.py ~/Work/juliet_test_suite/C/ ignore_modules.txt
 ```
 
 ## Execute python scripts standalone
@@ -247,24 +228,15 @@ python3 -m pclp_out_interpret_src <pclp_out_file>
 ```
 
 ```bash
-pclp_juliet_a>python scripts\reduced.py ".\test" "ignore_modules.txt"
+python3 scripts/pclp_a_main.py ~/Work/juliet_test_suite/C/ ignore_modules.txt
 ```
 
 ## Execute pylint
 
 ```bash
-pclp_juliet_a>pylint scripts\reduced.py
+pclp_juliet_a>pylint scripts\pclp_a_main.py
 pclp_juliet_a>pylint scripts\processor.py
 pclp_juliet_a>pylint scripts\ignore_list.py
 pclp_juliet_a>pylint scripts\pclp_out_interpret_src
 pclp_juliet_a>pylint scripts\c_parser_src
-```
-
-# Processing diagrams
-
-```
-info=true
-warning=true
-supplemental=true
-generate-output=        
 ```

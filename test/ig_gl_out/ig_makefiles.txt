@@ -1,2 +1,0 @@
-/home/igor/shared/pclp_juliet_a/test/testcases/CWE561_Dead_Code/Makefile
-/home/igor/shared/pclp_juliet_a/test/testcases/CWE835_Infinite_Loop/Makefile
