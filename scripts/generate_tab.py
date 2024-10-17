@@ -34,12 +34,15 @@ def gen_tab(tab_axes, data_dict, location = 'top'):
         cell_text.append(row_text)
 
     tab_axes.axis('off')
-    tab_axes.table(
+    table = tab_axes.table(
         cellText=cell_text,
         rowLabels=row_labels,
         cellLoc='left',
         loc = location
     )
+
+    # Scale the row height x2 (keep width x1)
+    table.scale(1, 2)
 
 #-------------------------------------------------------------------------------
 def gen_test_tab_data():

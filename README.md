@@ -165,39 +165,6 @@ $ find ~/Work/juliet_test_suite/C/ -name "ig_pclint_out.txt"
 /home/igor/Work/juliet_test_suite/C/pclp_a_out/testcases/CWE190_Integer_Overflow/s02/ig_pclint_out.txt
 ```
 
-### TODO:
-
-There is a Makefile in Juliet root folder (./C/Makefile). 
-This file is processed at the end. 
-It should not be processed. It fails:
-
-```bash
-igor@ubuntig:~/Work/pclp_juliet_a$ ./ig1.sh ~/Work/juliet_test_suite/C/
-[INFO] PCLint extra options: /home/igor/Work/pclp_juliet_a/args.lnt
-[INFO] WORKING_DIR=/home/igor/Work/juliet_test_suite/C
-[INFO] GCC_EXE=/usr/bin/gcc
-[INFO] PCLP_PATH=/home/igor/pclint/pclp
-[INFO] Generate compiler configuration
-[  1/153] /home/igor/Work/juliet_test_suite/C/testcases/CWE400_Resource_Exhaustion/s02/Makefile
-[  2/153] /home/igor/Work/juliet_test_suite/C/testcases/CWE400_Resource_Exhaustion/s01/Makefile
-[  3/153] /home/igor/Work/juliet_test_suite/C/testcases/CWE773_Missing_Reference_to_Active_File_Descriptor_or_Handle/Makefile
-...
-[152/153] /home/igor/Work/juliet_test_suite/C/testcases/CWE510_Trapdoor/Makefile
-[153/153] /home/igor/Work/juliet_test_suite/C/Makefile
-ld: cannot find CWE121_Stack_Based_Buffer_Overflow__char_type_overrun_memcpy_01.o: No such file or directory
-ld: cannot find CWE121_Stack_Based_Buffer_Overflow__char_type_overrun_memcpy_02.o: No such file or directory
-ld: cannot find CWE121_Stack_Based_Buffer_Overflow__char_type_overrun_memcpy_03.o: No such file or directory
-ld: cannot find CWE121_Stack_Based_Buffer_Overflow__char_type_overrun_memcpy_04.o: No such file or directory
-...
-ld: cannot find CWE121_Stack_Based_Buffer_Overflow__CWE193_char_alloca_cpy_82_bad.o: No such file or directory
-ld: cannot find CWE121_Stack_Based_Buffer_Overflow__CWE193_char_alloca_cpy_82_goodG2B.o: No such file or directory
-make[1]: *** [Makefile:49: partial.o] Error 1
-make: *** [Makefile:24: testcases/CWE121_Stack_Based_Buffer_Overflow/s01/partial] Error 2
-[ERROR] pclp64_linux finished with error:
-/home/igor/Work/juliet_test_suite/C/ig_gl_out/./ig_project.lnt, 4, warning, 686
-/home/igor/Work/juliet_test_suite/C/ig_gl_out/./ig_project.lnt, 5, error, 305
-```
-
 ## Prepare reduced python-script
 
 Install python venv:
@@ -240,3 +207,42 @@ pclp_juliet_a>pylint scripts\ignore_list.py
 pclp_juliet_a>pylint scripts\pclp_out_interpret_src
 pclp_juliet_a>pylint scripts\c_parser_src
 ```
+
+## TODO:
+
+### TODO #1
+
+There is a Makefile in Juliet root folder (./C/Makefile). 
+This file is processed at the end. 
+It should not be processed. It fails:
+
+```bash
+igor@ubuntig:~/Work/pclp_juliet_a$ ./ig1.sh ~/Work/juliet_test_suite/C/
+[INFO] PCLint extra options: /home/igor/Work/pclp_juliet_a/args.lnt
+[INFO] WORKING_DIR=/home/igor/Work/juliet_test_suite/C
+[INFO] GCC_EXE=/usr/bin/gcc
+[INFO] PCLP_PATH=/home/igor/pclint/pclp
+[INFO] Generate compiler configuration
+[  1/153] /home/igor/Work/juliet_test_suite/C/testcases/CWE400_Resource_Exhaustion/s02/Makefile
+[  2/153] /home/igor/Work/juliet_test_suite/C/testcases/CWE400_Resource_Exhaustion/s01/Makefile
+[  3/153] /home/igor/Work/juliet_test_suite/C/testcases/CWE773_Missing_Reference_to_Active_File_Descriptor_or_Handle/Makefile
+...
+[152/153] /home/igor/Work/juliet_test_suite/C/testcases/CWE510_Trapdoor/Makefile
+[153/153] /home/igor/Work/juliet_test_suite/C/Makefile
+ld: cannot find CWE121_Stack_Based_Buffer_Overflow__char_type_overrun_memcpy_01.o: No such file or directory
+ld: cannot find CWE121_Stack_Based_Buffer_Overflow__char_type_overrun_memcpy_02.o: No such file or directory
+ld: cannot find CWE121_Stack_Based_Buffer_Overflow__char_type_overrun_memcpy_03.o: No such file or directory
+ld: cannot find CWE121_Stack_Based_Buffer_Overflow__char_type_overrun_memcpy_04.o: No such file or directory
+...
+ld: cannot find CWE121_Stack_Based_Buffer_Overflow__CWE193_char_alloca_cpy_82_bad.o: No such file or directory
+ld: cannot find CWE121_Stack_Based_Buffer_Overflow__CWE193_char_alloca_cpy_82_goodG2B.o: No such file or directory
+make[1]: *** [Makefile:49: partial.o] Error 1
+make: *** [Makefile:24: testcases/CWE121_Stack_Based_Buffer_Overflow/s01/partial] Error 2
+[ERROR] pclp64_linux finished with error:
+/home/igor/Work/juliet_test_suite/C/ig_gl_out/./ig_project.lnt, 4, warning, 686
+/home/igor/Work/juliet_test_suite/C/ig_gl_out/./ig_project.lnt, 5, error, 305
+```
+
+### TODO #2
+
+Add in `pclp_juliet_a.sh` the functionality to automatically generate the list of messages: `pclp_msg_list.txt`

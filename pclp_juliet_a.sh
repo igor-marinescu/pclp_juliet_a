@@ -5,14 +5,17 @@
 #-------------------------------------------------------------------------------
 source ./scripts/config_vars.py
 
-# Name of generated Compile Configuration
-PCLP_CO_NAME="./$GRES_FOLDER/ig_co-gcc"
+# Generated Compile Configuration
+PCLP_CO_FILE="./$GRES_FOLDER/$PCLP_CO_NAME"
 
 # File where all found Makefiles are stored
 MAKEFILES_FILE="./$GRES_FOLDER/$MAKEFILES_NAME"
 
 # File where global results (for all makefiles) are stored
 GRES_OUT_FILE="./$GRES_FOLDER/$GRES_OUT_NAME"
+
+# File where PClint generates the list of all its supported messages
+PCLP_MSG_FILE="./$GRES_FOLDER/$PCLP_MSG_LIST"
 
 #-------------------------------------------------------------------------------
 # Script name and path
@@ -78,6 +81,9 @@ else
     exit 1
 fi
 
+# Generate the list of all PClint supported messages
+${PCLP_NAME} -dump_message_list="$PCLP_MSG_FILE"
+
 #-------------------------------------------------------------------------------
 # Check if imposter exists
 #-------------------------------------------------------------------------------
@@ -94,8 +100,8 @@ fi
 #-------------------------------------------------------------------------------
 echo "[INFO] Generate compiler configuration"
 
-PCLP_CO_LNT="$WORKING_DIR/$PCLP_CO_NAME.lnt"
-PCLP_CO_H="$WORKING_DIR/$PCLP_CO_NAME.h"
+PCLP_CO_LNT="$WORKING_DIR/$PCLP_CO_FILE.lnt"
+PCLP_CO_H="$WORKING_DIR/$PCLP_CO_FILE.h"
 
 python3 "$PCLP_PATH/config/pclp_config.py" \
             --compiler=gcc \
@@ -108,6 +114,15 @@ if [[ ! -f "$PCLP_CO_LNT" || ! -f "$PCLP_CO_H" ]]; then
    echo "[ERROR] Error generating compiler configuration"
    exit 1
 fi
+
+# Inhibit "info 793: ANSI/ISO minimum translation limit of 31 'significant characters 
+# in an external identifier' exceeded, processing is unaffected".
+# This ocurs while the function names > 31 symbols (which is a limit in C99). 
+# Increasing the limit, add the following lines to co-gcc.lnt:  
+#   -lang_limit(C, external_identifier_chars, 1024)
+#   -lang_limit(C++, external_identifier_chars, 1024)
+echo "-lang_limit(C, external_identifier_chars, 1024)" >> "$PCLP_CO_LNT"
+echo "-lang_limit(C++, external_identifier_chars, 1024)" >> "$PCLP_CO_LNT"
 
 #-------------------------------------------------------------------------------
 # Find all Makefiles in all subdirectories (store in ig_makfiles.txt)

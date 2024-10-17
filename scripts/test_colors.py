@@ -61,7 +61,7 @@ def plot_colortable():
         swatch_start_x = cell_width * col
         text_pos_x = cell_width * col + swatch_width + 7
 
-        ax.text(text_pos_x, y, str(i + 1) + " - " + name, fontsize=14,
+        ax.text(text_pos_x, y, str(i + 1) + " - " + name,
                 horizontalalignment='left',
                 verticalalignment='center')
 

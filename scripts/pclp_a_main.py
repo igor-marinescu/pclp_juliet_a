@@ -99,10 +99,14 @@ def generate_issues_colors(issues_dict, cl_list):
     return issues_colors
 
 #-------------------------------------------------------------------------------
-def generate_issues_descriptions(pclp_m, issues_dict):
+def generate_issues_descriptions(pclp_m, issues_dict, limit_cnt = None):
     """ Create a dictionary with issue names and their descriptions
+    pclp_m - an instance of pclp_messages.PclpMessages containing a loaded 
+            list of PC-lint messages.
     issues_dict - dictionary containing issue-codes (als keys) and issues-counts.
             Example: {746:10, 2707:3, 793:15, 838:3, ... }
+    limit_cnt - limit the generated dictionary descriptions to limit_cnt records
+            
     The function sorts all issues by the values - issues with bigger count are first,
     issues with smaller count are last.
             ...
@@ -127,6 +131,8 @@ def generate_issues_descriptions(pclp_m, issues_dict):
         issue_nr = issue_t[0]
         issue_name = pclp_m.get_message_name(issue_nr)
         issues_descriptions[issue_name] = pclp_m.get_message_text(issue_nr)
+        if limit_cnt and len(issues_descriptions) >= limit_cnt:
+            break
 
     return issues_descriptions
 
@@ -193,6 +199,7 @@ def generate_infograph(pclp_m, proc, infograph_filename):
     fig = plt.figure(figsize=(20.0, 30.0))
     subfigs = fig.subfigures(3, 1, height_ratios=[0.9, 0.05, 0.05])
 
+    subfigs[0].suptitle("PC-lint Plus + Juliet Test Suite", fontsize=64, y=0.95)
     axs = subfigs[0].subplots(3, 2)
     #subfigs[0].set_facecolor('lavenderblush')
 
@@ -256,10 +263,9 @@ def generate_infograph(pclp_m, proc, infograph_filename):
     # Generate Tabs
     axs2 = subfigs[2].subplots()
     #subfigs[2].set_facecolor('lightblue')
-    issue_desc_data_dict = generate_issues_descriptions(pclp_m, issues_dict_all_raw)
+    issue_desc_data_dict = generate_issues_descriptions(pclp_m, issues_dict_all_raw, 10)
     generate_tab.gen_tab(axs2, issue_desc_data_dict)
 
-    fig.suptitle("PC-lint Plus + Juliet Test Suite", fontsize=64, y=0.95)
     fig.savefig(infograph_filename)
 
 #-------------------------------------------------------------------------------
@@ -351,11 +357,16 @@ if __name__ == '__main__':
 
         # Load PClint messages
         pclp_msg = pclp_messages.PclpMessages()
-        err_str = pclp_msg.load("pclp_msg_list.txt")
+        pclp_msg_file = os.path.join(gres_path, config_vars.PCLP_MSG_LIST)
+        if not os.path.isfile(pclp_msg_file):
+            error_exit("Error: file of all PClint supported messages not found:", pclp_msg_file)
+        err_str = pclp_msg.load(pclp_msg_file)
         if err_str:
             error_exit("Error PClint messages", err_str)
 
         # Generate infograph
+        # Default fontwidth = 12
+        plt.rcParams.update({'font.size': 12})
         print("Generating infograph...")        
         generate_infograph(pclp_msg, pr, gres_infograph)
         print("Infograph generated: ", gres_infograph)

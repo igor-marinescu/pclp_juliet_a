@@ -92,7 +92,7 @@ def gen_bars(bar_axes, bar1_dict, bar2_dict, **kwarg):
 
     # Do not display the labels for the bars with 0 value
     for container in bar_axes.containers:
-        labels = [v if v > 0 else "" for v in container.datavalues]
+        labels = [v if v > 5000 else "" for v in container.datavalues]
         bar_axes.bar_label(container, label_type='center', labels=labels)
 
     if "title" in kwarg:

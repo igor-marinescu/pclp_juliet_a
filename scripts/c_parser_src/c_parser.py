@@ -102,3 +102,15 @@ class CParser:
                 if (line_idx >= func.pos_start[0]) and (line_idx <= func.pos_end[0]):
                     return func.name
         return None
+
+    def get_function_list(self, filename):
+        """ Return the list of all function names in filename
+        """
+        function_list = []
+        if filename not in self.c_analyzed_dict:
+            return function_list
+        func_list = self.c_analyzed_dict[filename]
+        if func_list:
+            for func in func_list:
+                function_list.append(func.name)
+        return function_list

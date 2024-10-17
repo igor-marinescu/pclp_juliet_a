@@ -17,6 +17,10 @@ MAKEFILES_NAME="makefiles_win.txt"
 GRES_OUT_NAME="global_results.txt"
 # Filename of generated infograph
 GRES_OUT_GRAPH="infograph_out.jpg"
+# Filename where PClint generates the list of all its supported messages
+PCLP_MSG_LIST="pclp_msg_list.txt"
+# Name of the compiler configuration file
+PCLP_CO_NAME="ig_co-gcc"
 
 #--- Local (for every makefile) ------------------------------------------------
 

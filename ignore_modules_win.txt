@@ -3,4 +3,4 @@
 # The file/directory paths can be absolute, relative to script or
 # relative to working directory.
 
-./testcasesupport/
+.\testcasesupport\

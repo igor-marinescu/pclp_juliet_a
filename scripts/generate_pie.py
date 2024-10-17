@@ -125,7 +125,7 @@ def gen_pie(pie_axes, pie_title, data_dict, colors_dict, colors_dict2 = None):
         connectionstyle = f"angle,angleA=0,angleB={ang}"
         kwargs["arrowprops"].update({"connectionstyle": connectionstyle})
         pie_axes.annotate(slice_text, xy=(x_pos, y_pos), xytext=(x_text, y_text),
-            horizontalalignment=horizontalalignment, fontsize=12.0, **kwargs)
+            horizontalalignment=horizontalalignment, **kwargs)
 
     # add title in the center
     hole = plt.Circle((0, 0), 0.7, facecolor='white')

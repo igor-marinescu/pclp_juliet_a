@@ -67,6 +67,24 @@ class Processor:
             ...
         }
 
+        Results per function (results_functions):
+        -----------------------------------------
+        The dictionary is used to calculate results per functoins:
+        - how many "good" functions have issues -> False Positive cases
+        - how many "bad" functions have issues -> True Positive cases
+        The results are stored in a dictionary where every element is a function.
+        The key is "<module_name>:<function_name>", and value is a tuple with 2 integers:
+            - func_type = function type: 1="good"-function, 2="bad"-function, 0=others
+            - count_issues = count of issues found in this function
+
+        { 
+            "module1:function1" : (func_type, count_issues),
+            "module1:function2" : (func_type, count_issues),
+            "module1:function3" : (func_type, count_issues),
+            ...
+            "moduleN:functionM" : (func_type, count_issues),
+        }
+        
         Results all:
         ------------
         results_all_bad - count of all issues found in bad fucntions (True-Positive Cases)
@@ -78,9 +96,81 @@ class Processor:
     def __init__(self):
         self.results_modules = {}
         self.results_issues = {}
+        self.results_functions = {}
         self.results_all_good = 0
         self.results_all_bad = 0
         self.results_all_other = 0
+
+    #---------------------------------------------------------------------------
+    def add_module_functions(self, module_name, function_list):
+        """ Add a list of functions to the results_functions dictionary.
+            The key is "<module_name>:<function_name>".
+            The value is a tuple with 2 integers:
+            - func_type = function type: 1="good"-function, 2="bad"-function, 0=others
+            - count_issues = count of issues found in this function
+
+            Example
+            { 
+                "module1:function1" : (func_type, count_issues),
+                "module1:function2" : (func_type, count_issues),
+                ...
+            }
+        """
+
+        for func_name in function_list:
+            module_func_name = module_name + ":" + func_name
+
+            func_type = 0
+            count_issues = 0
+
+            func_name_lower = func_name.lower()
+            if "good" in func_name_lower:
+                func_type = 2
+            elif "bad" in func_name_lower:
+                func_type = 1
+
+            # Check if module and file name not yet in results_functions, and add it
+            if module_func_name not in self.results_functions:
+                self.results_functions[module_func_name] = (func_type, count_issues)
+
+    #---------------------------------------------------------------------------
+    def add_issue_to_module_function(self, module_name, func_name):
+        """ Add an issue to the count of issues in results_functions dictionary """
+
+        module_func_name = module_name + ":" + func_name
+
+        if module_func_name not in self.results_functions:
+            # In case if the function is not yet in the dictionary,
+            # add it to the dictionary first
+            self.add_module_functions(module_name, [func_name])
+
+        function_res_tuple = self.results_functions[module_func_name]
+        # function_res_tuple = (func_type, count_issues)
+        func_type = function_res_tuple[0]
+        count_issues = function_res_tuple[1]
+        self.results_functions[module_func_name] = (func_type, count_issues + 1)
+
+    #---------------------------------------------------------------------------
+    def get_results_functions_counts(self):
+        """ Calculate the total count of:
+            - how many "bad" functions have issues -> True Positive cases
+            - how many "good" functions have issues -> False Positive cases
+            Return a tuple: (<bad_count>, <good_count>)
+        """
+
+        count_issues_good = 0
+        count_issues_bad = 0
+
+        for res_func_tuple in self.results_functions.values():
+            func_type = res_func_tuple[0]
+            issues_count = res_func_tuple[1]
+            if issues_count > 0:
+                if func_type == 1:
+                    count_issues_bad += 1
+                elif  func_type == 2:
+                    count_issues_good += 1
+
+        return (count_issues_bad, count_issues_good)
 
     #---------------------------------------------------------------------------
     def add_issue(self, module_name, issue_number, func_name):
@@ -122,6 +212,9 @@ class Processor:
             module_res_issues[issue_number] += 1
         else:
             module_res_issues[issue_number] = 1
+
+        # Add issue also to the results_functions dictionary (count of issues per function)
+        self.add_issue_to_module_function(module_name, func_name)
 
     #---------------------------------------------------------------------------
     def interpret(self, pclint_out_file, makefile_path, output, module_ignore_list = None):
@@ -171,6 +264,10 @@ class Processor:
                 c_parser.process_file(module_name)
                 c_parser.show_results(module_name, output)
 
+                # Get the list of all function names from module
+                function_list = c_parser.get_function_list(module_name)
+                self.add_module_functions(module_name, function_list)
+
                 for issue in module_issues:
 
                     # issue[0]=line number
@@ -190,10 +287,46 @@ class Processor:
     def dump_results(self, output):
         """ Dump (to a file or stdout) the results from processed files """
 
+        print(80 * "-", file = output)
+        print("Results per module (results_modules):", file = output)
+        print("  bad:   {issue_nr : count, issue_nr : count, ... }", file = output)
+        print("  good:  {issue_nr : count, issue_nr : count, ... }", file = output)
+        print("  other: {issue_nr : count, issue_nr : count, ... }", file = output)
+        print(80 * "-", file = output)
+
         for module_name, issues_list in self.results_modules.items():
             print(module_name, file = output)
             for issues in issues_list:
                 print(issues, file = output)
+
+        print("", file = output)
+        print(80 * "-", file = output)
+        print("Results per issue (results_issues):", file = output)
+        print("  issue_nr : [count_bad, count_good, count_other, count_all]", file = output)
+        print(80 * "-", file = output)
+
+        for res_issue, res_cnt_list in self.results_issues.items():
+            print(res_issue, ":", res_cnt_list, file = output)
+
+        print("", file = output)
+        print(80 * "-", file = output)
+        print("Results per function (results_functions):", file = output)
+        print("  module:function : (func_type, count_issues)", file = output)
+        print(80 * "-", file = output)
+
+        for res_mod_func, res_func_tuple in self.results_functions.items():
+            print(res_mod_func, ":", res_func_tuple, file = output)
+
+        print(self.get_results_functions_counts(), file = output)
+
+        print("", file = output)
+        print(80 * "-", file = output)
+        print("Results all:", file = output)
+        print(80 * "-", file = output)
+
+        print("results_all_bad =", self.results_all_bad, file = output)
+        print("results_all_good =", self.results_all_good, file = output)
+        print("results_all_other =", self.results_all_other, file = output)
 
 #-------------------------------------------------------------------------------
 if __name__ == '__main__':
