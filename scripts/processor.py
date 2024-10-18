@@ -203,7 +203,7 @@ class Processor:
             module_res_issues = module_res[2]
             issue_res_list[2] += 1
             self.results_all_other += 1
-            
+
         issue_res_list[3] += 1
 
         # If issue already in the dictionary - increment its count
@@ -316,8 +316,6 @@ class Processor:
 
         for res_mod_func, res_func_tuple in self.results_functions.items():
             print(res_mod_func, ":", res_func_tuple, file = output)
-
-        print(self.get_results_functions_counts(), file = output)
 
         print("", file = output)
         print(80 * "-", file = output)

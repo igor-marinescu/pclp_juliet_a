@@ -1,8 +1,8 @@
 #!/bin/bash
 
-#-------------------------------------------------------------------------------
 # Configuration
-#-------------------------------------------------------------------------------
+# Used in both: pclp_juliet_a.sh script and pclp_a_main.py python script
+# Modify it to adjust to your needs
 
 # Name of the PClint command
 PCLP_NAME="pclp64_linux"

@@ -24,7 +24,7 @@ def gen_bars(bar_axes, bar1_dict, bar2_dict, **kwarg):
         bar1_dict, bar2_dict - dictionaries containing the names and values for
         two sets of bars. Every dictionary (set of bars) has the format:
            {name1 : val1, name2 : val2, name3 : val3 ... }
-        Other parameters:
+        Other parameters (kwarg):
         title - plot title
         bar1_color, bar2_color - color or list of color. The colors of the bar faces
             for both sets of bars.

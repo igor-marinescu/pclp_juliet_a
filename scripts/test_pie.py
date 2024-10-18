@@ -1,5 +1,4 @@
 import matplotlib.pyplot as plt
-import numpy as np
 
 slices_text_list = [
         "slice0", "slice4", "slice3", "slice8", "slice1",
@@ -10,13 +9,13 @@ slices_vals_list2 = [ 200, 17, 35, 14, 23,  12, 10,  6, 5, 4 ]
 slices_vals_list3 = [  10, 57,  5, 54, 13, 112, 10,  6, 5, 4 ]
 slices_vals_list4 = [  57, 10, 55,154,113,   2,110, 66,14,54 ]
 
-slices_colors_list = [ 
+slices_colors_list = [
         "lightcoral", "plum", "coral", "palegreen", "beige", "powderblue",
         "sandybrown", "darkkhaki", "lightsteelblue", "lavender", "rosybrown" ]
 
 slices_explode_list = []
 for slice_val in slices_vals_list1:
-        slices_explode_list.append(0.1)
+    slices_explode_list.append(0.1)
 
 #-------------------------------------------------------------------------------
 
