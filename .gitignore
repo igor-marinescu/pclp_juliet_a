@@ -23,3 +23,6 @@ cython_debug/
 
 # Visual Studio Code 
 .vscode/
+
+# Ignore tests files
+test/

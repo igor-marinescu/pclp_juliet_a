@@ -3,4 +3,8 @@
 # The file/directory paths can be absolute, relative to script or
 # relative to working directory.
 
+# Ignore testcase support functions fron analyzing
 ./testcasesupport/
+
+# Ignore the global Makefile (we don't need it)
+./Makefile
