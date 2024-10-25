@@ -90,7 +90,7 @@ class PclpInterpreter:
 
                         idx0 = line.find("(")
                         idx1 = line.find(")")
-                        if idx0 > 0 and idx1 > 0 and idx0 < idx1:
+                        if idx0 > 0 and idx0 < idx1:
                             module_name = line[11:idx0].strip()
                             module_type = line[idx0 + 1:idx1]
                         else:

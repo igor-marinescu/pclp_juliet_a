@@ -306,8 +306,8 @@ if __name__ == '__main__':
 
     # Expect 1 mandatory argument: working_dir - working directory,
     # and 1 optional: file_ignore_list:
-    # <--- 0 --->|<---- 1 ---->|<------ 2 ------->
-    # reduced.py  <working_dir> <file_ignore_list>
+    # <----- 0 ----->|<---- 1 ---->|<------ 2 ------->
+    # pclp_a_main.py  <working_dir> <file_ignore_list>
     #
     # Working directory: directory containing all files/subdirectories to be analyzed:
     #
@@ -409,5 +409,5 @@ if __name__ == '__main__':
 
     else:
         print("Incorrect invocation.", file = sys.stderr)
-        print("Usage: reduced.py <working dir>", file = sys.stderr)
+        print("Usage: pclp_a_main.py <working dir> <file_ignore_list>", file = sys.stderr)
         sys.exit(1)

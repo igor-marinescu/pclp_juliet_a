@@ -1,5 +1,23 @@
+# This file is part of the pclp_juliet_a distribution.
+# Copyright (c) 2024 Igor Marinescu (igor.marinescu@gmail.com).
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, version 3.
+#
+# This program is distributed in the hope that it will be useful, but
+# WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+# General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program. If not, see <http://www.gnu.org/licenses/>.
+#-------------------------------------------------------------------------------
+""" Module used to test different types of pies
+"""
 import matplotlib.pyplot as plt
 
+#-------------------------------------------------------------------------------
 slices_text_list = [
         "slice0", "slice4", "slice3", "slice8", "slice1",
         "slice6", "slice2", "slice5", "slice7", "slice9" ]
@@ -18,7 +36,6 @@ for slice_val in slices_vals_list1:
     slices_explode_list.append(0.1)
 
 #-------------------------------------------------------------------------------
-
 fig, axes = plt.subplots(2, 2, figsize=(10.0, 10.0))
 
 #-------------------------------------------------------------------------------

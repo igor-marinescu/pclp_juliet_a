@@ -16,6 +16,7 @@
 """ ignore_list - implements IgnoreModuleList Class
 """
 import os
+import sys
 
 #-------------------------------------------------------------------------------
 class IgnoreModuleList:
@@ -94,3 +95,42 @@ class IgnoreModuleList:
                     pass
 
         return True
+
+#-------------------------------------------------------------------------------
+if __name__ == '__main__':
+
+    # Check if a file is in ignore list.
+    # <----- 0 ----->|<----- 1 ---->|<------- 2 ------->|<------- 3 ------->|
+    # ignore_list.py  <working_dir>  <file_ignore_list>  <filename_to_check>
+    # Expect 3 mandatory arguments:
+    #   working_dir - working directory
+    #   file_ignore_list - a text file with files to be ignored
+    #   filename_to_check - a filename to be checked if it is present in ignore list
+
+    if len(sys.argv) >= 4:
+
+        script_path_a = sys.argv[0]
+        working_dir_a = sys.argv[1]
+        file_to_check = sys.argv[3]
+
+        # Load list of modules to be ignored
+        ignore_modules = IgnoreModuleList()
+        if not ignore_modules.load(sys.argv[2], working_dir_a):
+            print("[ignore_list.py] Error: cannot open list of modules to be ignored:", \
+                  sys.argv[2], file = sys.stderr)
+            sys.exit(0)
+
+        if file_to_check in ignore_modules.ignore_list:
+            print("[ignore_list.py] Module in ignore list:", file_to_check)
+            sys.exit(1)
+
+        #print("[ignore_list.py] Module not in ignore list:", file_to_check)
+        #print("[ignore_list.py] Ignore list:")
+        #for i_m in ignore_modules.ignore_list:
+        #    print(i_m)
+        sys.exit(0)
+
+    print("[ignore_list.py] Incorrect invocation.", file = sys.stderr)
+    print("[ignore_list.py] Usage: ignore_list.py <working_dir> <file_ignore_list> " \
+        "<filename_to_check>", file = sys.stderr)
+    sys.exit(0)

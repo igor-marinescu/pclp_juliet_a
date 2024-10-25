@@ -12,7 +12,7 @@ PCLP_NAME="pclp64_linux"
 # Global results folder
 GRES_FOLDER="pclp_a_out"
 # File where all found Makefiles are stored
-MAKEFILES_NAME="makefiles_win.txt"
+MAKEFILES_NAME="makefiles.txt"
 # File where global results (for all makefiles) are stored
 GRES_OUT_NAME="global_results.txt"
 # Filename of generated infograph

@@ -99,7 +99,7 @@ class CParser:
         func_list = self.c_analyzed_dict[filename]
         if func_list:
             for func in func_list:
-                if (line_idx >= func.pos_start[0]) and (line_idx <= func.pos_end[0]):
+                if func.pos_start[0] <= line_idx <= func.pos_end[0]:
                     return func.name
         return None
 
